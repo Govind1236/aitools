@@ -14,6 +14,7 @@ import {
   X,
 } from "lucide-react";
 import { getActiveCategories } from "@/lib/queries/categories";
+import { getToolsDirectory } from "@/lib/queries/tools";
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
@@ -71,15 +72,7 @@ export default async function CategoryPage({
   });
 
   const [tools, visibleCategories] = await Promise.all([
-    db.tool.findMany({
-      where,
-      include: { category: true },
-      orderBy: [
-        { isFeatured: "desc" },
-        { rating: "desc" },
-        { createdAt: "desc" },
-      ],
-    }),
+    getToolsDirectory(where),
     getActiveCategories(),
   ]);
 

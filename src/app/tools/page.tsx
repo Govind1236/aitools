@@ -6,6 +6,8 @@ import { Search, SlidersHorizontal, X, ArrowRight, Sparkles } from "lucide-react
 import { buildToolWhere } from "@/lib/tool-query";
 import { EntityType, ATTRIBUTES } from "@/lib/constants";
 import { getPricingFilterOptions } from "@/lib/pricing";
+import { getPublishedToolCount, getToolsDirectory } from "@/lib/queries/tools";
+import { getAllCategories } from "@/lib/queries/categories";
 
 export const metadata: Metadata = {
   title: "All AI Tools Directory (2025/2026)",
@@ -49,20 +51,9 @@ export default async function ToolsPage({ searchParams }: ToolsPageProps) {
   });
 
   const [tools, allCategories, totalCount] = await Promise.all([
-    db.tool.findMany({
-      where,
-      include: { category: true },
-      orderBy: [
-        { isFeatured: "desc" },
-        { rating: "desc" },
-        { createdAt: "desc" },
-      ],
-    }),
-    db.category.findMany({
-      orderBy: { sortOrder: "asc" },
-      include: { _count: { select: { tools: true } } },
-    }),
-    db.tool.count({ where: { isPublished: true } }),
+    getToolsDirectory(where),
+    getAllCategories(),
+    getPublishedToolCount(),
   ]);
 
   const categories = allCategories.filter((c) => (c._count?.tools ?? 0) > 0);

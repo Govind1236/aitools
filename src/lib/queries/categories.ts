@@ -10,11 +10,15 @@ import { db } from "@/lib/db";
 // src/lib/category-config.ts.
 // ------------------------------------------------------------------
 
-/** All categories ordered for display, alongside their tool counts. */
+/** All categories ordered for display, with published tool counts. */
 export async function getAllCategories() {
   return db.category.findMany({
     orderBy: { sortOrder: "asc" },
-    include: { _count: { select: { tools: true } } },
+    include: {
+      _count: {
+        select: { tools: { where: { isPublished: true } } },
+      },
+    },
   });
 }
 

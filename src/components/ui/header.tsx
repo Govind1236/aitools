@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Search, Menu, X, Sparkles, LayoutDashboard } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { PUBLIC_NAV_LINKS, MOBILE_EXTRA_LINKS } from "@/lib/navigation";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -17,13 +18,11 @@ export function Header() {
 
   return (
     <header
-            className={`sticky top-0 z-50 w-full transition-all duration-300 header-glass ${
+      className={`sticky top-0 z-50 w-full transition-all duration-300 header-glass ${
         scrolled
           ? "border-b border-border shadow-[0_1px_2px_rgba(0,0,0,0.02)]"
           : "border-b border-transparent"
       }`}
-
-
     >
       <div className="max-w-[1200px] mx-auto px-5 md:px-6">
         <div className="flex items-center justify-between h-[56px] md:h-[60px]">
@@ -43,13 +42,7 @@ export function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-1 ml-8" aria-label="Main navigation">
-            {[
-              { href: "/tools", label: "Explore" },
-              { href: "/categories/developer", label: "Developer" },
-              { href: "/categories/agents", label: "Agents" },
-              { href: "/categories/models", label: "Models" },
-              { href: "/tools?pricing=free", label: "Free Tools" },
-            ].map((link) => (
+            {PUBLIC_NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -112,55 +105,26 @@ export function Header() {
         >
           <div className="pb-3 border-t border-border pt-2">
             <nav className="flex flex-col gap-0.5" aria-label="Mobile navigation">
-              <Link
-                href="/tools"
-                className="px-3 py-2.5 text-[15px] font-medium text-foreground hover:bg-accent rounded-lg transition-all duration-150"
-                onClick={() => setMobileOpen(false)}
-              >
-                Explore Tools
-              </Link>
-              <Link
-                href="/categories/developer"
-                className="px-3 py-2.5 text-[15px] font-medium text-foreground hover:bg-accent rounded-lg transition-all duration-150"
-                onClick={() => setMobileOpen(false)}
-              >
-                Developer
-              </Link>
-              <Link
-                href="/categories/agents"
-                className="px-3 py-2.5 text-[15px] font-medium text-foreground hover:bg-accent rounded-lg transition-all duration-150"
-                onClick={() => setMobileOpen(false)}
-              >
-                Agents
-              </Link>
-              <Link
-                href="/categories/models"
-                className="px-3 py-2.5 text-[15px] font-medium text-foreground hover:bg-accent rounded-lg transition-all duration-150"
-                onClick={() => setMobileOpen(false)}
-              >
-                Models
-              </Link>
-              <Link
-                href="/tools?pricing=free"
-                className="px-3 py-2.5 text-[15px] font-medium text-foreground hover:bg-accent rounded-lg transition-all duration-150"
-                onClick={() => setMobileOpen(false)}
-              >
-                Free Tools
-              </Link>
-              <Link
-                href="/tools?pricing=freemium"
-                className="px-3 py-2.5 text-[15px] font-medium text-foreground hover:bg-accent rounded-lg transition-all duration-150"
-                onClick={() => setMobileOpen(false)}
-              >
-                Freemium
-              </Link>
-              <Link
-                href="/contact"
-                className="px-3 py-2.5 text-[15px] font-medium text-foreground hover:bg-accent rounded-lg transition-all duration-150"
-                onClick={() => setMobileOpen(false)}
-              >
-                Contact
-              </Link>
+              {PUBLIC_NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="px-3 py-2.5 text-[15px] font-medium text-foreground hover:bg-accent rounded-lg transition-all duration-150"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              {MOBILE_EXTRA_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="px-3 py-2.5 text-[15px] font-medium text-foreground hover:bg-accent rounded-lg transition-all duration-150"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
               <Link
                 href="/admin"
                 className="px-3 py-2.5 text-[15px] font-medium text-foreground hover:bg-accent rounded-lg transition-all duration-150 flex items-center gap-2"

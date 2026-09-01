@@ -3,9 +3,23 @@ import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
 import { db } from "./db";
 
-const JWT_SECRET = new TextEncoder().encode(
-  process.env.AUTH_SECRET || "fallback-secret-change-in-production"
-);
+function getJwtSecret(): string {
+  const secret = process.env.AUTH_SECRET;
+  if (secret) return secret;
+  if (process.env.NODE_ENV === "production") {
+    throw new Error(
+      "AUTH_SECRET environment variable is required in production. " +
+      "Set it in your .env file or deployment environment."
+    );
+  }
+  console.warn(
+    "[auth] Using fallback JWT secret for development only. " +
+    "Set AUTH_SECRET for production."
+  );
+  return "dev-only-fallback-secret-do-not-use-in-production";
+}
+
+const JWT_SECRET = new TextEncoder().encode(getJwtSecret());
 
 const SESSION_DURATION_MS = 7 * 24 * 60 * 60 * 1000; // 7 days
 const COOKIE_NAME = "session_token";

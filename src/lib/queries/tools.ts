@@ -78,3 +78,22 @@ export async function getToolAlternatives(categoryId: string, excludeId: string,
     take: limit,
   });
 }
+
+/** Tools directory: paginated list of tools matching a Prisma where clause. */
+export async function getToolsDirectory(
+  where: Prisma.ToolWhereInput,
+  options?: { skip?: number; take?: number }
+) {
+  const { skip = 0, take = 100 } = options ?? {};
+  return db.tool.findMany({
+    ...TOOL_WITH_CATEGORY,
+    where,
+    orderBy: [
+      { isFeatured: "desc" },
+      { rating: "desc" },
+      { createdAt: "desc" },
+    ],
+    skip,
+    take,
+  });
+}
