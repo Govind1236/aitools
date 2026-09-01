@@ -39,3 +39,14 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# playwright MCP debug artifacts (console logs, page snapshots, screenshots)
+.playwright-mcp/
+
+# temporary local debug screenshots
+/header-home.png
+/search-focused.png
+/tools-header.png
+
+# local SQLite database backups (never version controlled)
+prisma/dev.db.bak.*

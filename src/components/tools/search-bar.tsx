@@ -27,12 +27,12 @@ export function SearchBar({ totalTools, popularTerms = [] }: SearchBarProps) {
       <div
         className={`relative rounded-full bg-background transition-all duration-300 border search-border ${
           focused
-            ? "shadow-[0_16px_40px_rgba(0,0,0,0.12),0_0_20px_rgba(0,113,227,0.15)] ring-2 ring-[#0071e3]/20"
+            ? "shadow-[0_16px_40px_rgba(0,0,0,0.12)]"
             : "shadow-[0_8px_24px_rgba(0,0,0,0.06)]"
         }`}
       >
         <Search
-          className={`absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 transition-all duration-300 ${focused ? "text-[#0071e3] scale-110" : "text-muted-foreground"}`}
+          className={`absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground transition-all duration-300 ${focused ? "scale-110" : ""}`}
           strokeWidth={1.75}
         />
         <input

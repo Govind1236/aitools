@@ -9,7 +9,11 @@ import { Prisma } from "@prisma/client";
 // ------------------------------------------------------------------
 
 const TOOL_WITH_CATEGORY = {
-  include: { category: true },
+  include: {
+    category: true,
+    provider: true,
+    structuredTags: { include: { tag: true } },
+  },
 } satisfies Prisma.ToolFindManyArgs;
 
 /** Total number of published products. */
@@ -65,7 +69,11 @@ export async function getFreeTools(limit = 3) {
 export async function getToolBySlug(slug: string) {
   return db.tool.findUnique({
     where: { slug },
-    include: { category: true },
+    include: {
+      category: true,
+      provider: true,
+      structuredTags: { include: { tag: true } },
+    },
   });
 }
 

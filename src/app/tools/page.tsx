@@ -146,7 +146,7 @@ export default async function ToolsPage({ searchParams }: ToolsPageProps) {
             name="q"
             defaultValue={query}
             placeholder="Search all tools..."
-            className="w-full h-10 pl-10 pr-4 bg-background border border-border rounded-full text-[13.5px] text-foreground placeholder-slate-400 dark:placeholder:text-muted-foreground focus:outline-none focus:border-[#0071e3] focus:ring-2 focus:ring-[#0071e3]/15 transition-all"
+            className="w-full h-10 pl-10 pr-4 bg-background border border-border rounded-full text-[13.5px] text-foreground placeholder-slate-400 dark:placeholder:text-muted-foreground focus:outline-none focus:border-border-hover transition-all"
           />
           {categorySlug && (
             <input type="hidden" name="category" value={categorySlug} />

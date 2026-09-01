@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Sparkles } from "lucide-react";
+import { FOOTER_NAV } from "@/lib/navigation";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -39,25 +40,15 @@ export function Footer() {
           {[
             {
               title: "Explore",
-              links: [
-                { href: "/tools", label: "All Tools" },
-                { href: "/categories", label: "Categories" },
-                { href: "/tools?featured=true", label: "Featured" },
-              ],
+              links: FOOTER_NAV.explore,
             },
             {
               title: "Resources",
-              links: [
-                { href: "/contact", label: "Submit Tool" },
-                { href: "/contact", label: "Contact" },
-              ],
+              links: FOOTER_NAV.resources,
             },
             {
               title: "Legal",
-              links: [
-                { href: "/privacy", label: "Privacy" },
-                { href: "/terms", label: "Terms" },
-              ],
+              links: FOOTER_NAV.legal,
             },
           ].map((col) => (
             <div key={col.title}>

@@ -2,15 +2,18 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Star, ArrowUpRight, Sparkles, ArrowRight } from "lucide-react";
-import { Tool, Category } from "@prisma/client";
+import { Star, ArrowUpRight, Sparkles, ExternalLink } from "lucide-react";
+import { Tool, Category, Provider } from "@prisma/client";
 import { getToolLogoSrc } from "@/lib/logo";
 import { getPricingConfig } from "@/lib/pricing";
 
-type ToolWithCategory = Tool & { category: Category };
+type ToolWithRelations = Tool & {
+  category: Category;
+  provider?: Provider | null;
+};
 
 interface ToolCardProps {
-  tool: ToolWithCategory;
+  tool: ToolWithRelations;
   variant?: "default" | "compact";
 }
 
@@ -53,7 +56,7 @@ export function ToolCard({ tool, variant = "default" }: ToolCardProps) {
               {tool.name}
             </p>
             <p className="text-[12px] text-muted-foreground leading-snug font-medium">
-              {tool.category.name}
+              {tool.provider?.name ?? tool.category.name}
             </p>
           </div>
         </div>
@@ -71,7 +74,7 @@ export function ToolCard({ tool, variant = "default" }: ToolCardProps) {
       className="group relative h-full bg-background rounded-[18px] border border-border hover:border-[#0071e3]/40 hover:shadow-[0_16px_40px_rgba(0,0,0,0.1),0_0_20px_rgba(0,113,227,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between shimmer spotlight-card"
     >
       <div className="p-5 flex-1 flex flex-col">
-        {/* Header - Links to internal details page */}
+        {/* Logo */}
         <div className="flex items-start justify-between gap-3 mb-3.5">
           <Link href={`/tools/${tool.slug}`} className="flex items-center gap-3.5 min-w-0 group/title">
             <div className="w-12 h-12 rounded-xl bg-muted border border-border flex items-center justify-center p-2 shrink-0 group-hover/title:scale-105 group-hover/title:rotate-3 transition-all duration-200">
@@ -92,16 +95,15 @@ export function ToolCard({ tool, variant = "default" }: ToolCardProps) {
               <h3 className="text-[14px] font-semibold text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug gradient-text-subtle">
                 {tool.name}
               </h3>
-              <p className="text-[12px] text-muted-foreground mt-0.5 flex items-center gap-1.5 font-medium">
-                <span>{tool.category.name}</span>
-                {tool.rating > 0 && (
-                  <>
-                    <span className="w-1 h-1 bg-border rounded-full" />
-                    <span className="flex items-center gap-0.5 text-foreground font-semibold">
-                      <Star className="w-3 h-3 fill-amber-400 text-amber-400 stroke-amber-400" strokeWidth={0} />
-                      {tool.rating.toFixed(1)}
-                    </span>
-                  </>
+              <p className="text-[12px] text-muted-foreground mt-0.5 font-medium">
+                {tool.provider?.name ? (
+                  <span>
+                    {tool.provider.name}
+                    <span className="mx-1 text-border">&middot;</span>
+                    {tool.category.name}
+                  </span>
+                ) : (
+                  tool.category.name
                 )}
               </p>
             </div>
@@ -115,11 +117,17 @@ export function ToolCard({ tool, variant = "default" }: ToolCardProps) {
           )}
         </div>
 
-        {/* Description linking to internal details */}
+        {/* Short description, rating */}
         <Link href={`/tools/${tool.slug}`} className="flex-1 block mb-4">
           <p className="text-[12.5px] text-muted-foreground line-clamp-2 leading-relaxed">
             {tool.description}
           </p>
+          {tool.rating > 0 && (
+            <span className="inline-flex items-center gap-0.5 text-[11.5px] font-semibold text-foreground mt-1.5">
+              <Star className="w-3 h-3 fill-amber-400 text-amber-400 stroke-amber-400" strokeWidth={0} />
+              {tool.rating.toFixed(1)}
+            </span>
+          )}
         </Link>
 
         {/* Tags */}
@@ -140,20 +148,27 @@ export function ToolCard({ tool, variant = "default" }: ToolCardProps) {
           </div>
         )}
 
-        {/* Footer Actions */}
-        <div className="pt-4 mt-auto border-t border-border flex items-center justify-between">
-          <span className={`text-[11px] font-semibold px-2 py-0.5 rounded-md border badge-shine ${pricing.className}`}>
+        {/* Footer: Pricing + Actions */}
+        <div className="pt-4 mt-auto border-t border-border">
+          <span className={`inline-block text-[11px] font-semibold px-2 py-0.5 rounded-md border mb-3 badge-shine ${pricing.className}`}>
             {pricing.label}
           </span>
 
           <div className="flex items-center gap-2">
-
             <Link
               href={`/tools/${tool.slug}`}
-              className="inline-flex items-center gap-1 text-[12px] font-medium text-foreground bg-accent hover:bg-[#0071e3] hover:shadow-[0_0_12px_rgba(0,113,227,0.3)] hover:text-white px-3 py-1 rounded-lg transition-all duration-150 group/btn"
+              className="inline-flex items-center justify-center flex-1 gap-1 text-[12px] font-medium text-foreground bg-accent hover:bg-accent-hover px-3 py-2 rounded-lg transition-all duration-150 group/btn"
             >
-              View Details
-              <ArrowRight className="w-3.5 h-3.5 stroke-[1.5] group-hover/btn:translate-x-0.5 transition-transform" />
+              <span>View Tool</span>
+            </Link>
+            <Link
+              href={`/go/${tool.slug}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center flex-1 gap-1 text-[12px] font-semibold text-white bg-[#0071e3] hover:bg-[#0077ed] px-3 py-2 rounded-lg transition-all duration-150 group/btn"
+            >
+              <span>Open App</span>
+              <ExternalLink className="w-3 h-3 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" strokeWidth={1.75} />
             </Link>
           </div>
         </div>

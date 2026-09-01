@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Header } from "@/components/ui/header";
+import { HeaderWithCategories } from "@/components/ui/header-wrapper";
 import { Footer } from "@/components/ui/footer";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { ParticlesInit } from "@/components/ui/particles-provider";
@@ -64,7 +64,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <ParticlesInit>
             <ScrollProgress />
-            <Header />
+            <HeaderWithCategories />
             <main className="flex-1">{children}</main>
             <Footer />
           </ParticlesInit>

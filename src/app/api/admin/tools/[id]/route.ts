@@ -1,7 +1,37 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { getCurrentUser } from "@/lib/auth";
-import { validateUrl } from "@/lib/validation";
+import { validateUrl, createSlug } from "@/lib/validation";
+import { Prisma } from "@prisma/client";
+
+interface TagSelection {
+  id?: string;
+  name: string;
+}
+
+async function resolveTagSelections(
+  selections: TagSelection[] | undefined
+): Promise<string[]> {
+  const tagIds: string[] = [];
+  if (!selections || selections.length === 0) return tagIds;
+  for (const sel of selections) {
+    if (!sel || !sel.name) continue;
+    let tag = null;
+    if (sel.id && !String(sel.id).startsWith("temp-")) {
+      tag = await db.tag.findUnique({ where: { id: sel.id } });
+    }
+    if (!tag) {
+      const slug = createSlug(sel.name);
+      tag = await db.tag.upsert({
+        where: { slug },
+        update: {},
+        create: { name: sel.name, slug },
+      });
+    }
+    tagIds.push(tag.id);
+  }
+  return tagIds;
+}
 
 export async function PUT(
   request: NextRequest,
@@ -33,6 +63,43 @@ export async function PUT(
       }
     }
 
+    // Validate documentationUrl and pricingUrl if provided
+    if (body.documentationUrl) {
+      const docUrlValidation = validateUrl(body.documentationUrl);
+      if (!docUrlValidation.valid) {
+        return NextResponse.json(
+          { error: `Documentation URL: ${docUrlValidation.error}` },
+          { status: 400 }
+        );
+      }
+    }
+    if (body.pricingUrl) {
+      const priceUrlValidation = validateUrl(body.pricingUrl);
+      if (!priceUrlValidation.valid) {
+        return NextResponse.json(
+          { error: `Pricing URL: ${priceUrlValidation.error}` },
+          { status: 400 }
+        );
+      }
+    }
+
+    // Handle structured tags if tagSelections or tagIds provided
+    const tagIds: string[] | undefined = body.tagIds;
+    const tagSelections: TagSelection[] | undefined = body.tagSelections;
+    const tagsData: Prisma.ToolUpdateInput = {};
+    let resolvedTagIds: string[] | null = null;
+    if (tagSelections && Array.isArray(tagSelections)) {
+      resolvedTagIds = await resolveTagSelections(tagSelections);
+    } else if (tagIds && Array.isArray(tagIds)) {
+      resolvedTagIds = tagIds;
+    }
+    if (resolvedTagIds !== null) {
+      tagsData.structuredTags = {
+        deleteMany: { toolId: id },
+        create: resolvedTagIds.map((tagId: string) => ({ tagId })),
+      };
+    }
+
     // Update tool
     const tool = await db.tool.update({
       where: { id },
@@ -51,6 +118,17 @@ export async function PUT(
         ...(body.tags !== undefined && {
           tags: Array.isArray(body.tags) ? body.tags.join(",") : body.tags,
         }),
+        // V2 fields
+        ...(body.providerId !== undefined && {
+          providerId: body.providerId || null,
+        }),
+        ...(body.documentationUrl !== undefined && {
+          documentationUrl: body.documentationUrl || null,
+        }),
+        ...(body.pricingUrl !== undefined && {
+          pricingUrl: body.pricingUrl || null,
+        }),
+        ...tagsData,
         // Modernization fields
         ...(body.entityType !== undefined && { entityType: body.entityType }),
         ...(body.verificationStatus !== undefined && { verificationStatus: body.verificationStatus }),

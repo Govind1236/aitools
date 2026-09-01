@@ -9,7 +9,11 @@ export async function GET(
 
   const tool = await db.tool.findUnique({
     where: { slug },
-    include: { category: true },
+    include: {
+      category: true,
+      provider: true,
+      structuredTags: { include: { tag: true } },
+    },
   });
 
   if (!tool) {

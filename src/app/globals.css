@@ -982,7 +982,7 @@ select.input-field {
 }
 
 .search-border:focus-within::before {
-  opacity: 1;
+  opacity: 0;
 }
 
 /* ── Stats Counter Animation ── */

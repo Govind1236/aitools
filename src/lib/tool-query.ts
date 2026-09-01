@@ -47,6 +47,9 @@ export async function buildToolWhere(
       { tags: { contains: term } },
       { entityType: { contains: term } },
       { category: { name: { contains: term } } },
+      { provider: { name: { contains: term } } },
+      { structuredTags: { some: { tag: { name: { contains: term } } } } },
+      { structuredTags: { some: { tag: { slug: { contains: term } } } } },
     ]);
     andConds.push({ OR: orConds });
   }

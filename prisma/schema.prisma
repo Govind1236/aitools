@@ -31,6 +31,21 @@ model Session {
 }
 
 // ============================================================
+// PROVIDERS
+// ============================================================
+model Provider {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  websiteUrl  String?
+  logo        String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  tools       Tool[]
+}
+
+// ============================================================
 // CATEGORIES
 // ============================================================
 model Category {
@@ -43,6 +58,32 @@ model Category {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   tools       Tool[]
+}
+
+// ============================================================
+// TAGS
+// ============================================================
+model Tag {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  slug      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tools     ToolTag[]
+}
+
+// ============================================================
+// TOOL <-> TAG (explicit join model)
+// ============================================================
+model ToolTag {
+  toolId    String
+  tagId     String
+  createdAt DateTime @default(now())
+  tool      Tool     @relation(fields: [toolId], references: [id], onDelete: Cascade)
+  tag       Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([toolId, tagId])
+  @@index([tagId])
 }
 
 // ============================================================
@@ -62,7 +103,7 @@ model Tool {
   isFeatured    Boolean   @default(false)
   isPublished   Boolean   @default(true)
   isSponsored   Boolean   @default(false)
-  tags               String    @default("") // comma-separated
+  tags               String    @default("") // comma-separated (preserved for backward compat)
   hostingGuide       String?   // Markdown instructions on how to host/deploy for free
   
   // Modernization fields
@@ -72,13 +113,21 @@ model Tool {
   sourceUrl          String?
   metadata           String?   // JSON string for entity-specific data (modalities, contextWindow, etc)
 
+  // V2: Provider + documentation/pricing URLs
+  providerId      String?
+  documentationUrl String?
+  pricingUrl       String?
+
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   category      Category  @relation(fields: [categoryId], references: [id])
+  provider      Provider? @relation(fields: [providerId], references: [id])
   redirectLink  RedirectLink?
+  structuredTags ToolTag[]
   @@index([categoryId])
   @@index([isFeatured])
   @@index([isPublished])
+  @@index([providerId])
 }
 
 // ============================================================

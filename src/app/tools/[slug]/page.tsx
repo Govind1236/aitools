@@ -122,9 +122,25 @@ export default async function ToolPage({ params }: ToolPageProps) {
           </div>
 
           <div className="flex-1">
-            <h1 className="text-[34px] md:text-[44px] lg:text-[48px] font-bold text-foreground tracking-tight leading-[1.05] mb-3">
+            <h1 className="text-[34px] md:text-[44px] lg:text-[48px] font-bold text-foreground tracking-tight leading-[1.05] mb-2">
               {tool.name}
             </h1>
+            {tool.provider && (
+              <p className="text-[16px] md:text-[18px] font-medium text-muted-foreground mb-3 flex items-center gap-2">
+                {tool.provider.websiteUrl ? (
+                  <Link
+                    href={tool.provider.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-foreground transition-colors"
+                  >
+                    {tool.provider.name}
+                  </Link>
+                ) : (
+                  tool.provider.name
+                )}
+              </p>
+            )}
             <p className="text-[18px] md:text-[21px] text-muted-foreground mb-6 max-w-3xl leading-relaxed">
               {tool.description}
             </p>
@@ -151,9 +167,31 @@ export default async function ToolPage({ params }: ToolPageProps) {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-primary text-primary-foreground text-[15px] font-semibold rounded-xl hover:bg-primary-hover transition-colors"
               >
-                Visit {tool.name}
+                Open App
                 <ExternalLink className="w-4 h-4" strokeWidth={2} />
               </Link>
+              {tool.documentationUrl && (
+                <Link
+                  href={tool.documentationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-background border border-border text-foreground text-[14px] font-medium rounded-xl hover:bg-muted transition-colors"
+                >
+                  <Globe className="w-4 h-4 text-muted-foreground" />
+                  Documentation
+                </Link>
+              )}
+              {tool.pricingUrl && (
+                <Link
+                  href={tool.pricingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-background border border-border text-foreground text-[14px] font-medium rounded-xl hover:bg-muted transition-colors"
+                >
+                  <Globe className="w-4 h-4 text-muted-foreground" />
+                  Pricing
+                </Link>
+              )}
               {tool.sourceUrl && (
                 <Link
                   href={tool.sourceUrl}
@@ -261,6 +299,25 @@ export default async function ToolPage({ params }: ToolPageProps) {
                   <dt className="text-muted-foreground mb-1">Domain</dt>
                   <dd className="font-medium text-foreground">{domain}</dd>
                 </div>
+                {tool.provider && (
+                  <div className="pt-4 mt-4 border-t border-border">
+                    <dt className="text-muted-foreground mb-1">Provider</dt>
+                    <dd className="font-semibold text-foreground">
+                      {tool.provider.websiteUrl ? (
+                        <Link
+                          href={tool.provider.websiteUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline"
+                        >
+                          {tool.provider.name}
+                        </Link>
+                      ) : (
+                        tool.provider.name
+                      )}
+                    </dd>
+                  </div>
+                )}
                 {tool.lastVerifiedAt && (
                   <div className="pt-4 mt-4 border-t border-border">
                     <dt className="flex items-center gap-1.5 text-muted-foreground mb-1">

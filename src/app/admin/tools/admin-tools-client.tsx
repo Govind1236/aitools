@@ -31,6 +31,23 @@ interface Tool {
   lastVerifiedAt?: string | null;
   sourceUrl?: string | null;
   metadata?: string | null;
+  providerId?: string | null;
+  provider?: { id: string; name: string } | null;
+  structuredTags?: { id: string; name: string; slug: string }[];
+  documentationUrl?: string | null;
+  pricingUrl?: string | null;
+}
+
+interface Provider {
+  id: string;
+  name: string;
+  slug: string;
+}
+
+interface TagOption {
+  id: string;
+  name: string;
+  slug: string;
 }
 
 const emptyForm = {
@@ -49,10 +66,24 @@ const emptyForm = {
   sourceUrl: "",
   metadata: "",
   lastVerifiedAt: "",
+  providerId: "",
+  documentationUrl: "",
+  pricingUrl: "",
+  tagIds: [] as string[],
 };
 
-export function AdminToolsClient({ tools: initialTools }: { tools: Tool[] }) {
+export function AdminToolsClient({
+  tools: initialTools,
+  providers: initialProviders,
+  tags: initialTags,
+}: {
+  tools: Tool[];
+  providers: Provider[];
+  tags: TagOption[];
+}) {
   const [tools, setTools] = useState<Tool[]>(initialTools);
+  const [providers, setProviders] = useState<Provider[]>(initialProviders);
+  const [allTags, setAllTags] = useState<TagOption[]>(initialTags);
   const [showForm, setShowForm] = useState(false);
   const [editingTool, setEditingTool] = useState<Tool | null>(null);
   const [search, setSearch] = useState("");
@@ -60,6 +91,7 @@ export function AdminToolsClient({ tools: initialTools }: { tools: Tool[] }) {
   const [scrapeUrl, setScrapeUrl] = useState("");
   const [scraping, setScraping] = useState(false);
   const [scrapeError, setScrapeError] = useState("");
+  const [newTagInput, setNewTagInput] = useState("");
 
   const fetchTools = async () => {
     try {
@@ -67,6 +99,8 @@ export function AdminToolsClient({ tools: initialTools }: { tools: Tool[] }) {
       if (res.ok) {
         const data = await res.json();
         setTools(data.tools);
+        if (data.providers) setProviders(data.providers);
+        if (data.tags) setAllTags(data.tags);
       }
     } catch (error) {
       console.error("Failed to fetch tools:", error);
@@ -81,10 +115,24 @@ export function AdminToolsClient({ tools: initialTools }: { tools: Tool[] }) {
         : "/api/admin/tools";
       const method = editingTool ? "PUT" : "POST";
 
+      const body = {
+        ...form,
+        providerId: form.providerId || null,
+        documentationUrl: form.documentationUrl || null,
+        pricingUrl: form.pricingUrl || null,
+        tagSelections: form.tagIds.map((id) => {
+          const tag = allTags.find((t) => t.id === id);
+          return {
+            id: id.startsWith("temp-") ? undefined : id,
+            name: tag?.name || "",
+          };
+        }),
+      };
+
       const res = await fetch(url, {
         method,
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify(body),
       });
 
       if (res.ok) {
@@ -157,6 +205,22 @@ export function AdminToolsClient({ tools: initialTools }: { tools: Tool[] }) {
       lastVerifiedAt: tool.lastVerifiedAt
         ? new Date(tool.lastVerifiedAt).toISOString().split("T")[0]
         : "",
+      providerId: tool.providerId || "",
+      documentationUrl: tool.documentationUrl || "",
+      pricingUrl: tool.pricingUrl || "",
+      tagIds:
+        tool.structuredTags?.map((t) => t.id) ||
+        (tool.tags || "")
+          .split(",")
+          .map((t) => t.trim())
+          .filter(Boolean)
+          .map((tagName) => {
+            const match = allTags.find(
+              (t) => t.name.toLowerCase() === tagName.toLowerCase()
+            );
+            return match ? match.id : "";
+          })
+          .filter(Boolean) || [],
     });
     setScrapeUrl("");
     setScrapeError("");
@@ -411,7 +475,132 @@ export function AdminToolsClient({ tools: initialTools }: { tools: Tool[] }) {
                 />
               </Field>
 
-              <Field label="Tags (comma-separated)">
+              <div className="grid grid-cols-1 gap-3">
+                <Field label="Provider (Optional)">
+                  <select
+                    value={form.providerId}
+                    onChange={(e) =>
+                      setForm({ ...form, providerId: e.target.value })
+                    }
+                    className="input-field"
+                  >
+                    <option value="">None</option>
+                    {providers.map((p) => (
+                      <option key={p.id} value={p.id}>
+                        {p.name}
+                      </option>
+                    ))}
+                  </select>
+                </Field>
+              </div>
+
+              <Field label="Documentation URL (Optional)">
+                <input
+                  type="url"
+                  value={form.documentationUrl}
+                  onChange={(e) =>
+                    setForm({ ...form, documentationUrl: e.target.value })
+                  }
+                  className="input-field"
+                  placeholder="https://docs.example.com"
+                />
+              </Field>
+
+              <Field label="Pricing URL (Optional)">
+                <input
+                  type="url"
+                  value={form.pricingUrl}
+                  onChange={(e) =>
+                    setForm({ ...form, pricingUrl: e.target.value })
+                  }
+                  className="input-field"
+                  placeholder="https://example.com/pricing"
+                />
+              </Field>
+
+              <Field label="Tags">
+                <div className="space-y-2">
+                  <div className="flex flex-wrap gap-2">
+                    {allTags.map((tag) => (
+                      <button
+                        type="button"
+                        key={tag.id}
+                        onClick={() => {
+                          const isSelected = form.tagIds.includes(tag.id);
+                          setForm({
+                            ...form,
+                            tagIds: isSelected
+                              ? form.tagIds.filter((id) => id !== tag.id)
+                              : [...form.tagIds, tag.id],
+                          });
+                        }}
+                        className={`px-2 py-1 rounded-md text-[12px] font-medium border transition-colors duration-150 ${
+                          form.tagIds.includes(tag.id)
+                            ? "bg-slate-900 text-white border-slate-900"
+                            : "bg-white text-slate-600 border-slate-200 hover:border-slate-300"
+                        }`}
+                      >
+                        {tag.name}
+                      </button>
+                    ))}
+                  </div>
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      value={newTagInput}
+                      onChange={(e) => setNewTagInput(e.target.value)}
+                      placeholder="Type a new tag name..."
+                      className="input-field flex-1"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const name = newTagInput.trim();
+                        if (!name) return;
+                        // Add to local tag list with a temp id so it can be selected now
+                        const normalized = name
+                          .toLowerCase()
+                          .replace(/[^a-z0-9\s-]/g, "")
+                          .replace(/\s+/g, "-");
+                        const existingTag = allTags.find(
+                          (t) =>
+                            t.name.toLowerCase() === name.toLowerCase() ||
+                            t.slug === normalized
+                        );
+                        if (existingTag) {
+                          // Just select it
+                          if (!form.tagIds.includes(existingTag.id)) {
+                            setForm({
+                              ...form,
+                              tagIds: [...form.tagIds, existingTag.id],
+                            });
+                          }
+                          setNewTagInput("");
+                          return;
+                        }
+                        const tempId = `temp-${Date.now()}`;
+                        setAllTags((prev) => [
+                          ...prev,
+                          { id: tempId, name, slug: normalized },
+                        ]);
+                        setForm({
+                          ...form,
+                          tagIds: [...form.tagIds, tempId],
+                        });
+                        setNewTagInput("");
+                      }}
+                      className="h-9 px-3 shrink-0 bg-slate-900 text-white text-[13px] font-medium rounded-md hover:bg-slate-800 active:bg-slate-950 transition-colors duration-150"
+                    >
+                      Add
+                    </button>
+                  </div>
+                  <p className="text-[11px] text-slate-400">
+                    Selected: {allTags.filter((t) => form.tagIds.includes(t.id)).map((t) => t.name).join(", ") || "None"}
+                  </p>
+                </div>
+              </Field>
+
+              <Field label="Tags (comma-separated, legacy)">
                 <input
                   type="text"
                   value={form.tags}

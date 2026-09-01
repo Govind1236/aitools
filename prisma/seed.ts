@@ -39,6 +39,107 @@ function entityTypeFor(slug: string, categoryId: string): string {
   return "TOOL";
 }
 
+// Map tool slug -> provider slug (high-confidence assignments only).
+const PROVIDER_MAP: Record<string, string> = {
+  "chatgpt-free": "openai",
+  "whisper": "openai",
+  "bing-image": "openai",
+  "claude-free": "anthropic",
+  "gemini-api": "google",
+  "google-ai-studio": "google",
+  "notebooklm": "google",
+  "llama-3-1": "meta",
+  "deepseek-r1": "deepseek",
+  "deepseek-chat": "deepseek",
+  "mistral": "mistral-ai",
+  "phi-3": "microsoft",
+  "github-models": "microsoft",
+  "hf-inference": "hugging-face",
+  "huggingchat": "hugging-face",
+  "devin": "cognition",
+  "groq-api": "groq",
+  "cohere-api": "cohere",
+  "together-ai": "together-ai",
+  "perplexity-free": "perplexity",
+  "elevenlabs-free": "elevenlabs",
+  "suno-free": "suno",
+  "bark": "suno",
+  "cursor-free": "cursor",
+  "v0": "vercel",
+  "vercel": "vercel",
+  "vercel-sdk": "vercel",
+  "supabase": "supabase",
+  "supabase-vector": "supabase",
+  "flux-schnell": "black-forest-labs",
+  "qwen": "alibaba",
+  "cloudflare-pages": "cloudflare",
+  "neon": "neon",
+  "render": "render",
+  "pinecone": "pinecone",
+  "qdrant": "qdrant",
+  "civitai": "civitai",
+  "chatbot-arena": "lmsys",
+  "opendevin": "opendevin-community",
+  "browser-use": "browser-use",
+  "autogpt": "significant-gravitas",
+  "ollama": "ollama",
+  "lm-studio": "lm-studio",
+  "gpt4all": "nomic-ai",
+  "llama-cpp": "ggerganov",
+  "codeium": "codeium",
+  "continue": "continue",
+  "aider": "aider",
+  "bolt-new": "stackblitz",
+  "lovable": "lovable",
+  "duckduckgo-chat": "duckduckgo",
+  "phind": "phind",
+};
+
+const PROVIDERS_DATA = [
+  { name: "OpenAI", slug: "openai", description: "Creator of GPT-4, ChatGPT, DALL-E, and Whisper.", websiteUrl: "https://openai.com" },
+  { name: "Anthropic", slug: "anthropic", description: "Creator of the Claude family of AI assistants.", websiteUrl: "https://anthropic.com" },
+  { name: "Google", slug: "google", description: "Creator of Gemini, AI Studio, NotebookLM, and more.", websiteUrl: "https://google.com" },
+  { name: "Meta", slug: "meta", description: "Creator of the Llama family of open-source models.", websiteUrl: "https://meta.com" },
+  { name: "DeepSeek", slug: "deepseek", description: "AI research lab creating open-weight reasoning models.", websiteUrl: "https://deepseek.com" },
+  { name: "Mistral AI", slug: "mistral-ai", description: "European AI lab creating efficient open-source models.", websiteUrl: "https://mistral.ai" },
+  { name: "Microsoft", slug: "microsoft", description: "Creator of Phi-3 SLMs and GitHub Models.", websiteUrl: "https://microsoft.com" },
+  { name: "Hugging Face", slug: "hugging-face", description: "The hub for open-source ML models and inference.", websiteUrl: "https://huggingface.co" },
+  { name: "Stability AI", slug: "stability-ai", description: "Creators of Stable Diffusion image generation models.", websiteUrl: "https://stability.ai" },
+  { name: "Cognition", slug: "cognition", description: "Creator of Devin, the autonomous AI software engineer.", websiteUrl: "https://cognition.ai" },
+  { name: "Groq", slug: "groq", description: "Ultra-fast LLM inference on custom LPU hardware.", websiteUrl: "https://groq.com" },
+  { name: "Cohere", slug: "cohere", description: "Enterprise NLP APIs including Command R and Embeddings.", websiteUrl: "https://cohere.com" },
+  { name: "Together AI", slug: "together-ai", description: "Platform for running and fine-tuning open-source models.", websiteUrl: "https://together.ai" },
+  { name: "Perplexity", slug: "perplexity", description: "AI-powered answer engine with real-time web search.", websiteUrl: "https://perplexity.ai" },
+  { name: "ElevenLabs", slug: "elevenlabs", description: "AI voice generation and text-to-speech platform.", websiteUrl: "https://elevenlabs.io" },
+  { name: "Suno", slug: "suno", description: "AI music generation platform creating full songs.", websiteUrl: "https://suno.com" },
+  { name: "Cursor", slug: "cursor", description: "The AI-first code editor built on VS Code.", websiteUrl: "https://cursor.com" },
+  { name: "Vercel", slug: "vercel", description: "Frontend cloud platform for Next.js deployment and AI SDK.", websiteUrl: "https://vercel.com" },
+  { name: "Supabase", slug: "supabase", description: "Open-source Firebase alternative with Postgres and vector support.", websiteUrl: "https://supabase.com" },
+  { name: "Black Forest Labs", slug: "black-forest-labs", description: "Creator of FLUX image generation models.", websiteUrl: "https://blackforestlabs.ai" },
+  { name: "Alibaba", slug: "alibaba", description: "Creator of the Qwen family of multilingual models.", websiteUrl: "https://alibaba.com" },
+  { name: "Cloudflare", slug: "cloudflare", description: "Web infrastructure and serverless hosting platform.", websiteUrl: "https://cloudflare.com" },
+  { name: "Neon", slug: "neon", description: "Serverless Postgres with branching for modern apps.", websiteUrl: "https://neon.tech" },
+  { name: "Render", slug: "render", description: "Cloud application hosting for developers.", websiteUrl: "https://render.com" },
+  { name: "Pinecone", slug: "pinecone", description: "Serverless vector database for AI applications.", websiteUrl: "https://pinecone.io" },
+  { name: "Qdrant", slug: "qdrant", description: "Open-source vector search engine written in Rust.", websiteUrl: "https://qdrant.tech" },
+  { name: "Civitai", slug: "civitai", description: "The largest hub for open-source AI art models.", websiteUrl: "https://civitai.com" },
+  { name: "LMSYS", slug: "lmsys", description: "Creator of Chatbot Arena, an open LLM benchmark.", websiteUrl: "https://lmsys.org" },
+  { name: "OpenDevin", slug: "opendevin-community", description: "Open-source autonomous AI software engineer project.", websiteUrl: "https://github.com/OpenDevin/OpenDevin" },
+  { name: "Browser Use", slug: "browser-use", description: "Open-source library for AI browser automation.", websiteUrl: "https://github.com/browser-use/browser-use" },
+  { name: "Significant Gravitas", slug: "significant-gravitas", description: "Creators of AutoGPT, an autonomous AI agent.", websiteUrl: "https://github.com/Significant-Gravitas/AutoGPT" },
+  { name: "Ollama", slug: "ollama", description: "Local LLM runner for Mac, Windows, and Linux.", websiteUrl: "https://ollama.com" },
+  { name: "LM Studio", slug: "lm-studio", description: "Desktop app for running local LLMs from Hugging Face.", websiteUrl: "https://lmstudio.ai" },
+  { name: "Nomic AI", slug: "nomic-ai", description: "Creator of GPT4All, a local privacy-aware chatbot.", websiteUrl: "https://gpt4all.io" },
+  { name: "Georgi Gerganov", slug: "ggerganov", description: "Creator of llama.cpp, efficient local model inference.", websiteUrl: "https://github.com/ggerganov/llama.cpp" },
+  { name: "Codeium", slug: "codeium", description: "Free AI code completion for 70+ languages.", websiteUrl: "https://codeium.com" },
+  { name: "Continue", slug: "continue", description: "Leading open-source AI code assistant for VS Code and JetBrains.", websiteUrl: "https://continue.dev" },
+  { name: "Aider", slug: "aider", description: "AI pair programming in your terminal.", websiteUrl: "https://aider.chat" },
+  { name: "StackBlitz", slug: "stackblitz", description: "Creators of Bolt.new, in-browser AI web developer.", websiteUrl: "https://bolt.new" },
+  { name: "Lovable", slug: "lovable", description: "AI software engineer for building apps.", websiteUrl: "https://lovable.dev" },
+  { name: "DuckDuckGo", slug: "duckduckgo", description: "Privacy-focused search engine with free AI chat.", websiteUrl: "https://duckduckgo.com" },
+  { name: "Phind", slug: "phind", description: "AI search engine designed for developers.", websiteUrl: "https://phind.com" },
+];
+
 async function main() {
   console.log("🌱 Seeding database with Free AI Tools & APIs...");
 
@@ -47,8 +148,11 @@ async function main() {
   await prisma.geoRoute.deleteMany();
   await prisma.redirectLink.deleteMany();
   await prisma.campaign.deleteMany();
+  await prisma.toolTag.deleteMany();
+  await prisma.tag.deleteMany();
   await prisma.tool.deleteMany();
   await prisma.category.deleteMany();
+  await prisma.provider.deleteMany();
   await prisma.session.deleteMany();
   await prisma.user.deleteMany();
 
@@ -119,6 +223,24 @@ async function main() {
 
   const catMap = new Map(categories.map((c) => [c.slug, c.id]));
   console.log(`✅ ${categories.length} categories created`);
+
+  // ============================================================
+  // PROVIDERS
+  // ============================================================
+  const providers = await Promise.all(
+    PROVIDERS_DATA.map((p) =>
+      prisma.provider.create({
+        data: {
+          name: p.name,
+          slug: p.slug,
+          description: p.description,
+          websiteUrl: p.websiteUrl,
+        },
+      })
+    )
+  );
+  const providerMap = new Map(providers.map((p) => [p.slug, p.id]));
+  console.log(`✅ ${providers.length} providers created`);
 
   // ============================================================
   // TOOLS (100% Free or Generous Free Tiers)
@@ -839,11 +961,48 @@ You now have a production-ready Supabase instance running locally or on your ser
         data: {
           ...data,
           entityType: entityTypeFor(data.slug, data.categoryId ?? ""),
+          providerId: providerMap.get(PROVIDER_MAP[data.slug]) ?? null,
         },
       })
     )
   );
   console.log(`✅ ${tools.length} updated tools created`);
+
+  // ============================================================
+  // STRUCTURED TAGS (from comma-separated Tool.tags)
+  // ============================================================
+  const tagMap = new Map<string, { name: string; slug: string }>();
+
+  const toSlug = (name: string) =>
+    name
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-")
+      .replace(/^-|-$/g, "");
+
+  for (const tool of tools) {
+    if (!tool.tags) continue;
+    for (const raw of tool.tags.split(",")) {
+      const name = raw.trim();
+      if (!name) continue;
+      const slug = toSlug(name);
+      if (!tagMap.has(slug)) tagMap.set(slug, { name, slug });
+    }
+  }
+
+  let toolTagCount = 0;
+  for (const [slug, { name }] of tagMap) {
+    const tag = await prisma.tag.create({ data: { name, slug } });
+    for (const tool of tools) {
+      if (!tool.tags) continue;
+      if (tool.tags.split(",").map((t) => t.trim()).includes(name)) {
+        await prisma.toolTag.create({ data: { toolId: tool.id, tagId: tag.id } });
+        toolTagCount++;
+      }
+    }
+  }
+  console.log(`✅ ${tagMap.size} structured tags created (${toolTagCount} relationships)`);
 
   // ============================================================
   // CAMPAIGNS
