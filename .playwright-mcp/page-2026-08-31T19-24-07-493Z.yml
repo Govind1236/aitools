@@ -1,0 +1,229 @@
+- generic [active] [ref=f2e1]:
+  - button "Open Next.js Dev Tools" [ref=f2e7] [cursor=pointer]
+  - alert [ref=f2e11]
+  - banner [ref=f2e12]:
+    - generic [ref=f2e14]:
+      - link "AI Tools Directory — Home" [ref=f2e15] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f2e20]: AI Tools
+      - navigation "Main navigation" [ref=f2e21]:
+        - link "Explore" [ref=f2e22] [cursor=pointer]:
+          - /url: /tools
+        - link "Developer" [ref=f2e23] [cursor=pointer]:
+          - /url: /categories/developer
+        - link "Agents" [ref=f2e24] [cursor=pointer]:
+          - /url: /categories/agents
+        - link "Models" [ref=f2e25] [cursor=pointer]:
+          - /url: /categories/models
+        - link "Free Tools" [ref=f2e26] [cursor=pointer]:
+          - /url: /tools?pricing=free
+      - generic [ref=f2e27]:
+        - link "Search... /" [ref=f2e28] [cursor=pointer]:
+          - /url: /search
+          - generic [ref=f2e29]: Search...
+          - generic [ref=f2e34]: /
+        - button "Toggle theme" [ref=f2e35]
+        - link "Admin" [ref=f2e43] [cursor=pointer]:
+          - /url: /admin
+  - main [ref=f2e49]:
+    - generic [ref=f2e51]:
+      - navigation "Breadcrumb" [ref=f2e52]:
+        - link "Home" [ref=f2e53] [cursor=pointer]:
+          - /url: /
+        - link "Tools" [ref=f2e56] [cursor=pointer]:
+          - /url: /tools
+        - link "Productivity" [ref=f2e59] [cursor=pointer]:
+          - /url: /categories/productivity
+        - generic [ref=f2e62]: ChatGPT (Free Tier)
+      - generic [ref=f2e63]:
+        - img "ChatGPT (Free Tier) Logo" [ref=f2e65]
+        - generic [ref=f2e66]:
+          - heading "ChatGPT (Free Tier)" [level=1] [ref=f2e67]
+          - paragraph [ref=f2e68]: OpenAI offers GPT-4o Mini and limited GPT-4o usage completely for free. Includes data analysis, vision, and web search.
+          - generic [ref=f2e69]:
+            - generic [ref=f2e70]: Freemium
+            - link "Productivity" [ref=f2e72] [cursor=pointer]:
+              - /url: /categories/productivity
+            - generic [ref=f2e74]: Unverified
+          - link "Visit ChatGPT (Free Tier)" [ref=f2e79] [cursor=pointer]:
+            - /url: /go/chatgpt-free
+      - generic [ref=f2e84]:
+        - generic [ref=f2e86]:
+          - heading "Overview" [level=2] [ref=f2e87]
+          - generic [ref=f2e92]:
+            - heading "1 What is ChatGPT (Free Tier)?" [level=3] [ref=f2e93]:
+              - generic [ref=f2e94]: "1"
+              - text: What is ChatGPT (Free Tier)?
+            - paragraph [ref=f2e95]:
+              - strong [ref=f2e96]: ChatGPT (Free Tier)
+              - text: is a specialized productivity solution classified as a TOOL. Operating under a freemium model, it is designed to provide users with a robust environment tailored for modern workflows.
+            - heading "2 What does it do?" [level=3] [ref=f2e97]:
+              - generic [ref=f2e98]: "2"
+              - text: What does it do?
+            - paragraph [ref=f2e99]: "At its core, ChatGPT (Free Tier) focuses on the following: OpenAI offers GPT-4o Mini and limited GPT-4o usage completely for free. Includes data analysis, vision, and web search. It bridges the gap between complex requirements and user-friendly execution, ensuring that users have access to the right features."
+            - heading "3 How does it help?" [level=3] [ref=f2e100]:
+              - generic [ref=f2e101]: "3"
+              - text: How does it help?
+            - paragraph [ref=f2e102]: By integrating ChatGPT (Free Tier) into your routine, you can significantly reduce manual effort in the productivity domain. It enhances overall productivity, allowing you to achieve higher-quality results efficiently. Essentially, it acts as a force multiplier for your creative and technical output.
+        - complementary [ref=f2e103]:
+          - generic [ref=f2e104]:
+            - heading "Information" [level=3] [ref=f2e105]
+            - generic [ref=f2e106]:
+              - generic [ref=f2e107]:
+                - term [ref=f2e108]: Entity Type
+                - definition [ref=f2e109]: TOOL
+              - generic [ref=f2e110]:
+                - term [ref=f2e111]: Pricing Model
+                - definition [ref=f2e112]: freemium
+              - generic [ref=f2e113]:
+                - term [ref=f2e114]: Category
+                - definition [ref=f2e115]: Productivity
+              - generic [ref=f2e116]:
+                - term [ref=f2e117]: Domain
+                - definition [ref=f2e118]: chat.openai.com
+      - generic [ref=f2e119]:
+        - generic [ref=f2e120]:
+          - generic [ref=f2e121]:
+            - heading "Alternatives to ChatGPT (Free Tier)" [level=2] [ref=f2e122]
+            - paragraph [ref=f2e123]: Explore similar productivity tools and models
+          - link "View category" [ref=f2e124] [cursor=pointer]:
+            - /url: /categories/productivity
+        - generic [ref=f2e127]:
+          - generic [ref=f2e129]:
+            - generic [ref=f2e130]:
+              - link "Claude (Free Tier) Claude (Free Tier) Productivity 4.9" [ref=f2e131] [cursor=pointer]:
+                - /url: /tools/claude-free
+                - img "Claude (Free Tier)" [ref=f2e133]
+                - generic [ref=f2e134]:
+                  - heading "Claude (Free Tier)" [level=3] [ref=f2e135]
+                  - paragraph [ref=f2e136]:
+                    - generic [ref=f2e137]: Productivity
+                    - generic [ref=f2e138]: "4.9"
+              - generic [ref=f2e141]: Featured
+            - link [ref=f2e145] [cursor=pointer]:
+              - /url: /tools/claude-free
+              - paragraph [ref=f2e146]: Anthropic provides free access to Claude 3.5 Sonnet, arguably the best coding and writing model currently available.
+            - generic [ref=f2e147]:
+              - link "#chatbot" [ref=f2e148] [cursor=pointer]:
+                - /url: /tools?q=chatbot
+              - link "#anthropic" [ref=f2e149] [cursor=pointer]:
+                - /url: /tools?q=anthropic
+              - link "#sonnet" [ref=f2e150] [cursor=pointer]:
+                - /url: /tools?q=sonnet
+            - generic [ref=f2e151]:
+              - generic [ref=f2e152]: Freemium
+              - link "View Details" [ref=f2e154] [cursor=pointer]:
+                - /url: /tools/claude-free
+          - generic [ref=f2e159]:
+            - generic [ref=f2e160]:
+              - link "DeepSeek Chat DeepSeek Chat Productivity 4.9" [ref=f2e161] [cursor=pointer]:
+                - /url: /tools/deepseek-chat
+                - img "DeepSeek Chat" [ref=f2e163]
+                - generic [ref=f2e164]:
+                  - heading "DeepSeek Chat" [level=3] [ref=f2e165]
+                  - paragraph [ref=f2e166]:
+                    - generic [ref=f2e167]: Productivity
+                    - generic [ref=f2e168]: "4.9"
+              - generic [ref=f2e171]: Featured
+            - link [ref=f2e175] [cursor=pointer]:
+              - /url: /tools/deepseek-chat
+              - paragraph [ref=f2e176]: Free web interface to access DeepSeek V3 and the DeepSeek R1 reasoning model. Extremely capable and completely free.
+            - generic [ref=f2e177]:
+              - link "#chatbot" [ref=f2e178] [cursor=pointer]:
+                - /url: /tools?q=chatbot
+              - link "#deepseek" [ref=f2e179] [cursor=pointer]:
+                - /url: /tools?q=deepseek
+              - link "#reasoning" [ref=f2e180] [cursor=pointer]:
+                - /url: /tools?q=reasoning
+            - generic [ref=f2e181]:
+              - generic [ref=f2e182]: Free
+              - link "View Details" [ref=f2e184] [cursor=pointer]:
+                - /url: /tools/deepseek-chat
+          - generic [ref=f2e189]:
+            - generic [ref=f2e190]:
+              - link "HuggingChat HuggingChat Productivity 4.7" [ref=f2e191] [cursor=pointer]:
+                - /url: /tools/huggingchat
+                - img "HuggingChat" [ref=f2e193]
+                - generic [ref=f2e194]:
+                  - heading "HuggingChat" [level=3] [ref=f2e195]
+                  - paragraph [ref=f2e196]:
+                    - generic [ref=f2e197]: Productivity
+                    - generic [ref=f2e198]: "4.7"
+              - generic [ref=f2e201]: Featured
+            - link [ref=f2e205] [cursor=pointer]:
+              - /url: /tools/huggingchat
+              - paragraph [ref=f2e206]: The open-source alternative to ChatGPT. Completely free access to top open models like Llama 3.1, Qwen, and Cohere Command R+.
+            - generic [ref=f2e207]:
+              - link "#chatbot" [ref=f2e208] [cursor=pointer]:
+                - /url: /tools?q=chatbot
+              - link "#open-source" [ref=f2e209] [cursor=pointer]:
+                - /url: /tools?q=open-source
+              - link "#huggingface" [ref=f2e210] [cursor=pointer]:
+                - /url: /tools?q=huggingface
+            - generic [ref=f2e211]:
+              - generic [ref=f2e212]: Free
+              - link "View Details" [ref=f2e214] [cursor=pointer]:
+                - /url: /tools/huggingchat
+          - generic [ref=f2e219]:
+            - link "DuckDuckGo AI Chat DuckDuckGo AI Chat Productivity 4.6" [ref=f2e221] [cursor=pointer]:
+              - /url: /tools/duckduckgo-chat
+              - img "DuckDuckGo AI Chat" [ref=f2e223]
+              - generic [ref=f2e224]:
+                - heading "DuckDuckGo AI Chat" [level=3] [ref=f2e225]
+                - paragraph [ref=f2e226]:
+                  - generic [ref=f2e227]: Productivity
+                  - generic [ref=f2e229]: "4.6"
+            - link [ref=f2e232] [cursor=pointer]:
+              - /url: /tools/duckduckgo-chat
+              - paragraph [ref=f2e233]: Free, private, anonymous access to GPT-4o mini, Claude 3 Haiku, Llama 3, and Mixtral directly in your browser. No login required.
+            - generic [ref=f2e234]:
+              - link "#chatbot" [ref=f2e235] [cursor=pointer]:
+                - /url: /tools?q=chatbot
+              - link "#privacy" [ref=f2e236] [cursor=pointer]:
+                - /url: /tools?q=privacy
+              - link "#anonymous" [ref=f2e237] [cursor=pointer]:
+                - /url: /tools?q=anonymous
+            - generic [ref=f2e238]:
+              - generic [ref=f2e239]: Free
+              - link "View Details" [ref=f2e241] [cursor=pointer]:
+                - /url: /tools/duckduckgo-chat
+  - contentinfo [ref=f2e245]:
+    - generic [ref=f2e246]:
+      - generic [ref=f2e247]:
+        - generic [ref=f2e248]:
+          - link "AI Tools Directory" [ref=f2e249] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f2e255]: Discover the best AI tools for work, business, creativity and productivity. Curated and reviewed for professionals.
+        - generic [ref=f2e256]:
+          - heading "Explore" [level=3] [ref=f2e257]
+          - list [ref=f2e258]:
+            - listitem [ref=f2e259]:
+              - link "All Tools" [ref=f2e260] [cursor=pointer]:
+                - /url: /tools
+            - listitem [ref=f2e261]:
+              - link "Categories" [ref=f2e262] [cursor=pointer]:
+                - /url: /categories
+            - listitem [ref=f2e263]:
+              - link "Featured" [ref=f2e264] [cursor=pointer]:
+                - /url: /tools?featured=true
+        - generic [ref=f2e265]:
+          - heading "Resources" [level=3] [ref=f2e266]
+          - list [ref=f2e267]:
+            - listitem [ref=f2e268]:
+              - link "Submit Tool" [ref=f2e269] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=f2e270]:
+              - link "Contact" [ref=f2e271] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=f2e272]:
+          - heading "Legal" [level=3] [ref=f2e273]
+          - list [ref=f2e274]:
+            - listitem [ref=f2e275]:
+              - link "Privacy" [ref=f2e276] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=f2e277]:
+              - link "Terms" [ref=f2e278] [cursor=pointer]:
+                - /url: /terms
+      - generic [ref=f2e279]:
+        - paragraph [ref=f2e280]: © 2026 AI Tools Directory. All rights reserved.
+        - paragraph [ref=f2e281]: Built with ❤ for the AI community.

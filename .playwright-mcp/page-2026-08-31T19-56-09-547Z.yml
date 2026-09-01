@@ -1,0 +1,117 @@
+- generic [active] [ref=f2e1]:
+  - button "Open Next.js Dev Tools" [ref=f2e7] [cursor=pointer]
+  - alert [ref=f2e11]
+  - banner [ref=f2e12]:
+    - generic [ref=f2e14]:
+      - link "AI Tools Directory — Home" [ref=f2e15] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f2e20]: AI Tools
+      - navigation "Main navigation" [ref=f2e21]:
+        - link "Explore" [ref=f2e22] [cursor=pointer]:
+          - /url: /tools
+        - link "Developer" [ref=f2e23] [cursor=pointer]:
+          - /url: /categories/developer
+        - link "Agents" [ref=f2e24] [cursor=pointer]:
+          - /url: /categories/agents
+        - link "Models" [ref=f2e25] [cursor=pointer]:
+          - /url: /categories/models
+        - link "Free Tools" [ref=f2e26] [cursor=pointer]:
+          - /url: /tools?pricing=free
+      - generic [ref=f2e27]:
+        - link "Search... /" [ref=f2e28] [cursor=pointer]:
+          - /url: /search
+          - generic [ref=f2e29]: Search...
+          - generic [ref=f2e34]: /
+        - button "Toggle theme" [ref=f2e35]
+        - link "Admin" [ref=f2e43] [cursor=pointer]:
+          - /url: /admin
+  - main [ref=f2e49]:
+    - generic [ref=f2e50]:
+      - generic [ref=f2e51]:
+        - generic [ref=f2e52]: 8 categories
+        - heading "AI Tool Categories" [level=1] [ref=f2e55]
+        - paragraph [ref=f2e56]:
+          - text: Explore our curated categories to find the perfect AI tool for your specific needs.
+          - generic [ref=f2e57]: 54 tools
+          - text: across all categories.
+      - generic [ref=f2e58]:
+        - link [ref=f2e59] [cursor=pointer]:
+          - /url: /categories/coding
+          - generic [ref=f2e66]:
+            - heading "Coding" [level=3] [ref=f2e67]
+            - paragraph [ref=f2e68]: AI code assistants, autocomplete, and pair-programming tools.
+        - link [ref=f2e71] [cursor=pointer]:
+          - /url: /categories/image
+          - generic [ref=f2e78]:
+            - heading "Image" [level=3] [ref=f2e79]
+            - paragraph [ref=f2e80]: AI tools for generating, editing, and enhancing images.
+        - link [ref=f2e83] [cursor=pointer]:
+          - /url: /categories/audio
+          - generic [ref=f2e88]:
+            - heading "Audio" [level=3] [ref=f2e89]
+            - paragraph [ref=f2e90]: AI text-to-speech, voice, transcription, and music.
+        - link [ref=f2e93] [cursor=pointer]:
+          - /url: /categories/research
+          - generic [ref=f2e99]:
+            - heading "Research" [level=3] [ref=f2e100]
+            - paragraph [ref=f2e101]: AI answer engines, deep research, and source-grounded tools.
+        - link [ref=f2e104] [cursor=pointer]:
+          - /url: /categories/productivity
+          - generic [ref=f2e109]:
+            - heading "Productivity" [level=3] [ref=f2e110]
+            - paragraph [ref=f2e111]: General-purpose AI assistants for work, notes, and workflows.
+        - link [ref=f2e114] [cursor=pointer]:
+          - /url: /categories/developer
+          - generic [ref=f2e119]:
+            - heading "Developer" [level=3] [ref=f2e120]
+            - paragraph [ref=f2e121]: AI developer APIs, infrastructure, hosting, and databases.
+        - link [ref=f2e124] [cursor=pointer]:
+          - /url: /categories/agents
+          - generic [ref=f2e130]:
+            - heading "Agents" [level=3] [ref=f2e131]
+            - paragraph [ref=f2e132]: Autonomous AI agents that browse, code, and act on your behalf.
+        - link [ref=f2e135] [cursor=pointer]:
+          - /url: /categories/models
+          - generic [ref=f2e146]:
+            - heading "Models" [level=3] [ref=f2e147]
+            - paragraph [ref=f2e148]: Open-weight and hosted AI models for self-hosting or API use.
+  - contentinfo [ref=f2e151]:
+    - generic [ref=f2e152]:
+      - generic [ref=f2e153]:
+        - generic [ref=f2e154]:
+          - link "AI Tools Directory" [ref=f2e155] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f2e161]: Discover the best AI tools for work, business, creativity and productivity. Curated and reviewed for professionals.
+        - generic [ref=f2e162]:
+          - heading "Explore" [level=3] [ref=f2e163]
+          - list [ref=f2e164]:
+            - listitem [ref=f2e165]:
+              - link "All Tools" [ref=f2e166] [cursor=pointer]:
+                - /url: /tools
+            - listitem [ref=f2e167]:
+              - link "Categories" [ref=f2e168] [cursor=pointer]:
+                - /url: /categories
+            - listitem [ref=f2e169]:
+              - link "Featured" [ref=f2e170] [cursor=pointer]:
+                - /url: /tools?featured=true
+        - generic [ref=f2e171]:
+          - heading "Resources" [level=3] [ref=f2e172]
+          - list [ref=f2e173]:
+            - listitem [ref=f2e174]:
+              - link "Submit Tool" [ref=f2e175] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=f2e176]:
+              - link "Contact" [ref=f2e177] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=f2e178]:
+          - heading "Legal" [level=3] [ref=f2e179]
+          - list [ref=f2e180]:
+            - listitem [ref=f2e181]:
+              - link "Privacy" [ref=f2e182] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=f2e183]:
+              - link "Terms" [ref=f2e184] [cursor=pointer]:
+                - /url: /terms
+      - generic [ref=f2e185]:
+        - paragraph [ref=f2e186]: © 2026 AI Tools Directory. All rights reserved.
+        - paragraph [ref=f2e187]: Built with ❤ for the AI community.

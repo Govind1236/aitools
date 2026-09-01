@@ -1,0 +1,68 @@
+- generic [active] [ref=f4e1]:
+  - button "Open Next.js Dev Tools" [ref=f4e7] [cursor=pointer]
+  - alert [ref=f4e11]
+  - banner [ref=f4e12]:
+    - generic [ref=f4e14]:
+      - link "AI Tools Directory — Home" [ref=f4e15] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f4e20]: AI Tools
+      - navigation "Main navigation" [ref=f4e21]:
+        - link "Explore" [ref=f4e22] [cursor=pointer]:
+          - /url: /tools
+        - link "Developer" [ref=f4e23] [cursor=pointer]:
+          - /url: /categories/developer
+        - link "Agents" [ref=f4e24] [cursor=pointer]:
+          - /url: /categories/agents
+        - link "Models" [ref=f4e25] [cursor=pointer]:
+          - /url: /categories/models
+        - link "Free Tools" [ref=f4e26] [cursor=pointer]:
+          - /url: /tools?pricing=free
+      - generic [ref=f4e27]:
+        - link "Search... /" [ref=f4e28] [cursor=pointer]:
+          - /url: /search
+          - generic [ref=f4e29]: Search...
+          - generic [ref=f4e34]: /
+        - button "Toggle theme" [ref=f4e35]
+        - link "Admin" [ref=f4e43] [cursor=pointer]:
+          - /url: /admin
+  - main [ref=f4e49]
+  - contentinfo [ref=f4e50]:
+    - generic [ref=f4e51]:
+      - generic [ref=f4e52]:
+        - generic [ref=f4e53]:
+          - link "AI Tools Directory" [ref=f4e54] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f4e60]: Discover the best AI tools for work, business, creativity and productivity. Curated and reviewed for professionals.
+        - generic [ref=f4e61]:
+          - heading "Explore" [level=3] [ref=f4e62]
+          - list [ref=f4e63]:
+            - listitem [ref=f4e64]:
+              - link "All Tools" [ref=f4e65] [cursor=pointer]:
+                - /url: /tools
+            - listitem [ref=f4e66]:
+              - link "Categories" [ref=f4e67] [cursor=pointer]:
+                - /url: /categories
+            - listitem [ref=f4e68]:
+              - link "Featured" [ref=f4e69] [cursor=pointer]:
+                - /url: /tools?featured=true
+        - generic [ref=f4e70]:
+          - heading "Resources" [level=3] [ref=f4e71]
+          - list [ref=f4e72]:
+            - listitem [ref=f4e73]:
+              - link "Submit Tool" [ref=f4e74] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=f4e75]:
+              - link "Contact" [ref=f4e76] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=f4e77]:
+          - heading "Legal" [level=3] [ref=f4e78]
+          - list [ref=f4e79]:
+            - listitem [ref=f4e80]:
+              - link "Privacy" [ref=f4e81] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=f4e82]:
+              - link "Terms" [ref=f4e83] [cursor=pointer]:
+                - /url: /terms
+      - generic [ref=f4e84]:
+        - paragraph [ref=f4e85]: © 2026 AI Tools Directory. All rights reserved.
+        - paragraph [ref=f4e86]: Built with ❤ for the AI community.

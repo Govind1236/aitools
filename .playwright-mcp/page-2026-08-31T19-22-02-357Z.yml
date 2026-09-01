@@ -1,0 +1,466 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]
+  - alert [ref=e11]
+  - banner [ref=e12]:
+    - generic [ref=e14]:
+      - link "AI Tools Directory — Home" [ref=e15] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e20]: AI Tools
+      - navigation "Main navigation" [ref=e21]:
+        - link "Explore" [ref=e22] [cursor=pointer]:
+          - /url: /tools
+        - link "Developer" [ref=e23] [cursor=pointer]:
+          - /url: /categories/developer
+        - link "Agents" [ref=e24] [cursor=pointer]:
+          - /url: /categories/agents
+        - link "Models" [ref=e25] [cursor=pointer]:
+          - /url: /categories/models
+        - link "Free Tools" [ref=e26] [cursor=pointer]:
+          - /url: /tools?pricing=free
+      - generic [ref=e27]:
+        - link "Search... /" [ref=e28] [cursor=pointer]:
+          - /url: /search
+          - generic [ref=e29]: Search...
+          - generic [ref=e34]: /
+        - button "Toggle theme" [ref=e35]
+        - link "Admin" [ref=e43] [cursor=pointer]:
+          - /url: /admin
+  - main [ref=e49]:
+    - generic [ref=e50]:
+      - generic [ref=e112]:
+        - paragraph [ref=e114]:
+          - generic [ref=e115]: AI POWERED DIRECTORY
+        - heading "Find the right AI tool for the job." [level=1] [ref=e119]
+        - paragraph [ref=e121]: Search and discover verified AI tools, models, agents, and APIs for your next project.
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - textbox "Search AI tools" [ref=e128]:
+              - /placeholder: Search 54+ AI tools, models, categories, tags...
+            - button "Search" [ref=e129]
+          - generic [ref=e132]:
+            - generic [ref=e133]: "Trending:"
+            - button "midjourney" [ref=e134]
+            - button "fast" [ref=e135]
+            - button "video generators" [ref=e136]
+            - button "claude 3.7" [ref=e137]
+            - button "cursor" [ref=e138]
+        - generic [ref=e140]:
+          - paragraph [ref=e141]: Popular searches
+          - generic [ref=e142]:
+            - link "midjourney" [ref=e143] [cursor=pointer]:
+              - /url: /tools?q=midjourney
+            - link "fast" [ref=e144] [cursor=pointer]:
+              - /url: /tools?q=fast
+            - link "video generators" [ref=e145] [cursor=pointer]:
+              - /url: /tools?q=video%20generators
+            - link "claude 3.7" [ref=e146] [cursor=pointer]:
+              - /url: /tools?q=claude%203.7
+            - link "cursor" [ref=e147] [cursor=pointer]:
+              - /url: /tools?q=cursor
+        - generic [ref=e149]:
+          - generic [ref=e150]:
+            - generic [ref=e151]: "0"
+            - paragraph [ref=e152]: AI Tools
+          - generic [ref=e154]:
+            - generic [ref=e155]: "0"
+            - paragraph [ref=e156]: Categories
+          - generic [ref=e158]:
+            - generic [ref=e159]: 0%
+            - paragraph [ref=e161]: Verified
+      - generic [ref=e163]:
+        - paragraph [ref=e164]: Trusted by teams using the world's leading AI
+        - generic [ref=e166]:
+          - generic [ref=e167]:
+            - generic "ChatGPT" [ref=e168]:
+              - img "ChatGPT" [ref=e169]
+            - generic "Claude" [ref=e171]:
+              - img "Claude" [ref=e172]
+            - generic "Gemini" [ref=e174]:
+              - img "Gemini" [ref=e175]
+            - generic "Midjourney" [ref=e177]:
+              - img "Midjourney" [ref=e178]
+            - generic "Copilot" [ref=e180]:
+              - img "Copilot" [ref=e181]
+            - generic "Stable Diffusion" [ref=e183]:
+              - img "Stable Diffusion" [ref=e184]
+            - generic "Runway" [ref=e186]:
+              - img "Runway" [ref=e187]
+            - generic "Perplexity" [ref=e189]:
+              - img "Perplexity" [ref=e190]
+            - generic "Suno" [ref=e192]:
+              - img "Suno" [ref=e193]
+            - generic "Notion AI" [ref=e195]:
+              - img "Notion AI" [ref=e196]
+            - generic "Jasper" [ref=e198]:
+              - img "Jasper" [ref=e199]
+          - generic [ref=e201]:
+            - generic [ref=e202]: ChatGPT
+            - generic [ref=e205]: Claude
+            - generic [ref=e208]: Gemini
+            - generic [ref=e211]: Midjourney
+            - generic [ref=e214]: Copilot
+            - generic [ref=e217]: Stable Diffusion
+            - generic [ref=e220]: Runway
+            - generic [ref=e223]: Perplexity
+            - generic [ref=e226]: Suno
+            - generic [ref=e229]: Notion AI
+            - generic [ref=e232]: Jasper
+      - generic [ref=e235]:
+        - generic [ref=e237]:
+          - heading "Trending AI Tools" [level=2] [ref=e238]:
+            - text: Trending
+            - generic [ref=e242]: AI Tools
+          - link "View all" [ref=e243] [cursor=pointer]:
+            - /url: /tools
+        - generic [ref=e246]:
+          - generic [ref=e249]:
+            - generic [ref=e250]:
+              - link "DeepSeek Chat DeepSeek Chat Productivity 4.9" [ref=e251] [cursor=pointer]:
+                - /url: /tools/deepseek-chat
+                - img "DeepSeek Chat" [ref=e253]
+                - generic [ref=e254]:
+                  - heading "DeepSeek Chat" [level=3] [ref=e255]
+                  - paragraph [ref=e256]:
+                    - generic [ref=e257]: Productivity
+                    - generic [ref=e258]: "4.9"
+              - generic [ref=e261]: Featured
+            - link [ref=e265] [cursor=pointer]:
+              - /url: /tools/deepseek-chat
+              - paragraph [ref=e266]: Free web interface to access DeepSeek V3 and the DeepSeek R1 reasoning model. Extremely capable and completely free.
+            - generic [ref=e267]:
+              - link "#chatbot" [ref=e268] [cursor=pointer]:
+                - /url: /tools?q=chatbot
+              - link "#deepseek" [ref=e269] [cursor=pointer]:
+                - /url: /tools?q=deepseek
+              - link "#reasoning" [ref=e270] [cursor=pointer]:
+                - /url: /tools?q=reasoning
+            - generic [ref=e271]:
+              - generic [ref=e272]: Free
+              - link "View Details" [ref=e274] [cursor=pointer]:
+                - /url: /tools/deepseek-chat
+          - generic [ref=e280]:
+            - generic [ref=e281]:
+              - link "Supabase (Free Tier) Supabase (Free Tier) Developer 4.9" [ref=e282] [cursor=pointer]:
+                - /url: /tools/supabase
+                - img "Supabase (Free Tier)" [ref=e284]
+                - generic [ref=e285]:
+                  - heading "Supabase (Free Tier)" [level=3] [ref=e286]
+                  - paragraph [ref=e287]:
+                    - generic [ref=e288]: Developer
+                    - generic [ref=e289]: "4.9"
+              - generic [ref=e292]: Featured
+            - link [ref=e296] [cursor=pointer]:
+              - /url: /tools/supabase
+              - paragraph [ref=e297]: The open-source Firebase alternative. Generous free tier includes a Postgres database, Auth, Storage, and Edge Functions.
+            - generic [ref=e298]:
+              - link "#baas" [ref=e299] [cursor=pointer]:
+                - /url: /tools?q=baas
+              - link "#postgres" [ref=e300] [cursor=pointer]:
+                - /url: /tools?q=postgres
+              - link "#auth" [ref=e301] [cursor=pointer]:
+                - /url: /tools?q=auth
+            - generic [ref=e302]:
+              - generic [ref=e303]: Freemium
+              - link "View Details" [ref=e305] [cursor=pointer]:
+                - /url: /tools/supabase
+          - generic [ref=e311]:
+            - generic [ref=e312]:
+              - link "Cloudflare Pages Cloudflare Pages Developer 4.9" [ref=e313] [cursor=pointer]:
+                - /url: /tools/cloudflare-pages
+                - img "Cloudflare Pages" [ref=e315]
+                - generic [ref=e316]:
+                  - heading "Cloudflare Pages" [level=3] [ref=e317]
+                  - paragraph [ref=e318]:
+                    - generic [ref=e319]: Developer
+                    - generic [ref=e320]: "4.9"
+              - generic [ref=e323]: Featured
+            - link [ref=e327] [cursor=pointer]:
+              - /url: /tools/cloudflare-pages
+              - paragraph [ref=e328]: Deploy static and JAMstack sites. The free tier offers unlimited bandwidth, making it the best option for high-traffic free sites.
+            - generic [ref=e329]:
+              - link "#hosting" [ref=e330] [cursor=pointer]:
+                - /url: /tools?q=hosting
+              - link "#static" [ref=e331] [cursor=pointer]:
+                - /url: /tools?q=static
+              - link "#unlimited-bandwidth" [ref=e332] [cursor=pointer]:
+                - /url: /tools?q=unlimited-bandwidth
+            - generic [ref=e333]:
+              - generic [ref=e334]: Free
+              - link "View Details" [ref=e336] [cursor=pointer]:
+                - /url: /tools/cloudflare-pages
+          - generic [ref=e342]:
+            - generic [ref=e343]:
+              - link "Vercel (Hobby Tier) Vercel (Hobby Tier) Developer 4.9" [ref=e344] [cursor=pointer]:
+                - /url: /tools/vercel
+                - img "Vercel (Hobby Tier)" [ref=e346]
+                - generic [ref=e347]:
+                  - heading "Vercel (Hobby Tier)" [level=3] [ref=e348]
+                  - paragraph [ref=e349]:
+                    - generic [ref=e350]: Developer
+                    - generic [ref=e351]: "4.9"
+              - generic [ref=e354]: Featured
+            - link [ref=e358] [cursor=pointer]:
+              - /url: /tools/vercel
+              - paragraph [ref=e359]: The platform for frontend developers. Deploy Next.js, React, and Svelte apps globally for free on the Hobby tier.
+            - generic [ref=e360]:
+              - link "#hosting" [ref=e361] [cursor=pointer]:
+                - /url: /tools?q=hosting
+              - link "#nextjs" [ref=e362] [cursor=pointer]:
+                - /url: /tools?q=nextjs
+              - link "#frontend" [ref=e363] [cursor=pointer]:
+                - /url: /tools?q=frontend
+            - generic [ref=e364]:
+              - generic [ref=e365]: Freemium
+              - link "View Details" [ref=e367] [cursor=pointer]:
+                - /url: /tools/vercel
+      - generic [ref=e372]:
+        - generic [ref=e374]:
+          - heading "Explore AI by category" [level=2] [ref=e375]:
+            - text: Explore AI
+            - generic [ref=e381]: by category
+          - paragraph [ref=e382]: Browse tools across every category of creativity and productivity.
+        - generic [ref=e383]:
+          - link "Coding4" [ref=e385] [cursor=pointer]:
+            - /url: /tools?category=coding
+          - link "Image5" [ref=e387] [cursor=pointer]:
+            - /url: /tools?category=image
+          - link "Audio4" [ref=e389] [cursor=pointer]:
+            - /url: /tools?category=audio
+          - link "Research3" [ref=e391] [cursor=pointer]:
+            - /url: /tools?category=research
+          - link "Productivity5" [ref=e393] [cursor=pointer]:
+            - /url: /tools?category=productivity
+          - link "Developer24" [ref=e395] [cursor=pointer]:
+            - /url: /tools?category=developer
+          - link "Agents4" [ref=e397] [cursor=pointer]:
+            - /url: /tools?category=agents
+          - link "Models5" [ref=e399] [cursor=pointer]:
+            - /url: /tools?category=models
+        - link "View all categories" [ref=e402] [cursor=pointer]:
+          - /url: /categories
+      - generic [ref=e405]:
+        - generic [ref=e407]:
+          - heading "Recently Added" [level=2] [ref=e408]:
+            - text: Recently
+            - generic [ref=e412]: Added
+          - link "View all" [ref=e413] [cursor=pointer]:
+            - /url: /tools
+        - generic [ref=e416]:
+          - generic [ref=e419]:
+            - generic [ref=e420]:
+              - link "ChatGPT (Free Tier) ChatGPT (Free Tier) Productivity 4.8" [ref=e421] [cursor=pointer]:
+                - /url: /tools/chatgpt-free
+                - img "ChatGPT (Free Tier)" [ref=e423]
+                - generic [ref=e424]:
+                  - heading "ChatGPT (Free Tier)" [level=3] [ref=e425]
+                  - paragraph [ref=e426]:
+                    - generic [ref=e427]: Productivity
+                    - generic [ref=e429]: "4.8"
+              - generic [ref=e432]: Featured
+            - link [ref=e436] [cursor=pointer]:
+              - /url: /tools/chatgpt-free
+              - paragraph [ref=e437]: OpenAI offers GPT-4o Mini and limited GPT-4o usage completely for free. Includes data analysis, vision, and web search.
+            - generic [ref=e438]:
+              - link "#chatbot" [ref=e439] [cursor=pointer]:
+                - /url: /tools?q=chatbot
+              - link "#openai" [ref=e440] [cursor=pointer]:
+                - /url: /tools?q=openai
+              - link "#gpt-4o" [ref=e441] [cursor=pointer]:
+                - /url: /tools?q=gpt-4o
+            - generic [ref=e442]:
+              - generic [ref=e443]: Freemium
+              - link "View Details" [ref=e445] [cursor=pointer]:
+                - /url: /tools/chatgpt-free
+          - generic [ref=e451]:
+            - generic [ref=e452]:
+              - link "DeepSeek Chat DeepSeek Chat Productivity 4.9" [ref=e453] [cursor=pointer]:
+                - /url: /tools/deepseek-chat
+                - img "DeepSeek Chat" [ref=e455]
+                - generic [ref=e456]:
+                  - heading "DeepSeek Chat" [level=3] [ref=e457]
+                  - paragraph [ref=e458]:
+                    - generic [ref=e459]: Productivity
+                    - generic [ref=e461]: "4.9"
+              - generic [ref=e464]: Featured
+            - link [ref=e468] [cursor=pointer]:
+              - /url: /tools/deepseek-chat
+              - paragraph [ref=e469]: Free web interface to access DeepSeek V3 and the DeepSeek R1 reasoning model. Extremely capable and completely free.
+            - generic [ref=e470]:
+              - link "#chatbot" [ref=e471] [cursor=pointer]:
+                - /url: /tools?q=chatbot
+              - link "#deepseek" [ref=e472] [cursor=pointer]:
+                - /url: /tools?q=deepseek
+              - link "#reasoning" [ref=e473] [cursor=pointer]:
+                - /url: /tools?q=reasoning
+            - generic [ref=e474]:
+              - generic [ref=e475]: Free
+              - link "View Details" [ref=e477] [cursor=pointer]:
+                - /url: /tools/deepseek-chat
+          - generic [ref=e483]:
+            - link "Mistral NeMo Mistral NeMo Models 4.7" [ref=e485] [cursor=pointer]:
+              - /url: /tools/mistral
+              - img "Mistral NeMo" [ref=e487]
+              - generic [ref=e488]:
+                - heading "Mistral NeMo" [level=3] [ref=e489]
+                - paragraph [ref=e490]:
+                  - generic [ref=e491]: Models
+                  - generic [ref=e493]: "4.7"
+            - link [ref=e496] [cursor=pointer]:
+              - /url: /tools/mistral
+              - paragraph [ref=e497]: A 12B parameter open-source model built jointly by Mistral and NVIDIA, highly efficient and performant for its size.
+            - generic [ref=e498]:
+              - link "#open-source" [ref=e499] [cursor=pointer]:
+                - /url: /tools?q=open-source
+              - link "#mistral" [ref=e500] [cursor=pointer]:
+                - /url: /tools?q=mistral
+              - link "#nvidia" [ref=e501] [cursor=pointer]:
+                - /url: /tools?q=nvidia
+            - generic [ref=e502]:
+              - generic [ref=e503]: Free
+              - link "View Details" [ref=e505] [cursor=pointer]:
+                - /url: /tools/mistral
+      - generic [ref=e509]:
+        - generic [ref=e511]:
+          - heading "Free AI Tools" [level=2] [ref=e512]:
+            - text: Free
+            - generic [ref=e517]: AI Tools
+          - link "View all" [ref=e518] [cursor=pointer]:
+            - /url: /tools?pricing=free
+        - generic [ref=e521]:
+          - generic [ref=e524]:
+            - generic [ref=e525]:
+              - link "DeepSeek Chat DeepSeek Chat Productivity 4.9" [ref=e526] [cursor=pointer]:
+                - /url: /tools/deepseek-chat
+                - img "DeepSeek Chat" [ref=e528]
+                - generic [ref=e529]:
+                  - heading "DeepSeek Chat" [level=3] [ref=e530]
+                  - paragraph [ref=e531]:
+                    - generic [ref=e532]: Productivity
+                    - generic [ref=e534]: "4.9"
+              - generic [ref=e537]: Featured
+            - link [ref=e541] [cursor=pointer]:
+              - /url: /tools/deepseek-chat
+              - paragraph [ref=e542]: Free web interface to access DeepSeek V3 and the DeepSeek R1 reasoning model. Extremely capable and completely free.
+            - generic [ref=e543]:
+              - link "#chatbot" [ref=e544] [cursor=pointer]:
+                - /url: /tools?q=chatbot
+              - link "#deepseek" [ref=e545] [cursor=pointer]:
+                - /url: /tools?q=deepseek
+              - link "#reasoning" [ref=e546] [cursor=pointer]:
+                - /url: /tools?q=reasoning
+            - generic [ref=e547]:
+              - generic [ref=e548]: Free
+              - link "View Details" [ref=e550] [cursor=pointer]:
+                - /url: /tools/deepseek-chat
+          - generic [ref=e556]:
+            - generic [ref=e557]:
+              - link "Cloudflare Pages Cloudflare Pages Developer 4.9" [ref=e558] [cursor=pointer]:
+                - /url: /tools/cloudflare-pages
+                - img "Cloudflare Pages" [ref=e560]
+                - generic [ref=e561]:
+                  - heading "Cloudflare Pages" [level=3] [ref=e562]
+                  - paragraph [ref=e563]:
+                    - generic [ref=e564]: Developer
+                    - generic [ref=e566]: "4.9"
+              - generic [ref=e569]: Featured
+            - link [ref=e573] [cursor=pointer]:
+              - /url: /tools/cloudflare-pages
+              - paragraph [ref=e574]: Deploy static and JAMstack sites. The free tier offers unlimited bandwidth, making it the best option for high-traffic free sites.
+            - generic [ref=e575]:
+              - link "#hosting" [ref=e576] [cursor=pointer]:
+                - /url: /tools?q=hosting
+              - link "#static" [ref=e577] [cursor=pointer]:
+                - /url: /tools?q=static
+              - link "#unlimited-bandwidth" [ref=e578] [cursor=pointer]:
+                - /url: /tools?q=unlimited-bandwidth
+            - generic [ref=e579]:
+              - generic [ref=e580]: Free
+              - link "View Details" [ref=e582] [cursor=pointer]:
+                - /url: /tools/cloudflare-pages
+          - generic [ref=e588]:
+            - generic [ref=e589]:
+              - link "Google NotebookLM Google NotebookLM Research 4.9" [ref=e590] [cursor=pointer]:
+                - /url: /tools/notebooklm
+                - img "Google NotebookLM" [ref=e592]
+                - generic [ref=e593]:
+                  - heading "Google NotebookLM" [level=3] [ref=e594]
+                  - paragraph [ref=e595]:
+                    - generic [ref=e596]: Research
+                    - generic [ref=e598]: "4.9"
+              - generic [ref=e601]: Featured
+            - link [ref=e605] [cursor=pointer]:
+              - /url: /tools/notebooklm
+              - paragraph [ref=e606]: Google's free personalized AI researcher. Upload up to 50 documents and it acts as an expert on your sources, generating deep dive audio podcasts.
+            - generic [ref=e607]:
+              - link "#research" [ref=e608] [cursor=pointer]:
+                - /url: /tools?q=research
+              - link "#documents" [ref=e609] [cursor=pointer]:
+                - /url: /tools?q=documents
+              - link "#audio-overview" [ref=e610] [cursor=pointer]:
+                - /url: /tools?q=audio-overview
+            - generic [ref=e611]:
+              - generic [ref=e612]: Free
+              - link "View Details" [ref=e614] [cursor=pointer]:
+                - /url: /tools/notebooklm
+      - generic [ref=e619]:
+        - generic [ref=e621]:
+          - heading "Discover more than tools" [level=2] [ref=e622]:
+            - text: Discover more
+            - generic [ref=e627]: than tools
+          - paragraph [ref=e628]: Explore models, agents, and APIs built on the latest AI technology.
+        - generic [ref=e629]:
+          - generic [ref=e631]:
+            - heading "AI Models" [level=3] [ref=e636]
+            - paragraph [ref=e637]: Explore foundation models, open-weights, and local LLMs.
+            - link "Browse Models" [ref=e638] [cursor=pointer]:
+              - /url: /tools?entityType=MODEL
+          - generic [ref=e642]:
+            - heading "AI Agents" [level=3] [ref=e646]
+            - paragraph [ref=e647]: Find autonomous agents for coding, research, and daily workflows.
+            - link "Browse Agents" [ref=e648] [cursor=pointer]:
+              - /url: /tools?entityType=AGENT
+          - generic [ref=e652]:
+            - heading "AI APIs" [level=3] [ref=e658]
+            - paragraph [ref=e659]: Integrate powerful AI capabilities into your applications.
+            - link "Browse APIs" [ref=e660] [cursor=pointer]:
+              - /url: /tools?entityType=API
+  - contentinfo [ref=e663]:
+    - generic [ref=e664]:
+      - generic [ref=e665]:
+        - generic [ref=e666]:
+          - link "AI Tools Directory" [ref=e667] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e673]: Discover the best AI tools for work, business, creativity and productivity. Curated and reviewed for professionals.
+        - generic [ref=e674]:
+          - heading "Explore" [level=3] [ref=e675]
+          - list [ref=e676]:
+            - listitem [ref=e677]:
+              - link "All Tools" [ref=e678] [cursor=pointer]:
+                - /url: /tools
+            - listitem [ref=e679]:
+              - link "Categories" [ref=e680] [cursor=pointer]:
+                - /url: /categories
+            - listitem [ref=e681]:
+              - link "Featured" [ref=e682] [cursor=pointer]:
+                - /url: /tools?featured=true
+        - generic [ref=e683]:
+          - heading "Resources" [level=3] [ref=e684]
+          - list [ref=e685]:
+            - listitem [ref=e686]:
+              - link "Submit Tool" [ref=e687] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e688]:
+              - link "Contact" [ref=e689] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e690]:
+          - heading "Legal" [level=3] [ref=e691]
+          - list [ref=e692]:
+            - listitem [ref=e693]:
+              - link "Privacy" [ref=e694] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=e695]:
+              - link "Terms" [ref=e696] [cursor=pointer]:
+                - /url: /terms
+      - generic [ref=e697]:
+        - paragraph [ref=e698]: © 2026 AI Tools Directory. All rights reserved.
+        - paragraph [ref=e699]: Built with ❤ for the AI community.

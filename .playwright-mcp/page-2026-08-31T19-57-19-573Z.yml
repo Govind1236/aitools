@@ -1,0 +1,198 @@
+- generic [active] [ref=e1]:
+  - button "Open Next.js Dev Tools" [ref=e7] [cursor=pointer]
+  - alert [ref=e11]
+  - banner [ref=e12]:
+    - generic [ref=e14]:
+      - link "AI Tools Directory — Home" [ref=e15] [cursor=pointer]:
+        - /url: /
+        - generic [ref=e20]: AI Tools
+      - navigation "Main navigation" [ref=e21]:
+        - link "Explore" [ref=e22] [cursor=pointer]:
+          - /url: /tools
+        - link "Developer" [ref=e23] [cursor=pointer]:
+          - /url: /categories/developer
+        - link "Agents" [ref=e24] [cursor=pointer]:
+          - /url: /categories/agents
+        - link "Models" [ref=e25] [cursor=pointer]:
+          - /url: /categories/models
+        - link "Free Tools" [ref=e26] [cursor=pointer]:
+          - /url: /tools?pricing=free
+      - generic [ref=e27]:
+        - link "Search... /" [ref=e28] [cursor=pointer]:
+          - /url: /search
+          - generic [ref=e29]: Search...
+          - generic [ref=e34]: /
+        - button "Toggle theme" [ref=e35]
+        - link "Admin" [ref=e43] [cursor=pointer]:
+          - /url: /admin
+  - main [ref=e49]:
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - generic [ref=e53]: Curated Directory (54 tools)
+          - heading "Search results for \"deepseek\"" [level=1] [ref=e58]
+          - paragraph [ref=e59]: Showing 2 tools matching "deepseek"
+        - textbox "Search all tools..." [ref=e64]: deepseek
+      - generic [ref=e65]:
+        - generic [ref=e66]:
+          - link "All Categories (54)" [ref=e67] [cursor=pointer]:
+            - /url: /tools?q=deepseek
+          - link "Coding(4)" [ref=e68] [cursor=pointer]:
+            - /url: /tools?q=deepseek&category=coding
+            - text: Coding
+            - generic [ref=e69]: (4)
+          - link "Image(5)" [ref=e70] [cursor=pointer]:
+            - /url: /tools?q=deepseek&category=image
+            - text: Image
+            - generic [ref=e71]: (5)
+          - link "Audio(4)" [ref=e72] [cursor=pointer]:
+            - /url: /tools?q=deepseek&category=audio
+            - text: Audio
+            - generic [ref=e73]: (4)
+          - link "Research(3)" [ref=e74] [cursor=pointer]:
+            - /url: /tools?q=deepseek&category=research
+            - text: Research
+            - generic [ref=e75]: (3)
+          - link "Productivity(5)" [ref=e76] [cursor=pointer]:
+            - /url: /tools?q=deepseek&category=productivity
+            - text: Productivity
+            - generic [ref=e77]: (5)
+          - link "Developer(24)" [ref=e78] [cursor=pointer]:
+            - /url: /tools?q=deepseek&category=developer
+            - text: Developer
+            - generic [ref=e79]: (24)
+          - link "Agents(4)" [ref=e80] [cursor=pointer]:
+            - /url: /tools?q=deepseek&category=agents
+            - text: Agents
+            - generic [ref=e81]: (4)
+          - link "Models(5)" [ref=e82] [cursor=pointer]:
+            - /url: /tools?q=deepseek&category=models
+            - text: Models
+            - generic [ref=e83]: (5)
+        - generic [ref=e85]:
+          - generic [ref=e86]: "Pricing:"
+          - link "Any" [ref=e88] [cursor=pointer]:
+            - /url: /tools?q=deepseek
+          - link "Free" [ref=e89] [cursor=pointer]:
+            - /url: /tools?q=deepseek&pricing=free
+          - link "Freemium" [ref=e90] [cursor=pointer]:
+            - /url: /tools?q=deepseek&pricing=freemium
+          - link "Paid" [ref=e91] [cursor=pointer]:
+            - /url: /tools?q=deepseek&pricing=paid
+          - link "Contact" [ref=e92] [cursor=pointer]:
+            - /url: /tools?q=deepseek&pricing=contact
+          - link "Tools" [ref=e94] [cursor=pointer]:
+            - /url: /tools?q=deepseek&entityType=TOOL
+          - link "Models" [ref=e95] [cursor=pointer]:
+            - /url: /tools?q=deepseek&entityType=MODEL
+          - link "Agents" [ref=e96] [cursor=pointer]:
+            - /url: /tools?q=deepseek&entityType=AGENT
+          - link "Apis" [ref=e97] [cursor=pointer]:
+            - /url: /tools?q=deepseek&entityType=API
+          - link "Infrastructures" [ref=e98] [cursor=pointer]:
+            - /url: /tools?q=deepseek&entityType=INFRASTRUCTURE
+          - link "Resources" [ref=e99] [cursor=pointer]:
+            - /url: /tools?q=deepseek&entityType=RESOURCE
+          - link "Free" [ref=e101] [cursor=pointer]:
+            - /url: /tools?q=deepseek&attributes=free
+          - link "Free Tier" [ref=e102] [cursor=pointer]:
+            - /url: /tools?q=deepseek&attributes=free-tier
+          - link "Open Source" [ref=e103] [cursor=pointer]:
+            - /url: /tools?q=deepseek&attributes=open-source
+          - link "Local" [ref=e104] [cursor=pointer]:
+            - /url: /tools?q=deepseek&attributes=local
+          - link "API Available" [ref=e105] [cursor=pointer]:
+            - /url: /tools?q=deepseek&attributes=api
+          - link "No Signup" [ref=e106] [cursor=pointer]:
+            - /url: /tools?q=deepseek&attributes=no-signup
+      - generic [ref=e107]:
+        - generic [ref=e109]:
+          - generic [ref=e110]:
+            - link "DeepSeek Chat DeepSeek Chat Productivity 4.9" [ref=e111] [cursor=pointer]:
+              - /url: /tools/deepseek-chat
+              - img "DeepSeek Chat" [ref=e113]
+              - generic [ref=e114]:
+                - heading "DeepSeek Chat" [level=3] [ref=e115]
+                - paragraph [ref=e116]:
+                  - generic [ref=e117]: Productivity
+                  - generic [ref=e119]: "4.9"
+            - generic [ref=e122]: Featured
+          - link [ref=e126] [cursor=pointer]:
+            - /url: /tools/deepseek-chat
+            - paragraph [ref=e127]: Free web interface to access DeepSeek V3 and the DeepSeek R1 reasoning model. Extremely capable and completely free.
+          - generic [ref=e128]:
+            - link "#chatbot" [ref=e129] [cursor=pointer]:
+              - /url: /tools?q=chatbot
+            - link "#deepseek" [ref=e130] [cursor=pointer]:
+              - /url: /tools?q=deepseek
+            - link "#reasoning" [ref=e131] [cursor=pointer]:
+              - /url: /tools?q=reasoning
+          - generic [ref=e132]:
+            - generic [ref=e133]: Free
+            - link "View Details" [ref=e135] [cursor=pointer]:
+              - /url: /tools/deepseek-chat
+        - generic [ref=e140]:
+          - generic [ref=e141]:
+            - link "DeepSeek R1 DeepSeek R1 Models 4.9" [ref=e142] [cursor=pointer]:
+              - /url: /tools/deepseek-r1
+              - img "DeepSeek R1" [ref=e144]
+              - generic [ref=e145]:
+                - heading "DeepSeek R1" [level=3] [ref=e146]
+                - paragraph [ref=e147]:
+                  - generic [ref=e148]: Models
+                  - generic [ref=e150]: "4.9"
+            - generic [ref=e153]: Featured
+          - link [ref=e157] [cursor=pointer]:
+            - /url: /tools/deepseek-r1
+            - paragraph [ref=e158]: State-of-the-art open-weights reasoning model that rivals proprietary models in math, logic, and coding tasks.
+          - generic [ref=e159]:
+            - link "#open-source" [ref=e160] [cursor=pointer]:
+              - /url: /tools?q=open-source
+            - link "#reasoning" [ref=e161] [cursor=pointer]:
+              - /url: /tools?q=reasoning
+            - link "#deepseek" [ref=e162] [cursor=pointer]:
+              - /url: /tools?q=deepseek
+          - generic [ref=e163]:
+            - generic [ref=e164]: Free
+            - link "View Details" [ref=e166] [cursor=pointer]:
+              - /url: /tools/deepseek-r1
+  - contentinfo [ref=e170]:
+    - generic [ref=e171]:
+      - generic [ref=e172]:
+        - generic [ref=e173]:
+          - link "AI Tools Directory" [ref=e174] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=e180]: Discover the best AI tools for work, business, creativity and productivity. Curated and reviewed for professionals.
+        - generic [ref=e181]:
+          - heading "Explore" [level=3] [ref=e182]
+          - list [ref=e183]:
+            - listitem [ref=e184]:
+              - link "All Tools" [ref=e185] [cursor=pointer]:
+                - /url: /tools
+            - listitem [ref=e186]:
+              - link "Categories" [ref=e187] [cursor=pointer]:
+                - /url: /categories
+            - listitem [ref=e188]:
+              - link "Featured" [ref=e189] [cursor=pointer]:
+                - /url: /tools?featured=true
+        - generic [ref=e190]:
+          - heading "Resources" [level=3] [ref=e191]
+          - list [ref=e192]:
+            - listitem [ref=e193]:
+              - link "Submit Tool" [ref=e194] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e195]:
+              - link "Contact" [ref=e196] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=e197]:
+          - heading "Legal" [level=3] [ref=e198]
+          - list [ref=e199]:
+            - listitem [ref=e200]:
+              - link "Privacy" [ref=e201] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=e202]:
+              - link "Terms" [ref=e203] [cursor=pointer]:
+                - /url: /terms
+      - generic [ref=e204]:
+        - paragraph [ref=e205]: © 2026 AI Tools Directory. All rights reserved.
+        - paragraph [ref=e206]: Built with ❤ for the AI community.

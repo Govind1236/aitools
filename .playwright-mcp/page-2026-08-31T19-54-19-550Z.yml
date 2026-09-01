@@ -1,0 +1,1468 @@
+- generic [active] [ref=f1e1]:
+  - button "Open Next.js Dev Tools" [ref=f1e7] [cursor=pointer]:
+    - generic [ref=f1e10]:
+      - text: Compiling
+      - generic [ref=f1e11]:
+        - generic [ref=f1e12]: .
+        - generic [ref=f1e13]: .
+        - generic [ref=f1e14]: .
+  - alert [ref=f1e15]
+  - banner [ref=f1e16]:
+    - generic [ref=f1e18]:
+      - link "AI Tools Directory — Home" [ref=f1e19] [cursor=pointer]:
+        - /url: /
+        - generic [ref=f1e24]: AI Tools
+      - navigation "Main navigation" [ref=f1e25]:
+        - link "Explore" [ref=f1e26] [cursor=pointer]:
+          - /url: /tools
+        - link "Developer" [ref=f1e27] [cursor=pointer]:
+          - /url: /categories/developer
+        - link "Agents" [ref=f1e28] [cursor=pointer]:
+          - /url: /categories/agents
+        - link "Models" [ref=f1e29] [cursor=pointer]:
+          - /url: /categories/models
+        - link "Free Tools" [ref=f1e30] [cursor=pointer]:
+          - /url: /tools?pricing=free
+      - generic [ref=f1e31]:
+        - link "Search... /" [ref=f1e32] [cursor=pointer]:
+          - /url: /search
+          - generic [ref=f1e33]: Search...
+          - generic [ref=f1e38]: /
+        - button "Toggle theme" [ref=f1e39]
+        - link "Admin" [ref=f1e47] [cursor=pointer]:
+          - /url: /admin
+  - main [ref=f1e53]:
+    - generic [ref=f1e54]:
+      - generic [ref=f1e55]:
+        - generic [ref=f1e56]:
+          - generic [ref=f1e57]: Curated Directory (54 tools)
+          - heading "All AI Tools" [level=1] [ref=f1e62]
+          - paragraph [ref=f1e63]: Showing 54 tools
+        - textbox "Search all tools..." [ref=f1e68]
+      - generic [ref=f1e69]:
+        - generic [ref=f1e70]:
+          - link "All Categories (54)" [ref=f1e71] [cursor=pointer]:
+            - /url: /tools
+          - link "Coding(4)" [ref=f1e72] [cursor=pointer]:
+            - /url: /tools?category=coding
+            - text: Coding
+            - generic [ref=f1e73]: (4)
+          - link "Image(5)" [ref=f1e74] [cursor=pointer]:
+            - /url: /tools?category=image
+            - text: Image
+            - generic [ref=f1e75]: (5)
+          - link "Audio(4)" [ref=f1e76] [cursor=pointer]:
+            - /url: /tools?category=audio
+            - text: Audio
+            - generic [ref=f1e77]: (4)
+          - link "Research(3)" [ref=f1e78] [cursor=pointer]:
+            - /url: /tools?category=research
+            - text: Research
+            - generic [ref=f1e79]: (3)
+          - link "Productivity(5)" [ref=f1e80] [cursor=pointer]:
+            - /url: /tools?category=productivity
+            - text: Productivity
+            - generic [ref=f1e81]: (5)
+          - link "Developer(24)" [ref=f1e82] [cursor=pointer]:
+            - /url: /tools?category=developer
+            - text: Developer
+            - generic [ref=f1e83]: (24)
+          - link "Agents(4)" [ref=f1e84] [cursor=pointer]:
+            - /url: /tools?category=agents
+            - text: Agents
+            - generic [ref=f1e85]: (4)
+          - link "Models(5)" [ref=f1e86] [cursor=pointer]:
+            - /url: /tools?category=models
+            - text: Models
+            - generic [ref=f1e87]: (5)
+        - generic [ref=f1e89]:
+          - generic [ref=f1e90]: "Pricing:"
+          - link "Any" [ref=f1e92] [cursor=pointer]:
+            - /url: /tools
+          - link "Free" [ref=f1e93] [cursor=pointer]:
+            - /url: /tools?pricing=free
+          - link "Freemium" [ref=f1e94] [cursor=pointer]:
+            - /url: /tools?pricing=freemium
+          - link "Paid" [ref=f1e95] [cursor=pointer]:
+            - /url: /tools?pricing=paid
+          - link "Contact" [ref=f1e96] [cursor=pointer]:
+            - /url: /tools?pricing=contact
+          - link "Tools" [ref=f1e98] [cursor=pointer]:
+            - /url: /tools?entityType=TOOL
+          - link "Models" [ref=f1e99] [cursor=pointer]:
+            - /url: /tools?entityType=MODEL
+          - link "Agents" [ref=f1e100] [cursor=pointer]:
+            - /url: /tools?entityType=AGENT
+          - link "Apis" [ref=f1e101] [cursor=pointer]:
+            - /url: /tools?entityType=API
+          - link "Infrastructures" [ref=f1e102] [cursor=pointer]:
+            - /url: /tools?entityType=INFRASTRUCTURE
+          - link "Resources" [ref=f1e103] [cursor=pointer]:
+            - /url: /tools?entityType=RESOURCE
+          - link "Free" [ref=f1e105] [cursor=pointer]:
+            - /url: /tools?attributes=free
+          - link "Free Tier" [ref=f1e106] [cursor=pointer]:
+            - /url: /tools?attributes=free-tier
+          - link "Open Source" [ref=f1e107] [cursor=pointer]:
+            - /url: /tools?attributes=open-source
+          - link "Local" [ref=f1e108] [cursor=pointer]:
+            - /url: /tools?attributes=local
+          - link "API Available" [ref=f1e109] [cursor=pointer]:
+            - /url: /tools?attributes=api
+          - link "No Signup" [ref=f1e110] [cursor=pointer]:
+            - /url: /tools?attributes=no-signup
+      - generic [ref=f1e111]:
+        - generic [ref=f1e113]:
+          - generic [ref=f1e114]:
+            - link "DeepSeek Chat DeepSeek Chat Productivity 4.9" [ref=f1e115] [cursor=pointer]:
+              - /url: /tools/deepseek-chat
+              - img "DeepSeek Chat" [ref=f1e117]
+              - generic [ref=f1e118]:
+                - heading "DeepSeek Chat" [level=3] [ref=f1e119]
+                - paragraph [ref=f1e120]:
+                  - generic [ref=f1e121]: Productivity
+                  - generic [ref=f1e123]: "4.9"
+            - generic [ref=f1e126]: Featured
+          - link [ref=f1e130] [cursor=pointer]:
+            - /url: /tools/deepseek-chat
+            - paragraph [ref=f1e131]: Free web interface to access DeepSeek V3 and the DeepSeek R1 reasoning model. Extremely capable and completely free.
+          - generic [ref=f1e132]:
+            - link "#chatbot" [ref=f1e133] [cursor=pointer]:
+              - /url: /tools?q=chatbot
+            - link "#deepseek" [ref=f1e134] [cursor=pointer]:
+              - /url: /tools?q=deepseek
+            - link "#reasoning" [ref=f1e135] [cursor=pointer]:
+              - /url: /tools?q=reasoning
+          - generic [ref=f1e136]:
+            - generic [ref=f1e137]: Free
+            - link "View Details" [ref=f1e139] [cursor=pointer]:
+              - /url: /tools/deepseek-chat
+        - generic [ref=f1e144]:
+          - generic [ref=f1e145]:
+            - link "Supabase (Free Tier) Supabase (Free Tier) Developer 4.9" [ref=f1e146] [cursor=pointer]:
+              - /url: /tools/supabase
+              - img "Supabase (Free Tier)" [ref=f1e148]
+              - generic [ref=f1e149]:
+                - heading "Supabase (Free Tier)" [level=3] [ref=f1e150]
+                - paragraph [ref=f1e151]:
+                  - generic [ref=f1e152]: Developer
+                  - generic [ref=f1e154]: "4.9"
+            - generic [ref=f1e157]: Featured
+          - link [ref=f1e161] [cursor=pointer]:
+            - /url: /tools/supabase
+            - paragraph [ref=f1e162]: The open-source Firebase alternative. Generous free tier includes a Postgres database, Auth, Storage, and Edge Functions.
+          - generic [ref=f1e163]:
+            - link "#baas" [ref=f1e164] [cursor=pointer]:
+              - /url: /tools?q=baas
+            - link "#postgres" [ref=f1e165] [cursor=pointer]:
+              - /url: /tools?q=postgres
+            - link "#auth" [ref=f1e166] [cursor=pointer]:
+              - /url: /tools?q=auth
+          - generic [ref=f1e167]:
+            - generic [ref=f1e168]: Freemium
+            - link "View Details" [ref=f1e170] [cursor=pointer]:
+              - /url: /tools/supabase
+        - generic [ref=f1e175]:
+          - generic [ref=f1e176]:
+            - link "Cloudflare Pages Cloudflare Pages Developer 4.9" [ref=f1e177] [cursor=pointer]:
+              - /url: /tools/cloudflare-pages
+              - img "Cloudflare Pages" [ref=f1e179]
+              - generic [ref=f1e180]:
+                - heading "Cloudflare Pages" [level=3] [ref=f1e181]
+                - paragraph [ref=f1e182]:
+                  - generic [ref=f1e183]: Developer
+                  - generic [ref=f1e185]: "4.9"
+            - generic [ref=f1e188]: Featured
+          - link [ref=f1e192] [cursor=pointer]:
+            - /url: /tools/cloudflare-pages
+            - paragraph [ref=f1e193]: Deploy static and JAMstack sites. The free tier offers unlimited bandwidth, making it the best option for high-traffic free sites.
+          - generic [ref=f1e194]:
+            - link "#hosting" [ref=f1e195] [cursor=pointer]:
+              - /url: /tools?q=hosting
+            - link "#static" [ref=f1e196] [cursor=pointer]:
+              - /url: /tools?q=static
+            - link "#unlimited-bandwidth" [ref=f1e197] [cursor=pointer]:
+              - /url: /tools?q=unlimited-bandwidth
+          - generic [ref=f1e198]:
+            - generic [ref=f1e199]: Free
+            - link "View Details" [ref=f1e201] [cursor=pointer]:
+              - /url: /tools/cloudflare-pages
+        - generic [ref=f1e206]:
+          - generic [ref=f1e207]:
+            - link "Vercel (Hobby Tier) Vercel (Hobby Tier) Developer 4.9" [ref=f1e208] [cursor=pointer]:
+              - /url: /tools/vercel
+              - img "Vercel (Hobby Tier)" [ref=f1e210]
+              - generic [ref=f1e211]:
+                - heading "Vercel (Hobby Tier)" [level=3] [ref=f1e212]
+                - paragraph [ref=f1e213]:
+                  - generic [ref=f1e214]: Developer
+                  - generic [ref=f1e216]: "4.9"
+            - generic [ref=f1e219]: Featured
+          - link [ref=f1e223] [cursor=pointer]:
+            - /url: /tools/vercel
+            - paragraph [ref=f1e224]: The platform for frontend developers. Deploy Next.js, React, and Svelte apps globally for free on the Hobby tier.
+          - generic [ref=f1e225]:
+            - link "#hosting" [ref=f1e226] [cursor=pointer]:
+              - /url: /tools?q=hosting
+            - link "#nextjs" [ref=f1e227] [cursor=pointer]:
+              - /url: /tools?q=nextjs
+            - link "#frontend" [ref=f1e228] [cursor=pointer]:
+              - /url: /tools?q=frontend
+          - generic [ref=f1e229]:
+            - generic [ref=f1e230]: Freemium
+            - link "View Details" [ref=f1e232] [cursor=pointer]:
+              - /url: /tools/vercel
+        - generic [ref=f1e237]:
+          - generic [ref=f1e238]:
+            - link "Google NotebookLM Google NotebookLM Research 4.9" [ref=f1e239] [cursor=pointer]:
+              - /url: /tools/notebooklm
+              - img "Google NotebookLM" [ref=f1e241]
+              - generic [ref=f1e242]:
+                - heading "Google NotebookLM" [level=3] [ref=f1e243]
+                - paragraph [ref=f1e244]:
+                  - generic [ref=f1e245]: Research
+                  - generic [ref=f1e247]: "4.9"
+            - generic [ref=f1e250]: Featured
+          - link [ref=f1e254] [cursor=pointer]:
+            - /url: /tools/notebooklm
+            - paragraph [ref=f1e255]: Google's free personalized AI researcher. Upload up to 50 documents and it acts as an expert on your sources, generating deep dive audio podcasts.
+          - generic [ref=f1e256]:
+            - link "#research" [ref=f1e257] [cursor=pointer]:
+              - /url: /tools?q=research
+            - link "#documents" [ref=f1e258] [cursor=pointer]:
+              - /url: /tools?q=documents
+            - link "#audio-overview" [ref=f1e259] [cursor=pointer]:
+              - /url: /tools?q=audio-overview
+          - generic [ref=f1e260]:
+            - generic [ref=f1e261]: Free
+            - link "View Details" [ref=f1e263] [cursor=pointer]:
+              - /url: /tools/notebooklm
+        - generic [ref=f1e268]:
+          - generic [ref=f1e269]:
+            - link "Perplexity AI (Free Tier) Perplexity AI (Free Tier) Research 4.9" [ref=f1e270] [cursor=pointer]:
+              - /url: /tools/perplexity-free
+              - img "Perplexity AI (Free Tier)" [ref=f1e272]
+              - generic [ref=f1e273]:
+                - heading "Perplexity AI (Free Tier)" [level=3] [ref=f1e274]
+                - paragraph [ref=f1e275]:
+                  - generic [ref=f1e276]: Research
+                  - generic [ref=f1e278]: "4.9"
+            - generic [ref=f1e281]: Featured
+          - link [ref=f1e285] [cursor=pointer]:
+            - /url: /tools/perplexity-free
+            - paragraph [ref=f1e286]: The revolutionary AI answer engine. The free tier provides unlimited quick searches and a limited number of Pro searches daily.
+          - generic [ref=f1e287]:
+            - link "#search" [ref=f1e288] [cursor=pointer]:
+              - /url: /tools?q=search
+            - link "#answer-engine" [ref=f1e289] [cursor=pointer]:
+              - /url: /tools?q=answer-engine
+            - link "#citations" [ref=f1e290] [cursor=pointer]:
+              - /url: /tools?q=citations
+          - generic [ref=f1e291]:
+            - generic [ref=f1e292]: Freemium
+            - link "View Details" [ref=f1e294] [cursor=pointer]:
+              - /url: /tools/perplexity-free
+        - generic [ref=f1e299]:
+          - generic [ref=f1e300]:
+            - link "Whisper (OpenAI) Whisper (OpenAI) Audio 4.9" [ref=f1e301] [cursor=pointer]:
+              - /url: /tools/whisper
+              - img "Whisper (OpenAI)" [ref=f1e303]
+              - generic [ref=f1e304]:
+                - heading "Whisper (OpenAI)" [level=3] [ref=f1e305]
+                - paragraph [ref=f1e306]:
+                  - generic [ref=f1e307]: Audio
+                  - generic [ref=f1e309]: "4.9"
+            - generic [ref=f1e312]: Featured
+          - link [ref=f1e316] [cursor=pointer]:
+            - /url: /tools/whisper
+            - paragraph [ref=f1e317]: OpenAI's robust, open-source speech recognition system. Transcribe audio to text locally for free with incredible accuracy across languages.
+          - generic [ref=f1e318]:
+            - link "#transcription" [ref=f1e319] [cursor=pointer]:
+              - /url: /tools?q=transcription
+            - link "#open-source" [ref=f1e320] [cursor=pointer]:
+              - /url: /tools?q=open-source
+            - link "#speech-to-text" [ref=f1e321] [cursor=pointer]:
+              - /url: /tools?q=speech-to-text
+          - generic [ref=f1e322]:
+            - generic [ref=f1e323]: Free
+            - link "View Details" [ref=f1e325] [cursor=pointer]:
+              - /url: /tools/whisper
+        - generic [ref=f1e330]:
+          - generic [ref=f1e331]:
+            - link "FLUX.1 (schnell) FLUX.1 (schnell) Image 4.9" [ref=f1e332] [cursor=pointer]:
+              - /url: /tools/flux-schnell
+              - img "FLUX.1 (schnell)" [ref=f1e334]
+              - generic [ref=f1e335]:
+                - heading "FLUX.1 (schnell)" [level=3] [ref=f1e336]
+                - paragraph [ref=f1e337]:
+                  - generic [ref=f1e338]: Image
+                  - generic [ref=f1e340]: "4.9"
+            - generic [ref=f1e343]: Featured
+          - link [ref=f1e347] [cursor=pointer]:
+            - /url: /tools/flux-schnell
+            - paragraph [ref=f1e348]: Black Forest Labs' open-weight fast image generation model. Extremely high quality, free to download, and runnable locally or via API.
+          - generic [ref=f1e349]:
+            - link "#image" [ref=f1e350] [cursor=pointer]:
+              - /url: /tools?q=image
+            - link "#open-source" [ref=f1e351] [cursor=pointer]:
+              - /url: /tools?q=open-source
+            - link "#flux" [ref=f1e352] [cursor=pointer]:
+              - /url: /tools?q=flux
+          - generic [ref=f1e353]:
+            - generic [ref=f1e354]: Free
+            - link "View Details" [ref=f1e356] [cursor=pointer]:
+              - /url: /tools/flux-schnell
+        - generic [ref=f1e361]:
+          - generic [ref=f1e362]:
+            - link "Claude (Free Tier) Claude (Free Tier) Productivity 4.9" [ref=f1e363] [cursor=pointer]:
+              - /url: /tools/claude-free
+              - img "Claude (Free Tier)" [ref=f1e365]
+              - generic [ref=f1e366]:
+                - heading "Claude (Free Tier)" [level=3] [ref=f1e367]
+                - paragraph [ref=f1e368]:
+                  - generic [ref=f1e369]: Productivity
+                  - generic [ref=f1e371]: "4.9"
+            - generic [ref=f1e374]: Featured
+          - link [ref=f1e378] [cursor=pointer]:
+            - /url: /tools/claude-free
+            - paragraph [ref=f1e379]: Anthropic provides free access to Claude 3.5 Sonnet, arguably the best coding and writing model currently available.
+          - generic [ref=f1e380]:
+            - link "#chatbot" [ref=f1e381] [cursor=pointer]:
+              - /url: /tools?q=chatbot
+            - link "#anthropic" [ref=f1e382] [cursor=pointer]:
+              - /url: /tools?q=anthropic
+            - link "#sonnet" [ref=f1e383] [cursor=pointer]:
+              - /url: /tools?q=sonnet
+          - generic [ref=f1e384]:
+            - generic [ref=f1e385]: Freemium
+            - link "View Details" [ref=f1e387] [cursor=pointer]:
+              - /url: /tools/claude-free
+        - generic [ref=f1e392]:
+          - generic [ref=f1e393]:
+            - link "Ollama Ollama Developer 4.9" [ref=f1e394] [cursor=pointer]:
+              - /url: /tools/ollama
+              - img "Ollama" [ref=f1e396]
+              - generic [ref=f1e397]:
+                - heading "Ollama" [level=3] [ref=f1e398]
+                - paragraph [ref=f1e399]:
+                  - generic [ref=f1e400]: Developer
+                  - generic [ref=f1e402]: "4.9"
+            - generic [ref=f1e405]: Featured
+          - link [ref=f1e409] [cursor=pointer]:
+            - /url: /tools/ollama
+            - paragraph [ref=f1e410]: Get up and running with large language models locally. Run Llama 3, Phi 3, Mistral, and more locally via CLI or API.
+          - generic [ref=f1e411]:
+            - link "#local" [ref=f1e412] [cursor=pointer]:
+              - /url: /tools?q=local
+            - link "#cli" [ref=f1e413] [cursor=pointer]:
+              - /url: /tools?q=cli
+            - link "#runner" [ref=f1e414] [cursor=pointer]:
+              - /url: /tools?q=runner
+          - generic [ref=f1e415]:
+            - generic [ref=f1e416]: Free
+            - link "View Details" [ref=f1e418] [cursor=pointer]:
+              - /url: /tools/ollama
+        - generic [ref=f1e423]:
+          - generic [ref=f1e424]:
+            - link "DeepSeek R1 DeepSeek R1 Models 4.9" [ref=f1e425] [cursor=pointer]:
+              - /url: /tools/deepseek-r1
+              - img "DeepSeek R1" [ref=f1e427]
+              - generic [ref=f1e428]:
+                - heading "DeepSeek R1" [level=3] [ref=f1e429]
+                - paragraph [ref=f1e430]:
+                  - generic [ref=f1e431]: Models
+                  - generic [ref=f1e433]: "4.9"
+            - generic [ref=f1e436]: Featured
+          - link [ref=f1e440] [cursor=pointer]:
+            - /url: /tools/deepseek-r1
+            - paragraph [ref=f1e441]: State-of-the-art open-weights reasoning model that rivals proprietary models in math, logic, and coding tasks.
+          - generic [ref=f1e442]:
+            - link "#open-source" [ref=f1e443] [cursor=pointer]:
+              - /url: /tools?q=open-source
+            - link "#reasoning" [ref=f1e444] [cursor=pointer]:
+              - /url: /tools?q=reasoning
+            - link "#deepseek" [ref=f1e445] [cursor=pointer]:
+              - /url: /tools?q=deepseek
+          - generic [ref=f1e446]:
+            - generic [ref=f1e447]: Free
+            - link "View Details" [ref=f1e449] [cursor=pointer]:
+              - /url: /tools/deepseek-r1
+        - generic [ref=f1e454]:
+          - generic [ref=f1e455]:
+            - link "Browser Use Browser Use Agents 4.9" [ref=f1e456] [cursor=pointer]:
+              - /url: /tools/browser-use
+              - img "Browser Use" [ref=f1e458]
+              - generic [ref=f1e459]:
+                - heading "Browser Use" [level=3] [ref=f1e460]
+                - paragraph [ref=f1e461]:
+                  - generic [ref=f1e462]: Agents
+                  - generic [ref=f1e464]: "4.9"
+            - generic [ref=f1e467]: Featured
+          - link [ref=f1e471] [cursor=pointer]:
+            - /url: /tools/browser-use
+            - paragraph [ref=f1e472]: An open-source library that allows AI agents to securely interact with and control web browsers like a human.
+          - generic [ref=f1e473]:
+            - link "#agent" [ref=f1e474] [cursor=pointer]:
+              - /url: /tools?q=agent
+            - link "#browser" [ref=f1e475] [cursor=pointer]:
+              - /url: /tools?q=browser
+            - link "#automation" [ref=f1e476] [cursor=pointer]:
+              - /url: /tools?q=automation
+          - generic [ref=f1e477]:
+            - generic [ref=f1e478]: Free
+            - link "View Details" [ref=f1e480] [cursor=pointer]:
+              - /url: /tools/browser-use
+        - generic [ref=f1e485]:
+          - generic [ref=f1e486]:
+            - link "Meta Llama 3.1 Meta Llama 3.1 Models 4.9" [ref=f1e487] [cursor=pointer]:
+              - /url: /tools/llama-3-1
+              - img "Meta Llama 3.1" [ref=f1e489]
+              - generic [ref=f1e490]:
+                - heading "Meta Llama 3.1" [level=3] [ref=f1e491]
+                - paragraph [ref=f1e492]:
+                  - generic [ref=f1e493]: Models
+                  - generic [ref=f1e495]: "4.9"
+            - generic [ref=f1e498]: Featured
+          - link [ref=f1e502] [cursor=pointer]:
+            - /url: /tools/llama-3-1
+            - paragraph [ref=f1e503]: Meta's most capable open-source models (8B, 70B, 405B) offering incredible performance for general text generation and coding.
+          - generic [ref=f1e504]:
+            - link "#open-source" [ref=f1e505] [cursor=pointer]:
+              - /url: /tools?q=open-source
+            - link "#meta" [ref=f1e506] [cursor=pointer]:
+              - /url: /tools?q=meta
+            - link "#llama" [ref=f1e507] [cursor=pointer]:
+              - /url: /tools?q=llama
+          - generic [ref=f1e508]:
+            - generic [ref=f1e509]: Free
+            - link "View Details" [ref=f1e511] [cursor=pointer]:
+              - /url: /tools/llama-3-1
+        - generic [ref=f1e516]:
+          - generic [ref=f1e517]:
+            - link "Groq API Groq API Developer 4.9" [ref=f1e518] [cursor=pointer]:
+              - /url: /tools/groq-api
+              - img "Groq API" [ref=f1e520]
+              - generic [ref=f1e521]:
+                - heading "Groq API" [level=3] [ref=f1e522]
+                - paragraph [ref=f1e523]:
+                  - generic [ref=f1e524]: Developer
+                  - generic [ref=f1e526]: "4.9"
+            - generic [ref=f1e529]: Featured
+          - link [ref=f1e533] [cursor=pointer]:
+            - /url: /tools/groq-api
+            - paragraph [ref=f1e534]: Lightning-fast inference API running open-source models (Llama 3, Mixtral) on LPUs. Offers a generous free tier for developers.
+          - generic [ref=f1e535]:
+            - link "#api" [ref=f1e536] [cursor=pointer]:
+              - /url: /tools?q=api
+            - link "#inference" [ref=f1e537] [cursor=pointer]:
+              - /url: /tools?q=inference
+            - link "#fast" [ref=f1e538] [cursor=pointer]:
+              - /url: /tools?q=fast
+          - generic [ref=f1e539]:
+            - generic [ref=f1e540]: Free
+            - link "View Details" [ref=f1e542] [cursor=pointer]:
+              - /url: /tools/groq-api
+        - generic [ref=f1e547]:
+          - generic [ref=f1e548]:
+            - link "Devin (Early Access) Devin (Early Access) Agents 4.9" [ref=f1e549] [cursor=pointer]:
+              - /url: /tools/devin
+              - img "Devin (Early Access)" [ref=f1e551]
+              - generic [ref=f1e552]:
+                - heading "Devin (Early Access)" [level=3] [ref=f1e553]
+                - paragraph [ref=f1e554]:
+                  - generic [ref=f1e555]: Agents
+                  - generic [ref=f1e557]: "4.9"
+            - generic [ref=f1e560]: Featured
+          - link [ref=f1e564] [cursor=pointer]:
+            - /url: /tools/devin
+            - paragraph [ref=f1e565]: The world's first fully autonomous AI software engineer by Cognition. Handles entire engineering tasks end-to-end.
+          - generic [ref=f1e566]:
+            - link "#agent" [ref=f1e567] [cursor=pointer]:
+              - /url: /tools?q=agent
+            - link "#developer" [ref=f1e568] [cursor=pointer]:
+              - /url: /tools?q=developer
+            - link "#cognition" [ref=f1e569] [cursor=pointer]:
+              - /url: /tools?q=cognition
+          - generic [ref=f1e570]:
+            - generic [ref=f1e571]: Freemium
+            - link "View Details" [ref=f1e573] [cursor=pointer]:
+              - /url: /tools/devin
+        - generic [ref=f1e578]:
+          - generic [ref=f1e579]:
+            - link "Google Gemini API Google Gemini API Developer 4.9" [ref=f1e580] [cursor=pointer]:
+              - /url: /tools/gemini-api
+              - img "Google Gemini API" [ref=f1e582]
+              - generic [ref=f1e583]:
+                - heading "Google Gemini API" [level=3] [ref=f1e584]
+                - paragraph [ref=f1e585]:
+                  - generic [ref=f1e586]: Developer
+                  - generic [ref=f1e588]: "4.9"
+            - generic [ref=f1e591]: Featured
+          - link [ref=f1e595] [cursor=pointer]:
+            - /url: /tools/gemini-api
+            - paragraph [ref=f1e596]: Google's developer API for Gemini 1.5 Flash and Pro. Offers a massive free tier (15 RPM, 1M tokens/min) for developers.
+          - generic [ref=f1e597]:
+            - link "#api" [ref=f1e598] [cursor=pointer]:
+              - /url: /tools?q=api
+            - link "#google" [ref=f1e599] [cursor=pointer]:
+              - /url: /tools?q=google
+            - link "#multimodal" [ref=f1e600] [cursor=pointer]:
+              - /url: /tools?q=multimodal
+          - generic [ref=f1e601]:
+            - generic [ref=f1e602]: Free
+            - link "View Details" [ref=f1e604] [cursor=pointer]:
+              - /url: /tools/gemini-api
+        - generic [ref=f1e609]:
+          - generic [ref=f1e610]:
+            - link "ChatGPT (Free Tier) ChatGPT (Free Tier) Productivity 4.8" [ref=f1e611] [cursor=pointer]:
+              - /url: /tools/chatgpt-free
+              - img "ChatGPT (Free Tier)" [ref=f1e613]
+              - generic [ref=f1e614]:
+                - heading "ChatGPT (Free Tier)" [level=3] [ref=f1e615]
+                - paragraph [ref=f1e616]:
+                  - generic [ref=f1e617]: Productivity
+                  - generic [ref=f1e619]: "4.8"
+            - generic [ref=f1e622]: Featured
+          - link [ref=f1e626] [cursor=pointer]:
+            - /url: /tools/chatgpt-free
+            - paragraph [ref=f1e627]: OpenAI offers GPT-4o Mini and limited GPT-4o usage completely for free. Includes data analysis, vision, and web search.
+          - generic [ref=f1e628]:
+            - link "#chatbot" [ref=f1e629] [cursor=pointer]:
+              - /url: /tools?q=chatbot
+            - link "#openai" [ref=f1e630] [cursor=pointer]:
+              - /url: /tools?q=openai
+            - link "#gpt-4o" [ref=f1e631] [cursor=pointer]:
+              - /url: /tools?q=gpt-4o
+          - generic [ref=f1e632]:
+            - generic [ref=f1e633]: Freemium
+            - link "View Details" [ref=f1e635] [cursor=pointer]:
+              - /url: /tools/chatgpt-free
+        - generic [ref=f1e640]:
+          - generic [ref=f1e641]:
+            - link "v0 by Vercel (Free Tier) v0 by Vercel (Free Tier) Developer 4.8" [ref=f1e642] [cursor=pointer]:
+              - /url: /tools/v0
+              - img "v0 by Vercel (Free Tier)" [ref=f1e644]
+              - generic [ref=f1e645]:
+                - heading "v0 by Vercel (Free Tier)" [level=3] [ref=f1e646]
+                - paragraph [ref=f1e647]:
+                  - generic [ref=f1e648]: Developer
+                  - generic [ref=f1e650]: "4.8"
+            - generic [ref=f1e653]: Featured
+          - link [ref=f1e657] [cursor=pointer]:
+            - /url: /tools/v0
+            - paragraph [ref=f1e658]: Vercel's generative UI assistant. The free tier gives you a monthly allowance of compute credits to generate React/Tailwind interfaces.
+          - generic [ref=f1e659]:
+            - link "#ui-generation" [ref=f1e660] [cursor=pointer]:
+              - /url: /tools?q=ui-generation
+            - link "#react" [ref=f1e661] [cursor=pointer]:
+              - /url: /tools?q=react
+            - link "#tailwind" [ref=f1e662] [cursor=pointer]:
+              - /url: /tools?q=tailwind
+          - generic [ref=f1e663]:
+            - generic [ref=f1e664]: Freemium
+            - link "View Details" [ref=f1e666] [cursor=pointer]:
+              - /url: /tools/v0
+        - generic [ref=f1e671]:
+          - generic [ref=f1e672]:
+            - link "Supabase Vector Supabase Vector Developer 4.8" [ref=f1e673] [cursor=pointer]:
+              - /url: /tools/supabase-vector
+              - img "Supabase Vector" [ref=f1e675]
+              - generic [ref=f1e676]:
+                - heading "Supabase Vector" [level=3] [ref=f1e677]
+                - paragraph [ref=f1e678]:
+                  - generic [ref=f1e679]: Developer
+                  - generic [ref=f1e681]: "4.8"
+            - generic [ref=f1e684]: Featured
+          - link [ref=f1e688] [cursor=pointer]:
+            - /url: /tools/supabase-vector
+            - paragraph [ref=f1e689]: Open-source Firebase alternative based on PostgreSQL and pgvector. Generous free tier includes a vector-ready database.
+          - generic [ref=f1e690]:
+            - link "#vector-db" [ref=f1e691] [cursor=pointer]:
+              - /url: /tools?q=vector-db
+            - link "#postgresql" [ref=f1e692] [cursor=pointer]:
+              - /url: /tools?q=postgresql
+            - link "#pgvector" [ref=f1e693] [cursor=pointer]:
+              - /url: /tools?q=pgvector
+          - generic [ref=f1e694]:
+            - generic [ref=f1e695]: Freemium
+            - link "View Details" [ref=f1e697] [cursor=pointer]:
+              - /url: /tools/supabase-vector
+        - generic [ref=f1e702]:
+          - generic [ref=f1e703]:
+            - link "Suno AI (Free Tier) Suno AI (Free Tier) Audio 4.8" [ref=f1e704] [cursor=pointer]:
+              - /url: /tools/suno-free
+              - img "Suno AI (Free Tier)" [ref=f1e706]
+              - generic [ref=f1e707]:
+                - heading "Suno AI (Free Tier)" [level=3] [ref=f1e708]
+                - paragraph [ref=f1e709]:
+                  - generic [ref=f1e710]: Audio
+                  - generic [ref=f1e712]: "4.8"
+            - generic [ref=f1e715]: Featured
+          - link [ref=f1e719] [cursor=pointer]:
+            - /url: /tools/suno-free
+            - paragraph [ref=f1e720]: Generate full songs with vocals and instrumentation. Offers 50 free credits daily (10 songs per day) completely for free.
+          - generic [ref=f1e721]:
+            - link "#music" [ref=f1e722] [cursor=pointer]:
+              - /url: /tools?q=music
+            - link "#songs" [ref=f1e723] [cursor=pointer]:
+              - /url: /tools?q=songs
+            - link "#generation" [ref=f1e724] [cursor=pointer]:
+              - /url: /tools?q=generation
+          - generic [ref=f1e725]:
+            - generic [ref=f1e726]: Freemium
+            - link "View Details" [ref=f1e728] [cursor=pointer]:
+              - /url: /tools/suno-free
+        - generic [ref=f1e733]:
+          - generic [ref=f1e734]:
+            - link "ElevenLabs (Free Tier) ElevenLabs (Free Tier) Audio 4.8" [ref=f1e735] [cursor=pointer]:
+              - /url: /tools/elevenlabs-free
+              - img "ElevenLabs (Free Tier)" [ref=f1e737]
+              - generic [ref=f1e738]:
+                - heading "ElevenLabs (Free Tier)" [level=3] [ref=f1e739]
+                - paragraph [ref=f1e740]:
+                  - generic [ref=f1e741]: Audio
+                  - generic [ref=f1e743]: "4.8"
+            - generic [ref=f1e746]: Featured
+          - link [ref=f1e750] [cursor=pointer]:
+            - /url: /tools/elevenlabs-free
+            - paragraph [ref=f1e751]: The best AI voice generator offers a free tier (10,000 characters/month) for hobbyists to generate hyper-realistic TTS.
+          - generic [ref=f1e752]:
+            - link "#tts" [ref=f1e753] [cursor=pointer]:
+              - /url: /tools?q=tts
+            - link "#voice" [ref=f1e754] [cursor=pointer]:
+              - /url: /tools?q=voice
+            - link "#realistic" [ref=f1e755] [cursor=pointer]:
+              - /url: /tools?q=realistic
+          - generic [ref=f1e756]:
+            - generic [ref=f1e757]: Freemium
+            - link "View Details" [ref=f1e759] [cursor=pointer]:
+              - /url: /tools/elevenlabs-free
+        - generic [ref=f1e764]:
+          - generic [ref=f1e765]:
+            - link "Civitai Civitai Image 4.8" [ref=f1e766] [cursor=pointer]:
+              - /url: /tools/civitai
+              - img "Civitai" [ref=f1e768]
+              - generic [ref=f1e769]:
+                - heading "Civitai" [level=3] [ref=f1e770]
+                - paragraph [ref=f1e771]:
+                  - generic [ref=f1e772]: Image
+                  - generic [ref=f1e774]: "4.8"
+            - generic [ref=f1e777]: Featured
+          - link [ref=f1e781] [cursor=pointer]:
+            - /url: /tools/civitai
+            - paragraph [ref=f1e782]: The largest hub for open-source AI art models, LoRAs, and checkpoints. Free platform to share, discover, and generate images.
+          - generic [ref=f1e783]:
+            - link "#models" [ref=f1e784] [cursor=pointer]:
+              - /url: /tools?q=models
+            - link "#loras" [ref=f1e785] [cursor=pointer]:
+              - /url: /tools?q=loras
+            - link "#stable-diffusion" [ref=f1e786] [cursor=pointer]:
+              - /url: /tools?q=stable-diffusion
+          - generic [ref=f1e787]:
+            - generic [ref=f1e788]: Free
+            - link "View Details" [ref=f1e790] [cursor=pointer]:
+              - /url: /tools/civitai
+        - generic [ref=f1e795]:
+          - generic [ref=f1e796]:
+            - link "Continue.dev Continue.dev Coding 4.8" [ref=f1e797] [cursor=pointer]:
+              - /url: /tools/continue
+              - img "Continue.dev" [ref=f1e799]
+              - generic [ref=f1e800]:
+                - heading "Continue.dev" [level=3] [ref=f1e801]
+                - paragraph [ref=f1e802]:
+                  - generic [ref=f1e803]: Coding
+                  - generic [ref=f1e805]: "4.8"
+            - generic [ref=f1e808]: Featured
+          - link [ref=f1e812] [cursor=pointer]:
+            - /url: /tools/continue
+            - paragraph [ref=f1e813]: The leading open-source AI code assistant. Connect any model (local via Ollama, or API via Groq/Anthropic) to VS Code or JetBrains.
+          - generic [ref=f1e814]:
+            - link "#open-source" [ref=f1e815] [cursor=pointer]:
+              - /url: /tools?q=open-source
+            - link "#extension" [ref=f1e816] [cursor=pointer]:
+              - /url: /tools?q=extension
+            - link "#bring-your-own-model" [ref=f1e817] [cursor=pointer]:
+              - /url: /tools?q=bring-your-own-model
+          - generic [ref=f1e818]:
+            - generic [ref=f1e819]: Free
+            - link "View Details" [ref=f1e821] [cursor=pointer]:
+              - /url: /tools/continue
+        - generic [ref=f1e826]:
+          - generic [ref=f1e827]:
+            - link "Codeium Codeium Coding 4.8" [ref=f1e828] [cursor=pointer]:
+              - /url: /tools/codeium
+              - img "Codeium" [ref=f1e830]
+              - generic [ref=f1e831]:
+                - heading "Codeium" [level=3] [ref=f1e832]
+                - paragraph [ref=f1e833]:
+                  - generic [ref=f1e834]: Coding
+                  - generic [ref=f1e836]: "4.8"
+            - generic [ref=f1e839]: Featured
+          - link [ref=f1e843] [cursor=pointer]:
+            - /url: /tools/codeium
+            - paragraph [ref=f1e844]: Completely free AI code completion tool for over 70+ languages. Available as an extension for VS Code, JetBrains, Visual Studio, and more.
+          - generic [ref=f1e845]:
+            - link "#coding" [ref=f1e846] [cursor=pointer]:
+              - /url: /tools?q=coding
+            - link "#autocomplete" [ref=f1e847] [cursor=pointer]:
+              - /url: /tools?q=autocomplete
+            - link "#extension" [ref=f1e848] [cursor=pointer]:
+              - /url: /tools?q=extension
+          - generic [ref=f1e849]:
+            - generic [ref=f1e850]: Free
+            - link "View Details" [ref=f1e852] [cursor=pointer]:
+              - /url: /tools/codeium
+        - generic [ref=f1e857]:
+          - generic [ref=f1e858]:
+            - link "Chatbot Arena Chatbot Arena Developer 4.8" [ref=f1e859] [cursor=pointer]:
+              - /url: /tools/chatbot-arena
+              - img "Chatbot Arena" [ref=f1e861]
+              - generic [ref=f1e862]:
+                - heading "Chatbot Arena" [level=3] [ref=f1e863]
+                - paragraph [ref=f1e864]:
+                  - generic [ref=f1e865]: Developer
+                  - generic [ref=f1e867]: "4.8"
+            - generic [ref=f1e870]: Featured
+          - link [ref=f1e874] [cursor=pointer]:
+            - /url: /tools/chatbot-arena
+            - paragraph [ref=f1e875]: "LMSYS Chatbot Arena: A crowdsourced benchmark platform where you can chat with two anonymous models (including GPT-4, Claude 3.5, Gemini) for free."
+          - generic [ref=f1e876]:
+            - link "#playground" [ref=f1e877] [cursor=pointer]:
+              - /url: /tools?q=playground
+            - link "#benchmark" [ref=f1e878] [cursor=pointer]:
+              - /url: /tools?q=benchmark
+            - link "#crowdsourced" [ref=f1e879] [cursor=pointer]:
+              - /url: /tools?q=crowdsourced
+          - generic [ref=f1e880]:
+            - generic [ref=f1e881]: Free
+            - link "View Details" [ref=f1e883] [cursor=pointer]:
+              - /url: /tools/chatbot-arena
+        - generic [ref=f1e888]:
+          - generic [ref=f1e889]:
+            - link "LM Studio LM Studio Developer 4.8" [ref=f1e890] [cursor=pointer]:
+              - /url: /tools/lm-studio
+              - img "LM Studio" [ref=f1e892]
+              - generic [ref=f1e893]:
+                - heading "LM Studio" [level=3] [ref=f1e894]
+                - paragraph [ref=f1e895]:
+                  - generic [ref=f1e896]: Developer
+                  - generic [ref=f1e898]: "4.8"
+            - generic [ref=f1e901]: Featured
+          - link [ref=f1e905] [cursor=pointer]:
+            - /url: /tools/lm-studio
+            - paragraph [ref=f1e906]: Discover, download, and run local LLMs from Hugging Face on your own machine via a beautiful desktop GUI. Provides a local server.
+          - generic [ref=f1e907]:
+            - link "#local" [ref=f1e908] [cursor=pointer]:
+              - /url: /tools?q=local
+            - link "#gui" [ref=f1e909] [cursor=pointer]:
+              - /url: /tools?q=gui
+            - link "#huggingface" [ref=f1e910] [cursor=pointer]:
+              - /url: /tools?q=huggingface
+          - generic [ref=f1e911]:
+            - generic [ref=f1e912]: Free
+            - link "View Details" [ref=f1e914] [cursor=pointer]:
+              - /url: /tools/lm-studio
+        - generic [ref=f1e919]:
+          - generic [ref=f1e920]:
+            - link "Hugging Face Inference API Hugging Face Inference API Developer 4.8" [ref=f1e921] [cursor=pointer]:
+              - /url: /tools/hf-inference
+              - img "Hugging Face Inference API" [ref=f1e923]
+              - generic [ref=f1e924]:
+                - heading "Hugging Face Inference API" [level=3] [ref=f1e925]
+                - paragraph [ref=f1e926]:
+                  - generic [ref=f1e927]: Developer
+                  - generic [ref=f1e929]: "4.8"
+            - generic [ref=f1e932]: Featured
+          - link [ref=f1e936] [cursor=pointer]:
+            - /url: /tools/hf-inference
+            - paragraph [ref=f1e937]: Serverless inference API for thousands of open-source models hosted on Hugging Face. Free to use for experimentation.
+          - generic [ref=f1e938]:
+            - link "#api" [ref=f1e939] [cursor=pointer]:
+              - /url: /tools?q=api
+            - link "#huggingface" [ref=f1e940] [cursor=pointer]:
+              - /url: /tools?q=huggingface
+            - link "#serverless" [ref=f1e941] [cursor=pointer]:
+              - /url: /tools?q=serverless
+          - generic [ref=f1e942]:
+            - generic [ref=f1e943]: Free
+            - link "View Details" [ref=f1e945] [cursor=pointer]:
+              - /url: /tools/hf-inference
+        - generic [ref=f1e950]:
+          - generic [ref=f1e951]:
+            - link "Qwen 2.5 Qwen 2.5 Models 4.8" [ref=f1e952] [cursor=pointer]:
+              - /url: /tools/qwen
+              - img "Qwen 2.5" [ref=f1e954]
+              - generic [ref=f1e955]:
+                - heading "Qwen 2.5" [level=3] [ref=f1e956]
+                - paragraph [ref=f1e957]:
+                  - generic [ref=f1e958]: Models
+                  - generic [ref=f1e960]: "4.8"
+            - generic [ref=f1e963]: Featured
+          - link [ref=f1e967] [cursor=pointer]:
+            - /url: /tools/qwen
+            - paragraph [ref=f1e968]: Alibaba's powerful open-source multilingual and coding models, performing exceptionally well on reasoning benchmarks.
+          - generic [ref=f1e969]:
+            - link "#open-source" [ref=f1e970] [cursor=pointer]:
+              - /url: /tools?q=open-source
+            - link "#alibaba" [ref=f1e971] [cursor=pointer]:
+              - /url: /tools?q=alibaba
+            - link "#qwen" [ref=f1e972] [cursor=pointer]:
+              - /url: /tools?q=qwen
+          - generic [ref=f1e973]:
+            - generic [ref=f1e974]: Free
+            - link "View Details" [ref=f1e976] [cursor=pointer]:
+              - /url: /tools/qwen
+        - generic [ref=f1e981]:
+          - generic [ref=f1e982]:
+            - link "GitHub Models GitHub Models Developer 4.8" [ref=f1e983] [cursor=pointer]:
+              - /url: /tools/github-models
+              - img "GitHub Models" [ref=f1e985]
+              - generic [ref=f1e986]:
+                - heading "GitHub Models" [level=3] [ref=f1e987]
+                - paragraph [ref=f1e988]:
+                  - generic [ref=f1e989]: Developer
+                  - generic [ref=f1e991]: "4.8"
+            - generic [ref=f1e994]: Featured
+          - link [ref=f1e998] [cursor=pointer]:
+            - /url: /tools/github-models
+            - paragraph [ref=f1e999]: Free access to frontier models (GPT-4o, Claude 3.5 Sonnet, Llama 3.1) directly via GitHub for testing and prototyping.
+          - generic [ref=f1e1000]:
+            - link "#api" [ref=f1e1001] [cursor=pointer]:
+              - /url: /tools?q=api
+            - link "#github" [ref=f1e1002] [cursor=pointer]:
+              - /url: /tools?q=github
+            - link "#playground" [ref=f1e1003] [cursor=pointer]:
+              - /url: /tools?q=playground
+          - generic [ref=f1e1004]:
+            - generic [ref=f1e1005]: Free
+            - link "View Details" [ref=f1e1007] [cursor=pointer]:
+              - /url: /tools/github-models
+        - generic [ref=f1e1012]:
+          - generic [ref=f1e1013]:
+            - link "OpenDevin OpenDevin Agents 4.8" [ref=f1e1014] [cursor=pointer]:
+              - /url: /tools/opendevin
+              - img "OpenDevin" [ref=f1e1016]
+              - generic [ref=f1e1017]:
+                - heading "OpenDevin" [level=3] [ref=f1e1018]
+                - paragraph [ref=f1e1019]:
+                  - generic [ref=f1e1020]: Agents
+                  - generic [ref=f1e1022]: "4.8"
+            - generic [ref=f1e1025]: Featured
+          - link [ref=f1e1029] [cursor=pointer]:
+            - /url: /tools/opendevin
+            - paragraph [ref=f1e1030]: An open-source AI software engineer that can write code, run terminal commands, and browse the web autonomously.
+          - generic [ref=f1e1031]:
+            - link "#agent" [ref=f1e1032] [cursor=pointer]:
+              - /url: /tools?q=agent
+            - link "#developer" [ref=f1e1033] [cursor=pointer]:
+              - /url: /tools?q=developer
+            - link "#coding" [ref=f1e1034] [cursor=pointer]:
+              - /url: /tools?q=coding
+          - generic [ref=f1e1035]:
+            - generic [ref=f1e1036]: Free
+            - link "View Details" [ref=f1e1038] [cursor=pointer]:
+              - /url: /tools/opendevin
+        - generic [ref=f1e1043]:
+          - generic [ref=f1e1044]:
+            - link "Bolt.new (Free Tier) Bolt.new (Free Tier) Developer 4.7" [ref=f1e1045] [cursor=pointer]:
+              - /url: /tools/bolt-new
+              - img "Bolt.new (Free Tier)" [ref=f1e1047]
+              - generic [ref=f1e1048]:
+                - heading "Bolt.new (Free Tier)" [level=3] [ref=f1e1049]
+                - paragraph [ref=f1e1050]:
+                  - generic [ref=f1e1051]: Developer
+                  - generic [ref=f1e1053]: "4.7"
+            - generic [ref=f1e1056]: Featured
+          - link [ref=f1e1060] [cursor=pointer]:
+            - /url: /tools/bolt-new
+            - paragraph [ref=f1e1061]: In-browser AI web developer. Free usage limits available daily to prompt, edit, and deploy full-stack web applications.
+          - generic [ref=f1e1062]:
+            - link "#fullstack" [ref=f1e1063] [cursor=pointer]:
+              - /url: /tools?q=fullstack
+            - link "#webcontainers" [ref=f1e1064] [cursor=pointer]:
+              - /url: /tools?q=webcontainers
+            - link "#browser" [ref=f1e1065] [cursor=pointer]:
+              - /url: /tools?q=browser
+          - generic [ref=f1e1066]:
+            - generic [ref=f1e1067]: Freemium
+            - link "View Details" [ref=f1e1069] [cursor=pointer]:
+              - /url: /tools/bolt-new
+        - generic [ref=f1e1074]:
+          - generic [ref=f1e1075]:
+            - link "Pinecone Pinecone Developer 4.7" [ref=f1e1076] [cursor=pointer]:
+              - /url: /tools/pinecone
+              - img "Pinecone" [ref=f1e1078]
+              - generic [ref=f1e1079]:
+                - heading "Pinecone" [level=3] [ref=f1e1080]
+                - paragraph [ref=f1e1081]:
+                  - generic [ref=f1e1082]: Developer
+                  - generic [ref=f1e1084]: "4.7"
+            - generic [ref=f1e1087]: Featured
+          - link [ref=f1e1091] [cursor=pointer]:
+            - /url: /tools/pinecone
+            - paragraph [ref=f1e1092]: Serverless vector database for building RAG applications. The free tier provides 1 serverless index with up to 2GB capacity forever.
+          - generic [ref=f1e1093]:
+            - link "#vector-db" [ref=f1e1094] [cursor=pointer]:
+              - /url: /tools?q=vector-db
+            - link "#rag" [ref=f1e1095] [cursor=pointer]:
+              - /url: /tools?q=rag
+            - link "#serverless" [ref=f1e1096] [cursor=pointer]:
+              - /url: /tools?q=serverless
+          - generic [ref=f1e1097]:
+            - generic [ref=f1e1098]: Freemium
+            - link "View Details" [ref=f1e1100] [cursor=pointer]:
+              - /url: /tools/pinecone
+        - generic [ref=f1e1105]:
+          - generic [ref=f1e1106]:
+            - link "Stable Diffusion WebUI (Automatic1111) Stable Diffusion WebUI (Automatic1111) Image 4.7" [ref=f1e1107] [cursor=pointer]:
+              - /url: /tools/automatic1111
+              - img "Stable Diffusion WebUI (Automatic1111)" [ref=f1e1109]
+              - generic [ref=f1e1110]:
+                - heading "Stable Diffusion WebUI (Automatic1111)" [level=3] [ref=f1e1111]
+                - paragraph [ref=f1e1112]:
+                  - generic [ref=f1e1113]: Image
+                  - generic [ref=f1e1115]: "4.7"
+            - generic [ref=f1e1118]: Featured
+          - link [ref=f1e1122] [cursor=pointer]:
+            - /url: /tools/automatic1111
+            - paragraph [ref=f1e1123]: The most popular free, open-source browser interface for Stable Diffusion. Run locally to generate and manipulate images for free.
+          - generic [ref=f1e1124]:
+            - link "#local" [ref=f1e1125] [cursor=pointer]:
+              - /url: /tools?q=local
+            - link "#gui" [ref=f1e1126] [cursor=pointer]:
+              - /url: /tools?q=gui
+            - link "#stable-diffusion" [ref=f1e1127] [cursor=pointer]:
+              - /url: /tools?q=stable-diffusion
+          - generic [ref=f1e1128]:
+            - generic [ref=f1e1129]: Free
+            - link "View Details" [ref=f1e1131] [cursor=pointer]:
+              - /url: /tools/automatic1111
+        - generic [ref=f1e1136]:
+          - generic [ref=f1e1137]:
+            - link "Cursor (Free Tier) Cursor (Free Tier) Coding 4.7" [ref=f1e1138] [cursor=pointer]:
+              - /url: /tools/cursor-free
+              - img "Cursor (Free Tier)" [ref=f1e1140]
+              - generic [ref=f1e1141]:
+                - heading "Cursor (Free Tier)" [level=3] [ref=f1e1142]
+                - paragraph [ref=f1e1143]:
+                  - generic [ref=f1e1144]: Coding
+                  - generic [ref=f1e1146]: "4.7"
+            - generic [ref=f1e1149]: Featured
+          - link [ref=f1e1153] [cursor=pointer]:
+            - /url: /tools/cursor-free
+            - paragraph [ref=f1e1154]: The AI-first code editor. The free tier offers 14 days of Pro features, followed by generous basic completion and local model support.
+          - generic [ref=f1e1155]:
+            - link "#editor" [ref=f1e1156] [cursor=pointer]:
+              - /url: /tools?q=editor
+            - link "#vscode-fork" [ref=f1e1157] [cursor=pointer]:
+              - /url: /tools?q=vscode-fork
+            - link "#ai-native" [ref=f1e1158] [cursor=pointer]:
+              - /url: /tools?q=ai-native
+          - generic [ref=f1e1159]:
+            - generic [ref=f1e1160]: Freemium
+            - link "View Details" [ref=f1e1162] [cursor=pointer]:
+              - /url: /tools/cursor-free
+        - generic [ref=f1e1167]:
+          - generic [ref=f1e1168]:
+            - link "Vercel AI SDK Playground Vercel AI SDK Playground Developer 4.7" [ref=f1e1169] [cursor=pointer]:
+              - /url: /tools/vercel-sdk
+              - img "Vercel AI SDK Playground" [ref=f1e1171]
+              - generic [ref=f1e1172]:
+                - heading "Vercel AI SDK Playground" [level=3] [ref=f1e1173]
+                - paragraph [ref=f1e1174]:
+                  - generic [ref=f1e1175]: Developer
+                  - generic [ref=f1e1177]: "4.7"
+            - generic [ref=f1e1180]: Featured
+          - link [ref=f1e1184] [cursor=pointer]:
+            - /url: /tools/vercel-sdk
+            - paragraph [ref=f1e1185]: Test multiple LLMs side-by-side using the Vercel AI SDK. Free to experiment with various open-source and proprietary models.
+          - generic [ref=f1e1186]:
+            - link "#playground" [ref=f1e1187] [cursor=pointer]:
+              - /url: /tools?q=playground
+            - link "#vercel" [ref=f1e1188] [cursor=pointer]:
+              - /url: /tools?q=vercel
+            - link "#side-by-side" [ref=f1e1189] [cursor=pointer]:
+              - /url: /tools?q=side-by-side
+          - generic [ref=f1e1190]:
+            - generic [ref=f1e1191]: Free
+            - link "View Details" [ref=f1e1193] [cursor=pointer]:
+              - /url: /tools/vercel-sdk
+        - generic [ref=f1e1198]:
+          - generic [ref=f1e1199]:
+            - link "HuggingChat HuggingChat Productivity 4.7" [ref=f1e1200] [cursor=pointer]:
+              - /url: /tools/huggingchat
+              - img "HuggingChat" [ref=f1e1202]
+              - generic [ref=f1e1203]:
+                - heading "HuggingChat" [level=3] [ref=f1e1204]
+                - paragraph [ref=f1e1205]:
+                  - generic [ref=f1e1206]: Productivity
+                  - generic [ref=f1e1208]: "4.7"
+            - generic [ref=f1e1211]: Featured
+          - link [ref=f1e1215] [cursor=pointer]:
+            - /url: /tools/huggingchat
+            - paragraph [ref=f1e1216]: The open-source alternative to ChatGPT. Completely free access to top open models like Llama 3.1, Qwen, and Cohere Command R+.
+          - generic [ref=f1e1217]:
+            - link "#chatbot" [ref=f1e1218] [cursor=pointer]:
+              - /url: /tools?q=chatbot
+            - link "#open-source" [ref=f1e1219] [cursor=pointer]:
+              - /url: /tools?q=open-source
+            - link "#huggingface" [ref=f1e1220] [cursor=pointer]:
+              - /url: /tools?q=huggingface
+          - generic [ref=f1e1221]:
+            - generic [ref=f1e1222]: Free
+            - link "View Details" [ref=f1e1224] [cursor=pointer]:
+              - /url: /tools/huggingchat
+        - generic [ref=f1e1229]:
+          - link "Neon Serverless Postgres Neon Serverless Postgres Developer 4.8" [ref=f1e1231] [cursor=pointer]:
+            - /url: /tools/neon
+            - img "Neon Serverless Postgres" [ref=f1e1233]
+            - generic [ref=f1e1234]:
+              - heading "Neon Serverless Postgres" [level=3] [ref=f1e1235]
+              - paragraph [ref=f1e1236]:
+                - generic [ref=f1e1237]: Developer
+                - generic [ref=f1e1239]: "4.8"
+          - link [ref=f1e1242] [cursor=pointer]:
+            - /url: /tools/neon
+            - paragraph [ref=f1e1243]: Serverless Postgres built for the cloud. The free tier gives you a 500MB database that branches like git.
+          - generic [ref=f1e1244]:
+            - link "#database" [ref=f1e1245] [cursor=pointer]:
+              - /url: /tools?q=database
+            - link "#postgres" [ref=f1e1246] [cursor=pointer]:
+              - /url: /tools?q=postgres
+            - link "#serverless" [ref=f1e1247] [cursor=pointer]:
+              - /url: /tools?q=serverless
+          - generic [ref=f1e1248]:
+            - generic [ref=f1e1249]: Freemium
+            - link "View Details" [ref=f1e1251] [cursor=pointer]:
+              - /url: /tools/neon
+        - generic [ref=f1e1256]:
+          - link "ComfyUI ComfyUI Image 4.8" [ref=f1e1258] [cursor=pointer]:
+            - /url: /tools/comfyui
+            - img "ComfyUI" [ref=f1e1260]
+            - generic [ref=f1e1261]:
+              - heading "ComfyUI" [level=3] [ref=f1e1262]
+              - paragraph [ref=f1e1263]:
+                - generic [ref=f1e1264]: Image
+                - generic [ref=f1e1266]: "4.8"
+          - link [ref=f1e1269] [cursor=pointer]:
+            - /url: /tools/comfyui
+            - paragraph [ref=f1e1270]: A powerful and modular node-based GUI for Stable Diffusion and FLUX. Completely free and open-source for advanced local image generation workflows.
+          - generic [ref=f1e1271]:
+            - link "#local" [ref=f1e1272] [cursor=pointer]:
+              - /url: /tools?q=local
+            - link "#node-based" [ref=f1e1273] [cursor=pointer]:
+              - /url: /tools?q=node-based
+            - link "#workflows" [ref=f1e1274] [cursor=pointer]:
+              - /url: /tools?q=workflows
+          - generic [ref=f1e1275]:
+            - generic [ref=f1e1276]: Free
+            - link "View Details" [ref=f1e1278] [cursor=pointer]:
+              - /url: /tools/comfyui
+        - generic [ref=f1e1283]:
+          - link "Google AI Studio Google AI Studio Developer 4.8" [ref=f1e1285] [cursor=pointer]:
+            - /url: /tools/google-ai-studio
+            - img "Google AI Studio" [ref=f1e1287]
+            - generic [ref=f1e1288]:
+              - heading "Google AI Studio" [level=3] [ref=f1e1289]
+              - paragraph [ref=f1e1290]:
+                - generic [ref=f1e1291]: Developer
+                - generic [ref=f1e1293]: "4.8"
+          - link [ref=f1e1296] [cursor=pointer]:
+            - /url: /tools/google-ai-studio
+            - paragraph [ref=f1e1297]: Google's web-based prototyping environment for developers to experiment with Gemini models. Completely free to use.
+          - generic [ref=f1e1298]:
+            - link "#playground" [ref=f1e1299] [cursor=pointer]:
+              - /url: /tools?q=playground
+            - link "#google" [ref=f1e1300] [cursor=pointer]:
+              - /url: /tools?q=google
+            - link "#gemini" [ref=f1e1301] [cursor=pointer]:
+              - /url: /tools?q=gemini
+          - generic [ref=f1e1302]:
+            - generic [ref=f1e1303]: Free
+            - link "View Details" [ref=f1e1305] [cursor=pointer]:
+              - /url: /tools/google-ai-studio
+        - generic [ref=f1e1310]:
+          - link "Llama.cpp Llama.cpp Developer 4.8" [ref=f1e1312] [cursor=pointer]:
+            - /url: /tools/llama-cpp
+            - img "Llama.cpp" [ref=f1e1314]
+            - generic [ref=f1e1315]:
+              - heading "Llama.cpp" [level=3] [ref=f1e1316]
+              - paragraph [ref=f1e1317]:
+                - generic [ref=f1e1318]: Developer
+                - generic [ref=f1e1320]: "4.8"
+          - link [ref=f1e1323] [cursor=pointer]:
+            - /url: /tools/llama-cpp
+            - paragraph [ref=f1e1324]: Port of Facebook's LLaMA model in C/C++. Run massive models efficiently on Apple Silicon and standard CPUs.
+          - generic [ref=f1e1325]:
+            - link "#local" [ref=f1e1326] [cursor=pointer]:
+              - /url: /tools?q=local
+            - link "#cpp" [ref=f1e1327] [cursor=pointer]:
+              - /url: /tools?q=cpp
+            - link "#efficient" [ref=f1e1328] [cursor=pointer]:
+              - /url: /tools?q=efficient
+          - generic [ref=f1e1329]:
+            - generic [ref=f1e1330]: Free
+            - link "View Details" [ref=f1e1332] [cursor=pointer]:
+              - /url: /tools/llama-cpp
+        - generic [ref=f1e1337]:
+          - link "Mistral NeMo Mistral NeMo Models 4.7" [ref=f1e1339] [cursor=pointer]:
+            - /url: /tools/mistral
+            - img "Mistral NeMo" [ref=f1e1341]
+            - generic [ref=f1e1342]:
+              - heading "Mistral NeMo" [level=3] [ref=f1e1343]
+              - paragraph [ref=f1e1344]:
+                - generic [ref=f1e1345]: Models
+                - generic [ref=f1e1347]: "4.7"
+          - link [ref=f1e1350] [cursor=pointer]:
+            - /url: /tools/mistral
+            - paragraph [ref=f1e1351]: A 12B parameter open-source model built jointly by Mistral and NVIDIA, highly efficient and performant for its size.
+          - generic [ref=f1e1352]:
+            - link "#open-source" [ref=f1e1353] [cursor=pointer]:
+              - /url: /tools?q=open-source
+            - link "#mistral" [ref=f1e1354] [cursor=pointer]:
+              - /url: /tools?q=mistral
+            - link "#nvidia" [ref=f1e1355] [cursor=pointer]:
+              - /url: /tools?q=nvidia
+          - generic [ref=f1e1356]:
+            - generic [ref=f1e1357]: Free
+            - link "View Details" [ref=f1e1359] [cursor=pointer]:
+              - /url: /tools/mistral
+        - generic [ref=f1e1364]:
+          - link "Render (Free Tier) Render (Free Tier) Developer 4.7" [ref=f1e1366] [cursor=pointer]:
+            - /url: /tools/render
+            - img "Render (Free Tier)" [ref=f1e1368]
+            - generic [ref=f1e1369]:
+              - heading "Render (Free Tier)" [level=3] [ref=f1e1370]
+              - paragraph [ref=f1e1371]:
+                - generic [ref=f1e1372]: Developer
+                - generic [ref=f1e1374]: "4.7"
+          - link [ref=f1e1377] [cursor=pointer]:
+            - /url: /tools/render
+            - paragraph [ref=f1e1378]: Cloud application hosting for developers. The free tier supports deploying static sites, web services, and PostgreSQL databases.
+          - generic [ref=f1e1379]:
+            - link "#hosting" [ref=f1e1380] [cursor=pointer]:
+              - /url: /tools?q=hosting
+            - link "#backend" [ref=f1e1381] [cursor=pointer]:
+              - /url: /tools?q=backend
+            - link "#postgresql" [ref=f1e1382] [cursor=pointer]:
+              - /url: /tools?q=postgresql
+          - generic [ref=f1e1383]:
+            - generic [ref=f1e1384]: Freemium
+            - link "View Details" [ref=f1e1386] [cursor=pointer]:
+              - /url: /tools/render
+        - generic [ref=f1e1391]:
+          - link "Qdrant Qdrant Developer 4.7" [ref=f1e1393] [cursor=pointer]:
+            - /url: /tools/qdrant
+            - img "Qdrant" [ref=f1e1395]
+            - generic [ref=f1e1396]:
+              - heading "Qdrant" [level=3] [ref=f1e1397]
+              - paragraph [ref=f1e1398]:
+                - generic [ref=f1e1399]: Developer
+                - generic [ref=f1e1401]: "4.7"
+          - link [ref=f1e1404] [cursor=pointer]:
+            - /url: /tools/qdrant
+            - paragraph [ref=f1e1405]: Open-source vector search engine. The managed cloud offers a generous free tier (1 Cluster, 1GB RAM, 0.5 CPU) perfect for prototyping.
+          - generic [ref=f1e1406]:
+            - link "#vector-db" [ref=f1e1407] [cursor=pointer]:
+              - /url: /tools?q=vector-db
+            - link "#search-engine" [ref=f1e1408] [cursor=pointer]:
+              - /url: /tools?q=search-engine
+            - link "#rust" [ref=f1e1409] [cursor=pointer]:
+              - /url: /tools?q=rust
+          - generic [ref=f1e1410]:
+            - generic [ref=f1e1411]: Freemium
+            - link "View Details" [ref=f1e1413] [cursor=pointer]:
+              - /url: /tools/qdrant
+        - generic [ref=f1e1418]:
+          - link "Aider Aider Coding 4.7" [ref=f1e1420] [cursor=pointer]:
+            - /url: /tools/aider
+            - img "Aider" [ref=f1e1422]
+            - generic [ref=f1e1423]:
+              - heading "Aider" [level=3] [ref=f1e1424]
+              - paragraph [ref=f1e1425]:
+                - generic [ref=f1e1426]: Coding
+                - generic [ref=f1e1428]: "4.7"
+          - link [ref=f1e1431] [cursor=pointer]:
+            - /url: /tools/aider
+            - paragraph [ref=f1e1432]: AI pair programming in your terminal. Works with Claude, GPT-4, and open-source models to edit files in your local git repository.
+          - generic [ref=f1e1433]:
+            - link "#terminal" [ref=f1e1434] [cursor=pointer]:
+              - /url: /tools?q=terminal
+            - link "#cli" [ref=f1e1435] [cursor=pointer]:
+              - /url: /tools?q=cli
+            - link "#pair-programming" [ref=f1e1436] [cursor=pointer]:
+              - /url: /tools?q=pair-programming
+          - generic [ref=f1e1437]:
+            - generic [ref=f1e1438]: Free
+            - link "View Details" [ref=f1e1440] [cursor=pointer]:
+              - /url: /tools/aider
+        - generic [ref=f1e1445]:
+          - link "Phi-3 Phi-3 Models 4.7" [ref=f1e1447] [cursor=pointer]:
+            - /url: /tools/phi-3
+            - img "Phi-3" [ref=f1e1449]
+            - generic [ref=f1e1450]:
+              - heading "Phi-3" [level=3] [ref=f1e1451]
+              - paragraph [ref=f1e1452]:
+                - generic [ref=f1e1453]: Models
+                - generic [ref=f1e1455]: "4.7"
+          - link [ref=f1e1458] [cursor=pointer]:
+            - /url: /tools/phi-3
+            - paragraph [ref=f1e1459]: Microsoft's family of Small Language Models (SLMs) that punch way above their weight class, perfect for running locally on phones and laptops.
+          - generic [ref=f1e1460]:
+            - link "#open-source" [ref=f1e1461] [cursor=pointer]:
+              - /url: /tools?q=open-source
+            - link "#microsoft" [ref=f1e1462] [cursor=pointer]:
+              - /url: /tools?q=microsoft
+            - link "#slm" [ref=f1e1463] [cursor=pointer]:
+              - /url: /tools?q=slm
+          - generic [ref=f1e1464]:
+            - generic [ref=f1e1465]: Free
+            - link "View Details" [ref=f1e1467] [cursor=pointer]:
+              - /url: /tools/phi-3
+        - generic [ref=f1e1472]:
+          - link "Together AI Together AI Developer 4.7" [ref=f1e1474] [cursor=pointer]:
+            - /url: /tools/together-ai
+            - img "Together AI" [ref=f1e1476]
+            - generic [ref=f1e1477]:
+              - heading "Together AI" [level=3] [ref=f1e1478]
+              - paragraph [ref=f1e1479]:
+                - generic [ref=f1e1480]: Developer
+                - generic [ref=f1e1482]: "4.7"
+          - link [ref=f1e1485] [cursor=pointer]:
+            - /url: /tools/together-ai
+            - paragraph [ref=f1e1486]: Platform to run, train, and fine-tune open-source models. Offers a generous $5 free credit to test inference APIs.
+          - generic [ref=f1e1487]:
+            - link "#api" [ref=f1e1488] [cursor=pointer]:
+              - /url: /tools?q=api
+            - link "#open-source" [ref=f1e1489] [cursor=pointer]:
+              - /url: /tools?q=open-source
+            - link "#inference" [ref=f1e1490] [cursor=pointer]:
+              - /url: /tools?q=inference
+          - generic [ref=f1e1491]:
+            - generic [ref=f1e1492]: Freemium
+            - link "View Details" [ref=f1e1494] [cursor=pointer]:
+              - /url: /tools/together-ai
+        - generic [ref=f1e1499]:
+          - link "Lovable.dev (Free Tier) Lovable.dev (Free Tier) Developer 4.6" [ref=f1e1501] [cursor=pointer]:
+            - /url: /tools/lovable
+            - img "Lovable.dev (Free Tier)" [ref=f1e1503]
+            - generic [ref=f1e1504]:
+              - heading "Lovable.dev (Free Tier)" [level=3] [ref=f1e1505]
+              - paragraph [ref=f1e1506]:
+                - generic [ref=f1e1507]: Developer
+                - generic [ref=f1e1509]: "4.6"
+          - link [ref=f1e1512] [cursor=pointer]:
+            - /url: /tools/lovable
+            - paragraph [ref=f1e1513]: AI software engineer for building apps. Start building for free with daily conversational turns and export code directly.
+          - generic [ref=f1e1514]:
+            - link "#app-builder" [ref=f1e1515] [cursor=pointer]:
+              - /url: /tools?q=app-builder
+            - link "#fullstack" [ref=f1e1516] [cursor=pointer]:
+              - /url: /tools?q=fullstack
+            - link "#export-code" [ref=f1e1517] [cursor=pointer]:
+              - /url: /tools?q=export-code
+          - generic [ref=f1e1518]:
+            - generic [ref=f1e1519]: Freemium
+            - link "View Details" [ref=f1e1521] [cursor=pointer]:
+              - /url: /tools/lovable
+        - generic [ref=f1e1526]:
+          - link "Phind Phind Research 4.6" [ref=f1e1528] [cursor=pointer]:
+            - /url: /tools/phind
+            - img "Phind" [ref=f1e1530]
+            - generic [ref=f1e1531]:
+              - heading "Phind" [level=3] [ref=f1e1532]
+              - paragraph [ref=f1e1533]:
+                - generic [ref=f1e1534]: Research
+                - generic [ref=f1e1536]: "4.6"
+          - link [ref=f1e1539] [cursor=pointer]:
+            - /url: /tools/phind
+            - paragraph [ref=f1e1540]: AI search engine specifically designed for developers. Free to use for answering coding questions with direct codebase context and web search.
+          - generic [ref=f1e1541]:
+            - link "#search" [ref=f1e1542] [cursor=pointer]:
+              - /url: /tools?q=search
+            - link "#developers" [ref=f1e1543] [cursor=pointer]:
+              - /url: /tools?q=developers
+            - link "#coding" [ref=f1e1544] [cursor=pointer]:
+              - /url: /tools?q=coding
+          - generic [ref=f1e1545]:
+            - generic [ref=f1e1546]: Free
+            - link "View Details" [ref=f1e1548] [cursor=pointer]:
+              - /url: /tools/phind
+        - generic [ref=f1e1553]:
+          - link "DuckDuckGo AI Chat DuckDuckGo AI Chat Productivity 4.6" [ref=f1e1555] [cursor=pointer]:
+            - /url: /tools/duckduckgo-chat
+            - img "DuckDuckGo AI Chat" [ref=f1e1557]
+            - generic [ref=f1e1558]:
+              - heading "DuckDuckGo AI Chat" [level=3] [ref=f1e1559]
+              - paragraph [ref=f1e1560]:
+                - generic [ref=f1e1561]: Productivity
+                - generic [ref=f1e1563]: "4.6"
+          - link [ref=f1e1566] [cursor=pointer]:
+            - /url: /tools/duckduckgo-chat
+            - paragraph [ref=f1e1567]: Free, private, anonymous access to GPT-4o mini, Claude 3 Haiku, Llama 3, and Mixtral directly in your browser. No login required.
+          - generic [ref=f1e1568]:
+            - link "#chatbot" [ref=f1e1569] [cursor=pointer]:
+              - /url: /tools?q=chatbot
+            - link "#privacy" [ref=f1e1570] [cursor=pointer]:
+              - /url: /tools?q=privacy
+            - link "#anonymous" [ref=f1e1571] [cursor=pointer]:
+              - /url: /tools?q=anonymous
+          - generic [ref=f1e1572]:
+            - generic [ref=f1e1573]: Free
+            - link "View Details" [ref=f1e1575] [cursor=pointer]:
+              - /url: /tools/duckduckgo-chat
+        - generic [ref=f1e1580]:
+          - link "GPT4All GPT4All Developer 4.6" [ref=f1e1582] [cursor=pointer]:
+            - /url: /tools/gpt4all
+            - img "GPT4All" [ref=f1e1584]
+            - generic [ref=f1e1585]:
+              - heading "GPT4All" [level=3] [ref=f1e1586]
+              - paragraph [ref=f1e1587]:
+                - generic [ref=f1e1588]: Developer
+                - generic [ref=f1e1590]: "4.6"
+          - link [ref=f1e1593] [cursor=pointer]:
+            - /url: /tools/gpt4all
+            - paragraph [ref=f1e1594]: A free-to-use, locally running, privacy-aware chatbot. No GPU or internet required. Run open-source LLMs on any consumer CPU.
+          - generic [ref=f1e1595]:
+            - link "#local" [ref=f1e1596] [cursor=pointer]:
+              - /url: /tools?q=local
+            - link "#cpu" [ref=f1e1597] [cursor=pointer]:
+              - /url: /tools?q=cpu
+            - link "#privacy" [ref=f1e1598] [cursor=pointer]:
+              - /url: /tools?q=privacy
+          - generic [ref=f1e1599]:
+            - generic [ref=f1e1600]: Free
+            - link "View Details" [ref=f1e1602] [cursor=pointer]:
+              - /url: /tools/gpt4all
+        - generic [ref=f1e1607]:
+          - link "AutoGPT AutoGPT Agents 4.6" [ref=f1e1609] [cursor=pointer]:
+            - /url: /tools/autogpt
+            - img "AutoGPT" [ref=f1e1611]
+            - generic [ref=f1e1612]:
+              - heading "AutoGPT" [level=3] [ref=f1e1613]
+              - paragraph [ref=f1e1614]:
+                - generic [ref=f1e1615]: Agents
+                - generic [ref=f1e1617]: "4.6"
+          - link [ref=f1e1620] [cursor=pointer]:
+            - /url: /tools/autogpt
+            - paragraph [ref=f1e1621]: An experimental open-source attempt to make GPT-4 fully autonomous. It strings together LLM thoughts to achieve goals.
+          - generic [ref=f1e1622]:
+            - link "#agent" [ref=f1e1623] [cursor=pointer]:
+              - /url: /tools?q=agent
+            - link "#autonomous" [ref=f1e1624] [cursor=pointer]:
+              - /url: /tools?q=autonomous
+            - link "#goals" [ref=f1e1625] [cursor=pointer]:
+              - /url: /tools?q=goals
+          - generic [ref=f1e1626]:
+            - generic [ref=f1e1627]: Free
+            - link "View Details" [ref=f1e1629] [cursor=pointer]:
+              - /url: /tools/autogpt
+        - generic [ref=f1e1634]:
+          - link "Cohere API Cohere API Developer 4.6" [ref=f1e1636] [cursor=pointer]:
+            - /url: /tools/cohere-api
+            - img "Cohere API" [ref=f1e1638]
+            - generic [ref=f1e1639]:
+              - heading "Cohere API" [level=3] [ref=f1e1640]
+              - paragraph [ref=f1e1641]:
+                - generic [ref=f1e1642]: Developer
+                - generic [ref=f1e1644]: "4.6"
+          - link [ref=f1e1647] [cursor=pointer]:
+            - /url: /tools/cohere-api
+            - paragraph [ref=f1e1648]: Enterprise-grade NLP APIs (Command R, Embeddings). Offers a free developer tier for non-commercial research and prototyping.
+          - generic [ref=f1e1649]:
+            - link "#api" [ref=f1e1650] [cursor=pointer]:
+              - /url: /tools?q=api
+            - link "#nlp" [ref=f1e1651] [cursor=pointer]:
+              - /url: /tools?q=nlp
+            - link "#embeddings" [ref=f1e1652] [cursor=pointer]:
+              - /url: /tools?q=embeddings
+          - generic [ref=f1e1653]:
+            - generic [ref=f1e1654]: Freemium
+            - link "View Details" [ref=f1e1656] [cursor=pointer]:
+              - /url: /tools/cohere-api
+        - generic [ref=f1e1661]:
+          - link "Bark Bark Audio 4.5" [ref=f1e1663] [cursor=pointer]:
+            - /url: /tools/bark
+            - img "Bark" [ref=f1e1665]
+            - generic [ref=f1e1666]:
+              - heading "Bark" [level=3] [ref=f1e1667]
+              - paragraph [ref=f1e1668]:
+                - generic [ref=f1e1669]: Audio
+                - generic [ref=f1e1671]: "4.5"
+          - link [ref=f1e1674] [cursor=pointer]:
+            - /url: /tools/bark
+            - paragraph [ref=f1e1675]: Open-source text-to-audio model created by Suno. Can generate highly realistic, multilingual speech as well as music, background noise, and simple sound effects.
+          - generic [ref=f1e1676]:
+            - link "#open-source" [ref=f1e1677] [cursor=pointer]:
+              - /url: /tools?q=open-source
+            - link "#audio" [ref=f1e1678] [cursor=pointer]:
+              - /url: /tools?q=audio
+            - link "#tts" [ref=f1e1679] [cursor=pointer]:
+              - /url: /tools?q=tts
+          - generic [ref=f1e1680]:
+            - generic [ref=f1e1681]: Free
+            - link "View Details" [ref=f1e1683] [cursor=pointer]:
+              - /url: /tools/bark
+        - generic [ref=f1e1688]:
+          - link "Bing Image Creator Bing Image Creator Image 4.5" [ref=f1e1690] [cursor=pointer]:
+            - /url: /tools/bing-image
+            - img "Bing Image Creator" [ref=f1e1692]
+            - generic [ref=f1e1693]:
+              - heading "Bing Image Creator" [level=3] [ref=f1e1694]
+              - paragraph [ref=f1e1695]:
+                - generic [ref=f1e1696]: Image
+                - generic [ref=f1e1698]: "4.5"
+          - link [ref=f1e1701] [cursor=pointer]:
+            - /url: /tools/bing-image
+            - paragraph [ref=f1e1702]: Free access to OpenAI's DALL-E 3 image generation model via Microsoft Copilot. Generates 4 images per prompt for free.
+          - generic [ref=f1e1703]:
+            - link "#dall-e-3" [ref=f1e1704] [cursor=pointer]:
+              - /url: /tools?q=dall-e-3
+            - link "#microsoft" [ref=f1e1705] [cursor=pointer]:
+              - /url: /tools?q=microsoft
+            - link "#free" [ref=f1e1706] [cursor=pointer]:
+              - /url: /tools?q=free
+          - generic [ref=f1e1707]:
+            - generic [ref=f1e1708]: Free
+            - link "View Details" [ref=f1e1710] [cursor=pointer]:
+              - /url: /tools/bing-image
+  - contentinfo [ref=f1e1714]:
+    - generic [ref=f1e1715]:
+      - generic [ref=f1e1716]:
+        - generic [ref=f1e1717]:
+          - link "AI Tools Directory" [ref=f1e1718] [cursor=pointer]:
+            - /url: /
+          - paragraph [ref=f1e1724]: Discover the best AI tools for work, business, creativity and productivity. Curated and reviewed for professionals.
+        - generic [ref=f1e1725]:
+          - heading "Explore" [level=3] [ref=f1e1726]
+          - list [ref=f1e1727]:
+            - listitem [ref=f1e1728]:
+              - link "All Tools" [ref=f1e1729] [cursor=pointer]:
+                - /url: /tools
+            - listitem [ref=f1e1730]:
+              - link "Categories" [ref=f1e1731] [cursor=pointer]:
+                - /url: /categories
+            - listitem [ref=f1e1732]:
+              - link "Featured" [ref=f1e1733] [cursor=pointer]:
+                - /url: /tools?featured=true
+        - generic [ref=f1e1734]:
+          - heading "Resources" [level=3] [ref=f1e1735]
+          - list [ref=f1e1736]:
+            - listitem [ref=f1e1737]:
+              - link "Submit Tool" [ref=f1e1738] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=f1e1739]:
+              - link "Contact" [ref=f1e1740] [cursor=pointer]:
+                - /url: /contact
+        - generic [ref=f1e1741]:
+          - heading "Legal" [level=3] [ref=f1e1742]
+          - list [ref=f1e1743]:
+            - listitem [ref=f1e1744]:
+              - link "Privacy" [ref=f1e1745] [cursor=pointer]:
+                - /url: /privacy
+            - listitem [ref=f1e1746]:
+              - link "Terms" [ref=f1e1747] [cursor=pointer]:
+                - /url: /terms
+      - generic [ref=f1e1748]:
+        - paragraph [ref=f1e1749]: © 2026 AI Tools Directory. All rights reserved.
+        - paragraph [ref=f1e1750]: Built with ❤ for the AI community.

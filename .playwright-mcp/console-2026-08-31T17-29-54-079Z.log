@@ -1,0 +1,12 @@
+[   11723ms] [INFO] %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   11873ms] [LOG] [HMR] connected @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   12062ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   15113ms] [LOG] [Fast Refresh] done in 3164ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   18603ms] [LOG] [Fast Refresh] rebuilding @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[   19194ms] [LOG] [Fast Refresh] done in 697ms @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  167470ms] [LOG] section 0 relative px-5 md:px-6 pt-24 pb-20 md:pt-36 md:pb-28 hero-gradient border-b border-border overflow-hidden @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  167474ms] [LOG] section 1 max-w-[1200px] mx-auto px-5 md:px-6 py-20 md:py-24 border-b border-border @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  167474ms] [LOG] section 2 bg-muted border-b border-border relative overflow-hidden @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  167475ms] [LOG] section 3 max-w-[1200px] mx-auto px-5 md:px-6 py-20 md:py-24 border-b border-border @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  167475ms] [LOG] section 4 max-w-[1200px] mx-auto px-5 md:px-6 py-20 md:py-24 border-b border-border @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776
+[  167475ms] [LOG] section 5 bg-muted relative overflow-hidden @ http://localhost:3000/_next/static/chunks/node_modules_next_dist_1e8vcs8._.js:776

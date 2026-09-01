@@ -1,0 +1,176 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================
+// AUTH / USERS
+// ============================================================
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  passwordHash  String
+  role          String    @default("admin") // admin, editor, viewer
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  sessions      Session[]
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  userId       String
+  token        String   @unique
+  expiresAt    DateTime
+  createdAt    DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// ============================================================
+// CATEGORIES
+// ============================================================
+model Category {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  icon        String?
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  tools       Tool[]
+}
+
+// ============================================================
+// TOOLS
+// ============================================================
+model Tool {
+  id            String    @id @default(cuid())
+  name          String
+  slug          String    @unique
+  description   String
+  logo          String?
+  websiteUrl    String
+  affiliateUrl  String?
+  pricingType   String    @default("freemium") // free, freemium, paid, contact
+  categoryId    String
+  rating        Float     @default(0)
+  isFeatured    Boolean   @default(false)
+  isPublished   Boolean   @default(true)
+  isSponsored   Boolean   @default(false)
+  tags               String    @default("") // comma-separated
+  hostingGuide       String?   // Markdown instructions on how to host/deploy for free
+  
+  // Modernization fields
+  entityType         String    @default("TOOL") // Application-level Enum: TOOL, MODEL, AGENT, API, RESOURCE (SQLite lacks native enums)
+  verificationStatus String    @default("UNVERIFIED") // VERIFIED, NEEDS_REVIEW, UNVERIFIED, INACTIVE
+  lastVerifiedAt     DateTime?
+  sourceUrl          String?
+  metadata           String?   // JSON string for entity-specific data (modalities, contextWindow, etc)
+
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  category      Category  @relation(fields: [categoryId], references: [id])
+  redirectLink  RedirectLink?
+  @@index([categoryId])
+  @@index([isFeatured])
+  @@index([isPublished])
+}
+
+// ============================================================
+// CAMPAIGNS
+// ============================================================
+model Campaign {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  links       RedirectLink[]
+}
+
+// ============================================================
+// REDIRECT LINKS
+// ============================================================
+model RedirectLink {
+  id            String    @id @default(cuid())
+  slug          String    @unique
+  name          String
+  destination   String
+  toolId        String?   @unique
+  campaignId    String?
+  isActive      Boolean   @default(true)
+  clickCount    Int       @default(0)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  tool          Tool?     @relation(fields: [toolId], references: [id], onDelete: SetNull)
+  campaign      Campaign? @relation(fields: [campaignId], references: [id])
+  clicks        ClickEvent[]
+  geoRoutes     GeoRoute[]
+  @@index([slug])
+  @@index([campaignId])
+}
+
+// ============================================================
+// CLICK EVENTS
+// ============================================================
+model ClickEvent {
+  id            String   @id @default(cuid())
+  linkId        String
+  timestamp     DateTime @default(now())
+  referrer      String?
+  utmSource     String?
+  utmMedium     String?
+  utmCampaign   String?
+  utmContent    String?
+  utmTerm       String?
+  country       String?
+  deviceType    String?
+  browser       String?
+  operatingSystem String?
+  isSuspicious  Boolean  @default(false)
+  trafficType   String   @default("human") // human, suspicious, bot
+  ipAddress     String?  // temporary, for rate limiting only
+  createdAt     DateTime @default(now())
+  link          RedirectLink @relation(fields: [linkId], references: [id], onDelete: Cascade)
+  @@index([linkId])
+  @@index([timestamp])
+  @@index([country])
+  @@index([utmSource])
+}
+
+// ============================================================
+// GEO ROUTES
+// ============================================================
+model GeoRoute {
+  id          String   @id @default(cuid())
+  linkId      String
+  country     String
+  destination String
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  link        RedirectLink @relation(fields: [linkId], references: [id], onDelete: Cascade)
+  @@unique([linkId, country])
+  @@index([linkId])
+}
+
+// ============================================================
+// SEARCH ANALYTICS
+// ============================================================
+model SearchQuery {
+  id          String   @id @default(cuid())
+  query       String
+  normalized  String   // Lowercase, trimmed for aggregation
+  resultCount Int      @default(0)
+  createdAt   DateTime @default(now())
+  
+  @@index([normalized])
+  @@index([createdAt])
+}
+
