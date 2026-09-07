@@ -1,4 +1,3 @@
-import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -15,6 +14,7 @@ import {
 } from "lucide-react";
 import { getActiveCategories } from "@/lib/queries/categories";
 import { getToolsDirectory } from "@/lib/queries/tools";
+import { getCatalogRepository } from "@/lib/catalog";
 
 interface CategoryPageProps {
   params: Promise<{ slug: string }>;
@@ -29,7 +29,7 @@ export async function generateMetadata({
   params,
 }: CategoryPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const category = await db.category.findUnique({ where: { slug } });
+  const category = await getCatalogRepository().findCategoryBySlug(slug);
 
   if (!category) return { title: "Category Not Found" };
 
@@ -48,7 +48,7 @@ export default async function CategoryPage({
   const { slug } = await params;
   const filters = await searchParams;
 
-  const category = await db.category.findUnique({ where: { slug } });
+  const category = await getCatalogRepository().findCategoryBySlug(slug);
 
   if (!category) notFound();
 

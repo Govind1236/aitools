@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
 import { recordClick } from "@/lib/analytics";
+import { getRedirectLink } from "@/lib/payload/admin";
 
 export async function GET(
   request: NextRequest,
@@ -8,13 +8,8 @@ export async function GET(
 ) {
   const { slug } = await params;
 
-  // Find the redirect link
-  const link = await db.redirectLink.findUnique({
-    where: { slug },
-    include: {
-      geoRoutes: { where: { isActive: true } },
-    },
-  });
+  // Find the redirect link in Payload
+  const link = await getRedirectLink(slug);
 
   // If link not found or disabled, redirect to /tools
   if (!link || !link.isActive) {
@@ -34,15 +29,11 @@ export async function GET(
   // Get client info
   const userAgent = request.headers.get("user-agent") || undefined;
   const referrer = request.headers.get("referer") || undefined;
-  // Intentionally omitting raw IP extraction to comply with privacy requirements
 
   // Check geo routes
   let destination = link.destination;
 
-  // For geo routing, we'd need IP-to-country lookup
-  // For now, check if there's a geo route match
-  // In production, use a geo-IP service like MaxMind or Cloudflare
-  const countryHeader = request.headers.get("cf-ipcountry") || 
+  const countryHeader = request.headers.get("cf-ipcountry") ||
                          request.headers.get("x-country-code") || undefined;
 
   if (countryHeader && link.geoRoutes.length > 0) {

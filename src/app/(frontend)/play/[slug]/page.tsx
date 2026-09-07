@@ -1,8 +1,8 @@
-import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink, AlertTriangle } from "lucide-react";
+import { getToolBySlug } from "@/lib/queries/tools";
 
 export async function generateMetadata({
   params,
@@ -10,9 +10,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const tool = await db.tool.findUnique({
-    where: { slug },
-  });
+  const tool = await getToolBySlug(slug);
 
   if (!tool) {
     return {
@@ -33,12 +31,9 @@ export default async function PlayPage({
 }) {
   const { slug } = await params;
 
-  const tool = await db.tool.findUnique({
-    where: { slug, isPublished: true },
-    include: { category: true },
-  });
+  const tool = await getToolBySlug(slug);
 
-  if (!tool) {
+  if (!tool || !tool.isPublished) {
     notFound();
   }
 

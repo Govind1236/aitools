@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { db } from "@/lib/db";
+import { getCatalogRepository } from "@/lib/catalog";
 
 const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
 
@@ -44,11 +44,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
+  const repo = getCatalogRepository();
+
   // Dynamic tool pages
-  const tools = await db.tool.findMany({
-    where: { isPublished: true },
-    select: { slug: true, updatedAt: true },
-  });
+  const tools = await repo.getToolSitemapEntries();
 
   const toolPages: MetadataRoute.Sitemap = tools.map((tool) => ({
     url: `${BASE_URL}/tools/${tool.slug}`,
@@ -58,10 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   // Dynamic category pages (only categories with active content)
-  const categories = await db.category.findMany({
-    where: { tools: { some: { isPublished: true } } },
-    select: { slug: true, updatedAt: true },
-  });
+  const categories = await repo.getActiveCategorySitemapEntries();
 
   const categoryPages: MetadataRoute.Sitemap = categories.map((cat) => ({
     url: `${BASE_URL}/categories/${cat.slug}`,

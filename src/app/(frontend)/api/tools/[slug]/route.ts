@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { getToolBySlug } from "@/lib/queries/tools";
 
 export async function GET(
   request: NextRequest,
@@ -7,14 +7,7 @@ export async function GET(
 ) {
   const { slug } = await params;
 
-  const tool = await db.tool.findUnique({
-    where: { slug },
-    include: {
-      category: true,
-      provider: true,
-      structuredTags: { include: { tag: true } },
-    },
-  });
+  const tool = await getToolBySlug(slug);
 
   if (!tool) {
     return NextResponse.json({ error: "Tool not found" }, { status: 404 });

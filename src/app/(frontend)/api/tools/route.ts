@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
 import { buildToolWhere } from "@/lib/tool-query";
+import { getToolsDirectory, getToolsDirectoryCount } from "@/lib/queries/tools";
 
 export async function GET(request: NextRequest) {
   const url = new URL(request.url);
@@ -22,14 +22,8 @@ export async function GET(request: NextRequest) {
   });
 
   const [tools, total] = await Promise.all([
-    db.tool.findMany({
-      where,
-      include: { category: true },
-      orderBy: [{ isFeatured: "desc" }, { createdAt: "desc" }],
-      skip,
-      take: limit,
-    }),
-    db.tool.count({ where }),
+    getToolsDirectory(where, { skip, take: limit }),
+    getToolsDirectoryCount(where),
   ]);
 
   return NextResponse.json({

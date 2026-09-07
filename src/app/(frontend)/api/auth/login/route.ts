@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
-import { verifyPassword, createToken, setSessionCookie } from "@/lib/auth";
+import { createToken, setSessionCookie } from "@/lib/auth";
+import { getPayloadClient } from "@/lib/payload/db";
 import { validateEmail } from "@/lib/validation";
 
 export async function POST(request: NextRequest) {
@@ -23,8 +23,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Find user
-    const user = await db.user.findUnique({ where: { email } });
+    // Authenticate via Payload's built-in auth
+    const payload = await getPayloadClient();
+
+    let result;
+    try {
+      result = await payload.login({
+        collection: "users",
+        data: { email, password },
+      });
+    } catch {
+      return NextResponse.json(
+        { error: "Invalid email or password" },
+        { status: 401 }
+      );
+    }
+
+    const user = result.user;
     if (!user) {
       return NextResponse.json(
         { error: "Invalid email or password" },
@@ -32,30 +47,22 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Verify password
-    const valid = await verifyPassword(password, user.passwordHash);
-    if (!valid) {
-      return NextResponse.json(
-        { error: "Invalid email or password" },
-        { status: 401 }
-      );
-    }
-
-    // Create token
+    // Create our own JWT token
     const token = await createToken({
-      id: user.id,
-      email: user.email,
-      name: user.name,
-      role: user.role,
+      id: String(user.id),
+      email: String(user.email),
+      name: (user as any).name as string | null,
+      role: (user as any).role as string,
     });
 
     // Save session
     const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-    await db.session.create({
+    await payload.create({
+      collection: "sessions",
       data: {
-        userId: user.id,
+        user: String(user.id) as any,
         token,
-        expiresAt,
+        expiresAt: expiresAt.toISOString(),
       },
     });
 
@@ -67,8 +74,8 @@ export async function POST(request: NextRequest) {
       user: {
         id: user.id,
         email: user.email,
-        name: user.name,
-        role: user.role,
+        name: (user as any).name,
+        role: (user as any).role,
       },
     });
   } catch (error) {

@@ -1,6 +1,6 @@
-import { db } from "./db";
 import { UAParser } from "ua-parser-js";
 import { startOfDay, endOfDay, subDays, startOfWeek, endOfWeek, format } from "date-fns";
+import { getPayloadClient } from "@/lib/payload/db";
 
 export interface ClickData {
   linkId: string;
@@ -42,9 +42,13 @@ export async function recordClick(data: ClickData) {
   // Basic bot detection
   const trafficType = detectTrafficType(data.userAgent, data.ipAddress);
 
-  const click = await db.clickEvent.create({
+  const payload = await getPayloadClient();
+
+  const click = await payload.create({
+    collection: "click-events",
     data: {
-      linkId: data.linkId,
+      link: data.linkId as any,
+      timestamp: new Date().toISOString(),
       referrer: data.referrer || null,
       utmSource: data.utmSource || null,
       utmMedium: data.utmMedium || null,
@@ -55,17 +59,26 @@ export async function recordClick(data: ClickData) {
       deviceType,
       browser,
       operatingSystem,
-      trafficType,
+      trafficType: trafficType as "human" | "suspicious" | "bot",
       isSuspicious: trafficType !== "human",
       ipAddress: data.ipAddress || null,
     },
   });
 
   // Increment click count on the link
-  await db.redirectLink.update({
-    where: { id: data.linkId },
-    data: { clickCount: { increment: 1 } },
+  const { docs } = await payload.find({
+    collection: "redirect-links",
+    where: { id: { equals: data.linkId } },
+    limit: 1,
   });
+  const link = docs[0];
+  if (link) {
+    await payload.update({
+      collection: "redirect-links",
+      id: String(link.id),
+      data: { clickCount: Number(link.clickCount ?? 0) + 1 },
+    });
+  }
 
   return click;
 }
@@ -115,94 +128,141 @@ export function getDateRange(range: TimeRange, customStart?: string, customEnd?:
 
 export async function getAnalyticsOverview(range: TimeRange, customStart?: string, customEnd?: string) {
   const { start, end } = getDateRange(range, customStart, customEnd);
+  const payload = await getPayloadClient();
 
-  const [totalClicks, humanClicks, topLinks, topSources, topCountries, deviceBreakdown] =
-    await Promise.all([
-      // Total clicks
-      db.clickEvent.count({
-        where: { timestamp: { gte: start, lte: end } },
-      }),
-      // Human clicks only
-      db.clickEvent.count({
-        where: { timestamp: { gte: start, lte: end }, trafficType: "human" },
-      }),
-      // Top links
-      db.clickEvent.groupBy({
-        by: ["linkId"],
-        where: { timestamp: { gte: start, lte: end } },
-        _count: { id: true },
-        orderBy: { _count: { id: "desc" } },
-        take: 10,
-      }),
-      // Top sources
-      db.clickEvent.groupBy({
-        by: ["utmSource"],
-        where: { timestamp: { gte: start, lte: end }, utmSource: { not: null } },
-        _count: { id: true },
-        orderBy: { _count: { id: "desc" } },
-        take: 10,
-      }),
-      // Top countries
-      db.clickEvent.groupBy({
-        by: ["country"],
-        where: { timestamp: { gte: start, lte: end }, country: { not: null } },
-        _count: { id: true },
-        orderBy: { _count: { id: "desc" } },
-        take: 10,
-      }),
-      // Device breakdown
-      db.clickEvent.groupBy({
-        by: ["deviceType"],
-        where: { timestamp: { gte: start, lte: end } },
-        _count: { id: true },
-        orderBy: { _count: { id: "desc" } },
-      }),
-    ]);
+  const clicksWhere = {
+    and: [
+      { timestamp: { greater_than_equal: start.toISOString() } },
+      { timestamp: { less_than_equal: end.toISOString() } },
+    ],
+  };
 
-  // Resolve link names
-  const linkIds = topLinks.map((t) => t.linkId);
-  const links = await db.redirectLink.findMany({
-    where: { id: { in: linkIds } },
-    select: { id: true, name: true, slug: true },
-  });
-  const linkMap = new Map(links.map((l) => [l.id, l]));
+  const [totalClicks, humanClicks, clicks, humanClicksDoc, links] = await Promise.all([
+    // Total clicks
+    payload.count({ collection: "click-events", where: clicksWhere }),
+    // Human clicks only
+    payload.count({
+      collection: "click-events",
+      where: {
+        and: [
+          { timestamp: { greater_than_equal: start.toISOString() } },
+          { timestamp: { less_than_equal: end.toISOString() } },
+          { trafficType: { equals: "human" } },
+        ],
+      },
+    }),
+    // All clicks for grouping (limit to reasonable count)
+    payload.find({
+      collection: "click-events",
+      depth: 0,
+      where: clicksWhere,
+      limit: 10000,
+    }),
+    // Human-only clicks for grouping
+    payload.find({
+      collection: "click-events",
+      depth: 0,
+      where: {
+        and: [
+          { timestamp: { greater_than_equal: start.toISOString() } },
+          { timestamp: { less_than_equal: end.toISOString() } },
+          { trafficType: { equals: "human" } },
+        ],
+      },
+      limit: 10000,
+    }),
+    // All links for name resolution
+    payload.find({
+      collection: "redirect-links",
+      depth: 0,
+      limit: 10000,
+      select: { name: true, slug: true },
+    }),
+  ]);
+
+  const allClicks = clicks.docs;
+  const humanOnlyClicks = humanClicksDoc.docs;
+  const linkMap = new Map(links.docs.map((l) => [String(l.id), l]));
+
+  // Top links by click count
+  const linkCountMap = new Map<string, number>();
+  for (const c of allClicks) {
+    const linkId = String(c.link);
+    linkCountMap.set(linkId, (linkCountMap.get(linkId) ?? 0) + 1);
+  }
+  const topLinks = [...linkCountMap.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([linkId, count]) => ({
+      linkId,
+      _count: { id: count },
+      name: (linkMap.get(linkId)?.name as string) || "Unknown",
+      slug: (linkMap.get(linkId)?.slug as string) || "unknown",
+    }));
+
+  // Top sources
+  const sourceCountMap = new Map<string, number>();
+  for (const c of allClicks) {
+    const source = (c.utmSource as string) || "Direct";
+    sourceCountMap.set(source, (sourceCountMap.get(source) ?? 0) + 1);
+  }
+  const topSources = [...sourceCountMap.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([source, count]) => ({ source, count }));
+
+  // Top countries
+  const countryCountMap = new Map<string, number>();
+  for (const c of allClicks) {
+    const country = (c.country as string) || "Unknown";
+    countryCountMap.set(country, (countryCountMap.get(country) ?? 0) + 1);
+  }
+  const topCountries = [...countryCountMap.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([country, count]) => ({ country, count }));
+
+  // Device breakdown
+  const deviceCountMap = new Map<string, number>();
+  for (const c of allClicks) {
+    const device = (c.deviceType as string) || "Unknown";
+    deviceCountMap.set(device, (deviceCountMap.get(device) ?? 0) + 1);
+  }
+  const deviceBreakdown = [...deviceCountMap.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .map(([device, count]) => ({ device, count }));
 
   return {
-    totalClicks,
-    humanClicks,
-    topLinks: topLinks.map((t) => ({
-      ...t,
-      name: linkMap.get(t.linkId)?.name || "Unknown",
-      slug: linkMap.get(t.linkId)?.slug || "unknown",
-    })),
-    topSources: topSources.map((s) => ({
-      source: s.utmSource || "Direct",
-      count: s._count.id,
-    })),
-    topCountries: topCountries.map((c) => ({
-      country: c.country || "Unknown",
-      count: c._count.id,
-    })),
-    deviceBreakdown: deviceBreakdown.map((d) => ({
-      device: d.deviceType || "Unknown",
-      count: d._count.id,
-    })),
+    totalClicks: totalClicks.totalDocs,
+    humanClicks: humanClicks.totalDocs,
+    topLinks,
+    topSources,
+    topCountries,
+    deviceBreakdown,
   };
 }
 
 export async function getClicksOverTime(range: TimeRange, customStart?: string, customEnd?: string) {
   const { start, end } = getDateRange(range, customStart, customEnd);
+  const payload = await getPayloadClient();
 
-  const clicks = await db.clickEvent.findMany({
-    where: { timestamp: { gte: start, lte: end } },
+  const clicks = await payload.find({
+    collection: "click-events",
+    depth: 0,
+    where: {
+      and: [
+        { timestamp: { greater_than_equal: start.toISOString() } },
+        { timestamp: { less_than_equal: end.toISOString() } },
+      ],
+    },
     select: { timestamp: true },
-    orderBy: { timestamp: "asc" },
+    limit: 10000,
   });
 
   // Group by date
   const grouped: Record<string, number> = {};
-  for (const click of clicks) {
-    const date = format(click.timestamp, "yyyy-MM-dd");
+  for (const click of clicks.docs) {
+    const date = format(new Date(click.timestamp as string), "yyyy-MM-dd");
     grouped[date] = (grouped[date] || 0) + 1;
   }
 
