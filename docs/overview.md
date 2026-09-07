@@ -20,9 +20,6 @@ The primary audience model: the site is a marketing/affiliate destination. Visit
 | **UTM tracking** | Captures `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term` for campaign attribution |
 | **Geo routing** | Route visitors to country-specific destinations based on a country code header (`cf-ipcountry` / `x-country-code`) |
 | **Traffic classification** | Flags traffic as `human`, `suspicious`, or `bot` via user-agent pattern matching; bots/suspicious clicks are separated from legitimate metrics |
-| **Admin dashboard** | Full CRUD for tools and redirect links, plus a chart-based analytics dashboard |
-| **Analytics views** | Total vs. human clicks, top links, top UTM sources, top countries, device breakdown, clicks-over-time chart |
-| **JWT authentication** | Admin login via email + password (bcrypt-hashed), session stored server-side and in an httpOnly cookie |
 | **SEO** | Dynamic sitemap, `robots.txt`, per-page Open Graph metadata, structured content |
 | **Legal pages** | Privacy policy, terms of service, and contact pages |
 | **Security** | Security headers, input validation (slug/email/URL/password), open-redirect protection on the redirect handler, XSS sanitization |
@@ -35,8 +32,6 @@ The primary audience model: the site is a marketing/affiliate destination. Visit
 | Backend | Next.js API Routes (Route Handlers) |
 | Database | SQLite (dev) via Prisma 5; schema is ready to switch to PostgreSQL |
 | ORM | Prisma 5 |
-| Auth | JWT (`jose`) + `bcryptjs`, server-side session rows |
-| Charts | Recharts |
 | Utilities | `ua-parser-js` (device/browser/OS parsing), `date-fns` (date ranges), `lucide-react` (icons), `slugify` |
 
 ## Project structure
@@ -53,8 +48,7 @@ The primary audience model: the site is a marketing/affiliate destination. Visit
 │   │   ├── tools/           # Tool listing + detail pages (/tools, /tools/:slug)
 │   │   ├── categories/      # Category listing + filtered pages (/categories, /categories/:slug)
 │   │   ├── go/[slug]/       # Tracked redirect handler (302)
-│   │   ├── admin/           # Admin panel (dashboard, tools, links, analytics, login)
-│   │   ├── api/             # Route handlers (public tools, admin CRUD, analytics, auth)
+│   │   ├── api/             # Route handlers (public tools API)
 │   │   ├── privacy/         # Privacy policy
 │   │   ├── terms/           # Terms of service
 │   │   ├── contact/         # Contact page
@@ -62,11 +56,9 @@ The primary audience model: the site is a marketing/affiliate destination. Visit
 │   │   └── robots.ts        # robots.txt
 │   ├── components/
 │   │   ├── ui/              # Header, footer, floating AI apps illustration
-│   │   ├── tools/           # Tool card, category card, search bar
-│   │   └── admin/           # Admin sidebar
+│   │   └── tools/           # Tool card, category card, search bar
 │   ├── lib/
 │   │   ├── db.ts            # Prisma client singleton
-│   │   ├── auth.ts          # Password hashing, JWT, cookie/session management
 │   │   ├── analytics.ts     # UA parsing, bot detection, click recording, analytics queries
 │   │   └── validation.ts    # Slug/email/URL/password validators + slug creation
 │   └── tests/               # (empty placeholder — no test suite set up yet)
@@ -78,8 +70,8 @@ The primary audience model: the site is a marketing/affiliate destination. Visit
 
 | Model | Purpose |
 |-------|---------|
-| `User` | Admin/editor/viewer accounts with bcrypt password hash |
-| `Session` | Server-side JWT sessions (token + expiry), cascade-deleted with user |
+| `User` | Admin/editor/viewer accounts with bcrypt password hash (legacy — unused since the admin panel was removed) |
+| `Session` | Server-side JWT sessions (token + expiry), cascade-deleted with user (legacy — unused since the admin panel was removed) |
 | `Category` | Tool categories (unique name + slug, sort order) |
 | `Tool` | AI tool entries: name, slug, description, logo, website URL, affiliate URL, pricing type, category, rating, featured/published/sponsored flags, comma-separated tags |
 | `Campaign` | Marketing campaign grouping for redirect links |
@@ -116,21 +108,7 @@ Source: `src/lib/analytics.ts`
 - **Overview metrics:** total clicks, human clicks, top 10 links, top 10 UTM sources, top 10 countries, device breakdown.
 - **Clicks over time:** daily counts bucketed by date for the chart.
 
-The admin analytics route (`GET /api/admin/analytics?range=7d`) requires a valid session and returns both the overview and the time series.
-
-## Admin API
-
-All admin routes require a logged-in session (JWT cookie verified against the DB).
-
-| Endpoint | Method | Purpose |
-|----------|--------|---------|
-| `/api/admin/tools` | GET / POST | List all tools / create a tool (also auto-creates its redirect link) |
-| `/api/admin/tools/:id` | PUT / DELETE | Update / delete a tool |
-| `/api/admin/links` | GET / POST | List / create redirect links |
-| `/api/admin/links/:id` | PUT / DELETE | Update / delete a link |
-| `/api/admin/analytics` | GET | Analytics overview + clicks over time, with `range`/`start`/`end` query params |
-| `/api/auth/login` | POST | Email + password login (sets session cookie) |
-| `/api/auth/logout` | POST | Invalidates the session and clears the cookie |
+> **Note:** The query helpers in `src/lib/analytics.ts` (overview metrics, clicks over time) currently have no consumer since the admin dashboard was removed; click recording itself is active.
 
 ## Public API
 
@@ -139,10 +117,8 @@ All admin routes require a logged-in session (JWT cookie verified against the DB
 | `GET /api/tools?q=&category=&pricing=&page=&limit=` | Search, filter, and paginate published tools |
 | `GET /api/tools/:slug` | Fetch a single tool with its category |
 
-## Authentication & security
+## Security
 
-- Passwords hashed with bcrypt (12 rounds); admin credentials seeded as `admin@aitoolsdirectory.com` / `admin123` — **must be changed for production**.
-- JWT (HS256 via `jose`) signed with `AUTH_SECRET`, 7-day expiry, stored in an httpOnly, SameSite=Lax cookie; each token also backed by a `Session` row so it can expire server-side / be revoked on logout.
 - Security headers applied globally in `next.config.ts`: `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy`, `X-XSS-Protection`, `Permissions-Policy`.
 - Input validation in `src/lib/validation.ts`: slug format, email format, http/https URL checks, minimum password length, and basic `<>` stripping for XSS.
 - Open-redirect protection: the redirect handler validates destination schemes.
@@ -165,7 +141,6 @@ Environment variables (`.env.example`):
 | Variable | Purpose |
 |----------|---------|
 | `DATABASE_URL` | SQLite path (`file:./dev.db`) or Postgres connection string |
-| `AUTH_SECRET` | Secret used to sign JWT tokens |
 | `NEXT_PUBLIC_APP_URL` | Public base URL of the app |
 
 Key scripts: `dev`, `build`, `start`, `lint`, `db:push`, `db:migrate`, `db:seed`, `db:reset`, `db:studio`.

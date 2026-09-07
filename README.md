@@ -6,10 +6,8 @@ A production-ready MVP for an AI Tools Directory and Smart Redirect/Link Trackin
 
 - **AI Tools Directory** — Browse 20+ AI tools across 10 categories
 - **Smart Redirect System** — Track outbound clicks with `/go/:slug` URLs
-- **Analytics Dashboard** — Real-time charts for clicks, sources, countries, devices
 - **UTM Tracking** — Capture UTM parameters for campaign analysis
 - **Geo Routing** — Route users to different destinations by country
-- **Admin Panel** — Full CRUD for tools and links with authentication
 - **SEO Optimized** — Sitemap, robots.txt, Open Graph, structured data
 - **Security** — Input validation, rate limiting, CSRF protection, secure headers
 - **Anti-Abuse** — Bot detection, suspicious traffic classification
@@ -22,8 +20,6 @@ A production-ready MVP for an AI Tools Directory and Smart Redirect/Link Trackin
 | Backend | Next.js API Routes |
 | Database | SQLite (dev) / PostgreSQL (prod) |
 | ORM | Prisma 5 |
-| Auth | JWT (jose) + bcryptjs |
-| Charts | Recharts |
 | Deployment | Vercel |
 
 ## Quick Start
@@ -42,7 +38,6 @@ cp .env.example .env
 
 Edit `.env` with your values:
 - `DATABASE_URL` — Database connection string
-- `AUTH_SECRET` — Random secret for JWT signing
 - `NEXT_PUBLIC_APP_URL` — Your app URL
 
 ### 3. Initialize database
@@ -67,16 +62,6 @@ npm run dev
 Visit:
 - **Homepage:** http://localhost:3000
 - **Tools:** http://localhost:3000/tools
-- **Admin:** http://localhost:3000/admin
-
-## Admin Credentials
-
-| Field | Value |
-|-------|-------|
-| Email | `admin@aitoolsdirectory.com` |
-| Password | `admin123` |
-
-> **⚠️ Change these credentials before deploying to production!**
 
 ## Database Schema
 
@@ -84,8 +69,8 @@ Visit:
 
 | Table | Purpose |
 |-------|---------|
-| `User` | Admin users with hashed passwords |
-| `Session` | JWT session management |
+| `User` | User accounts with hashed passwords (legacy — unused since the admin panel was removed) |
+| `Session` | Server-side sessions (legacy — unused since the admin panel was removed) |
 | `Category` | Tool categories (AI Writing, AI Image, etc.) |
 | `Tool` | AI tool entries with metadata |
 | `Campaign` | Marketing campaigns |
@@ -118,30 +103,6 @@ GET    /go/:slug                     # 302 redirect with click tracking
 GET    /go/:slug?utm_source=...      # Redirect with UTM tracking
 ```
 
-### Admin (requires authentication)
-
-```
-GET    /api/admin/tools              # List all tools
-POST   /api/admin/tools              # Create tool
-PUT    /api/admin/tools/:id          # Update tool
-DELETE /api/admin/tools/:id          # Delete tool
-
-GET    /api/admin/links              # List all links
-POST   /api/admin/links              # Create link
-PUT    /api/admin/links/:id          # Update link
-DELETE /api/admin/links/:id          # Delete link
-
-GET    /api/admin/analytics          # Analytics overview
-GET    /api/admin/analytics?range=7d # Analytics for time range
-```
-
-### Auth
-
-```
-POST   /api/auth/login               # Login (email + password)
-POST   /api/auth/logout              # Logout
-```
-
 ## URL Structure
 
 ```
@@ -151,11 +112,6 @@ POST   /api/auth/logout              # Logout
 /categories                # All categories
 /categories/ai-video       # Category tools listing
 /go/chatgpt                # Tracked redirect (302)
-/admin                     # Admin dashboard
-/admin/tools               # Tool management
-/admin/links               # Link management
-/admin/analytics           # Analytics dashboard
-/admin/login               # Admin login
 /privacy                   # Privacy policy
 /terms                     # Terms of service
 /contact                   # Contact page
@@ -202,7 +158,7 @@ When a user visits `/go/tool?utm_source=tiktok&utm_medium=social&utm_campaign=la
 
 ## Geo Routing
 
-Configure country-specific destinations in the admin panel:
+Country-specific destinations are stored as `GeoRoute` records (manageable via the built-in CMS):
 
 ```
 /go/tool → Default destination
@@ -218,7 +174,6 @@ Configure country-specific destinations in the admin panel:
 2. Connect repository to Vercel
 3. Set environment variables in Vercel dashboard:
    - `DATABASE_URL` — Use Neon, Supabase, or Vercel Postgres
-   - `AUTH_SECRET` — Generate with `openssl rand -base64 32`
    - `NEXT_PUBLIC_APP_URL` — Your production URL
 4. Deploy
 
@@ -265,18 +220,15 @@ For production, switch from SQLite to PostgreSQL:
 │   │   ├── tools/            # Tool pages
 │   │   ├── categories/       # Category pages
 │   │   ├── go/               # Redirect handler
-│   │   ├── admin/            # Admin panel
 │   │   ├── api/              # API routes
 │   │   ├── privacy/          # Privacy policy
 │   │   ├── terms/            # Terms of service
 │   │   └── contact/          # Contact page
 │   ├── components/
 │   │   ├── ui/               # Shared UI components
-│   │   ├── tools/            # Tool-related components
-│   │   └── admin/            # Admin components
+│   │   └── tools/            # Tool-related components
 │   └── lib/
 │       ├── db.ts             # Prisma client
-│       ├── auth.ts           # Authentication
 │       ├── analytics.ts      # Analytics utilities
 │       └── validation.ts     # Input validation
 ├── public/                   # Static assets
