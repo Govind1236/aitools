@@ -17,6 +17,7 @@ async function main() {
   console.log("payload tools (slug=phase4a-test-):", JSON.stringify(pToolDocs.map((d: any) => ({ id: d.id, slug: d.slug }))));
   console.log("payload links (contains phase4a-test-):", JSON.stringify(pLinks.map((d: any) => ({ id: d.id, slug: d.slug, tool: typeof d.tool === "object" ? d.tool?.id : d.tool }))));
   console.log("payload temp tags:", JSON.stringify(pTags.map((d: any) => ({ id: d.id, name: d.name }))));
+  process.exit(0);
 }
 
 main().catch((e) => { console.error(e); process.exitCode = 1; });

@@ -6,8 +6,6 @@
 //
 // Categories are NOT hardcoded here — they are loaded from Prisma at
 // render time and displayed via the CategoryMenu component.
-//
-// Admin navigation remains separate (admin-sidebar.tsx).
 // ------------------------------------------------------------------
 
 export interface NavLink {

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { recordClick } from "@/lib/analytics";
-import { getRedirectLink } from "@/lib/payload/admin";
+import { getRedirectLink } from "@/lib/payload/redirects";
 
 export async function GET(
   request: NextRequest,

@@ -9,7 +9,7 @@ type RouteContext = {
 /**
  * Isolated Payload PoC read endpoint.
  * Returns a Provider from Payload to prove the Payload Local API works.
- * Does NOT touch the existing /tools, /go, or /admin behavior.
+ * Does NOT touch the existing /tools or /go behavior.
  */
 export async function GET(_req: Request, ctx: RouteContext) {
   try {

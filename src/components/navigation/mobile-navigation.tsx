@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import {
   Search,
   ChevronDown,
-  LayoutDashboard,
 } from "lucide-react";
 import { PUBLIC_NAV_LINKS, SEARCH_HREF } from "@/lib/navigation";
 import { getCategoryMeta } from "@/lib/category-config";
@@ -125,17 +124,6 @@ export function MobileNavigation({
             onClick={onClose}
           >
             Submit Tool
-          </Link>
-
-          <div className="border-t border-border my-1.5" />
-
-          <Link
-            href="/admin"
-            className="px-3 py-2.5 text-[15px] font-medium text-foreground hover:bg-accent rounded-lg transition-all duration-150 flex items-center gap-2.5"
-            onClick={onClose}
-          >
-            <LayoutDashboard className="w-4 h-4 text-muted-foreground" />
-            Admin Dashboard
           </Link>
         </nav>
       </div>

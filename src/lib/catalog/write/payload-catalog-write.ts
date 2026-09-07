@@ -36,6 +36,18 @@ function slugify(name: string): string {
 }
 
 /**
+ * Payload SQLite stores relationship references against integer document id
+ * columns (see `tools_rels.parent_id`/`tags_id`). Passing a string id (e.g.
+ * "11") makes the adapter misinterpret it as "<id> <order>", so relationship
+ * values must be converted to numeric ids before writing.
+ */
+function toRelId(value: string | number | null | undefined): number | null {
+  if (value === null || value === undefined || value === "") return null;
+  const n = typeof value === "number" ? value : Number(value);
+  return Number.isFinite(n) ? n : null;
+}
+
+/**
  * Resolve/upsert a tag by selection (id or name/slug). Mirrors the
  * behaviour the existing admin UI relies on (find by id, then by slug,
  * then create). Returns the Payload tag id.
@@ -180,17 +192,17 @@ export const payloadCatalogWrite: CatalogWriteRepositoryLike = {
           websiteUrl,
           affiliateUrl: affiliateUrl || null,
           pricingType: pricingType || "freemium",
-          category: categoryId as any,
+          category: toRelId(categoryId),
           rating: rating || 0,
           isFeatured: isFeatured || false,
           isPublished: isPublished !== false,
           isSponsored: isSponsored || false,
           tags: Array.isArray(tags) ? tags.join(",") : tags || "",
-          provider: (providerId || null) as any,
+          provider: toRelId(providerId),
           documentationUrl: documentationUrl || null,
           pricingUrl: pricingUrl || null,
           hostingGuide: hostingGuide || null,
-          structuredTags: resolvedTagIds as any,
+          structuredTags: resolvedTagIds.map((t) => toRelId(t)).filter((v): v is number => v !== null),
           entityType: entityType || "TOOL",
           verificationStatus: verificationStatus || "UNVERIFIED",
           lastVerifiedAt: lastVerifiedAt || null,
@@ -209,7 +221,7 @@ export const payloadCatalogWrite: CatalogWriteRepositoryLike = {
           slug: String(payloadDoc.slug),
           name: String(payloadDoc.name),
           destination: String(payloadDoc.websiteUrl),
-          tool: String(payloadDoc.id) as any,
+          tool: payloadDoc.id as any,
           isActive: true,
         },
       } as any)) as any;
@@ -278,13 +290,13 @@ export const payloadCatalogWrite: CatalogWriteRepositoryLike = {
     if (input.websiteUrl) updateData.websiteUrl = input.websiteUrl;
     if (input.affiliateUrl !== undefined) updateData.affiliateUrl = input.affiliateUrl || null;
     if (input.pricingType) updateData.pricingType = input.pricingType;
-    if (input.categoryId) updateData.category = input.categoryId as any;
+    if (input.categoryId) updateData.category = input.categoryId ? toRelId(input.categoryId) : undefined;
     if (input.rating !== undefined) updateData.rating = input.rating;
     if (input.isFeatured !== undefined) updateData.isFeatured = input.isFeatured;
     if (input.isPublished !== undefined) updateData.isPublished = input.isPublished;
     if (input.isSponsored !== undefined) updateData.isSponsored = input.isSponsored;
     if (input.tags !== undefined) updateData.tags = Array.isArray(input.tags) ? input.tags.join(",") : input.tags;
-    if (input.providerId !== undefined) updateData.provider = (input.providerId || null) as any;
+    if (input.providerId !== undefined) updateData.provider = input.providerId ? toRelId(input.providerId) : null;
     if (input.documentationUrl !== undefined) updateData.documentationUrl = input.documentationUrl || null;
     if (input.pricingUrl !== undefined) updateData.pricingUrl = input.pricingUrl || null;
     if (input.hostingGuide !== undefined) updateData.hostingGuide = input.hostingGuide || null;
@@ -293,7 +305,7 @@ export const payloadCatalogWrite: CatalogWriteRepositoryLike = {
     if (input.lastVerifiedAt !== undefined) updateData.lastVerifiedAt = input.lastVerifiedAt || null;
     if (input.sourceUrl !== undefined) updateData.sourceUrl = input.sourceUrl || null;
     if (input.metadata !== undefined) updateData.metadata = input.metadata || null;
-    if (tagUpdateData !== undefined) updateData.structuredTags = tagUpdateData as any;
+    if (tagUpdateData !== undefined) updateData.structuredTags = tagUpdateData.map((t) => toRelId(t)).filter((v): v is number => v !== null);
 
     const tool: any = await payload.update({
       collection: "tools",
@@ -305,7 +317,7 @@ export const payloadCatalogWrite: CatalogWriteRepositoryLike = {
     if (input.websiteUrl) {
       const { docs: redirectDocs } = await payload.find({
         collection: "redirect-links",
-        where: { tool: { equals: id } },
+        where: { tool: { equals: toRelId(id) } },
         depth: 0,
         limit: 1,
       });
@@ -434,7 +446,7 @@ export const payloadCatalogWrite: CatalogWriteRepositoryLike = {
     // Delete the Payload redirect link first (existing app behaviour).
     await payload.delete({
       collection: "redirect-links",
-      where: { tool: { equals: id } },
+      where: { tool: { equals: toRelId(id) } },
     } as any);
 
     // Capture the Prisma Tool.id BEFORE removing the Payload tool so we can

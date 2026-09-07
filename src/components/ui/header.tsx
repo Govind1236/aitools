@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
-import { Search, Menu, X, Sparkles, LayoutDashboard } from "lucide-react";
+import { Search, Menu, X, Sparkles } from "lucide-react";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { PUBLIC_NAV_LINKS, SEARCH_HREF } from "@/lib/navigation";
 import { CategoryMenu, type CategoryNavItem } from "@/components/navigation/category-menu";
@@ -147,16 +147,6 @@ export function Header({ categories }: HeaderProps) {
             )}
 
             <ThemeToggle />
-
-            {/* Admin button */}
-            <Link
-              href="/admin"
-              className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-[#0071e3] to-[#5856d6] text-primary-foreground text-[13.5px] font-semibold rounded-full hover:from-[#0077ed] hover:to-[#5e5ce6] active:scale-[0.98] transition-all duration-150 shadow-sm hover:shadow-[0_0_16px_rgba(0,113,227,0.35)]"
-              title="Admin Dashboard"
-            >
-              <LayoutDashboard className="w-3.5 h-3.5" strokeWidth={2} />
-              Admin
-            </Link>
 
             {/* Mobile menu button */}
             <button

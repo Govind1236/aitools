@@ -269,6 +269,15 @@ async function main() {
   check("D: Prisma RedirectLink toolId detached (SetNull behaviour)", dRedirectLinks.every((l) => l.toolId === null));
   logOk();
 
+  // Delete the orphaned Prisma RedirectLink row created by this test run so
+  // the operational table returns to its baseline row count (deleteTool
+  // intentionally detaches, keeping the row; validation must revert it).
+  const orphanRedirects = await db.redirectLink.findMany({ where: { slug } });
+  for (const l of orphanRedirects) {
+    await db.redirectLink.delete({ where: { id: l.id } }).catch(() => undefined);
+  }
+  check("D: Prisma RedirectLink row cleaned up", (await db.redirectLink.count({ where: { slug } })) === 0);
+
   // ----------------------------------------------------------------
   // 6. Clean up the temp Payload + Prisma tag (temp tag created by the
   //    new-tag flow now has a Prisma compat identity)
@@ -388,7 +397,9 @@ async function main() {
     console.log(`${r.pass ? "PASS" : "FAIL"}  ${r.label}${r.detail && !r.pass ? `  | detail: ${r.detail}` : ""}`);
   }
   console.log(`\n=== RESULT (mode=${mode}): ${passed}/${checks} checks passed ===`);
-  if (passed !== checks) process.exitCode = 1;
+  // Force a clean exit: the Payload client keeps the event loop alive, which
+  // otherwise leaves this script "running" after the report is printed.
+  process.exit(passed === checks ? 0 : 1);
 }
 
 function listTool(t: any, prefix: string, slug: string) {
