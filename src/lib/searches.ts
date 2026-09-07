@@ -43,13 +43,27 @@ export interface PopularSearch {
  * - returns at most `limit` results
  */
 export async function getPopularSearches(limit = 5): Promise<PopularSearch[]> {
-  // Group by the normalized query column and count occurrences.
-  const grouped = await db.searchQuery.groupBy({
-    by: ["normalized"],
-    _count: { _all: true },
-    orderBy: { _count: { normalized: "desc" } },
-    take: 50,
-  });
+  let grouped;
+  try {
+    // Group by the normalized query column and count occurrences.
+    grouped = await db.searchQuery.groupBy({
+      by: ["normalized"],
+      _count: { _all: true },
+      orderBy: { _count: { normalized: "desc" } },
+      take: 50,
+    });
+  } catch (error) {
+    // Database unavailable (e.g. build-time prerender with no DB): degrade
+    // gracefully to the static fallback instead of crashing the build.
+    console.warn(
+      "[searches] Database unavailable; using fallback popular searches.",
+      error instanceof Error ? error.message : error,
+    );
+    return POPULAR_SEARCH_FALLBACK.slice(0, limit).map((query) => ({
+      query,
+      count: 0,
+    }));
+  }
 
   const valid = grouped
     .filter((g) => !isInvalidQuery(g.normalized))

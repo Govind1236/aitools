@@ -16,6 +16,26 @@ import {
 } from "@/lib/queries/tools";
 import { getActiveCategories } from "@/lib/queries/categories";
 
+async function safeArray<T>(promise: Promise<T[]>): Promise<T[]> {
+  try {
+    return await promise;
+  } catch (error) {
+    console.warn(
+      "[home] Database unavailable during build; using empty list.",
+      error instanceof Error ? error.message : error,
+    );
+    return [];
+  }
+}
+
+async function safeCount(promise: Promise<number>): Promise<number> {
+  try {
+    return await promise;
+  } catch {
+    return 0;
+  }
+}
+
 export default async function HomePage() {
   const [
     activeCategories,
@@ -28,15 +48,15 @@ export default async function HomePage() {
   ] = await Promise.all([
     // Categories that contain at least one published tool. Counts are
     // database-driven via the included `_count`.
-    getActiveCategories(),
+    safeArray(getActiveCategories()),
     // Trending is currently derived from the featured system until a real
     // analytics-based trendingScore exists (see docs).
-    getTrendingTools(4),
-    getRecentTools(3),
-    getFreeTools(3),
-    getPublishedToolCount(),
-    getVerifiedToolCount(),
-    getPopularSearches(5),
+    safeArray(getTrendingTools(4)),
+    safeArray(getRecentTools(3)),
+    safeArray(getFreeTools(3)),
+    safeCount(getPublishedToolCount()),
+    safeCount(getVerifiedToolCount()),
+    safeArray(getPopularSearches(5)),
   ]);
 
   const verifiedPercent =
