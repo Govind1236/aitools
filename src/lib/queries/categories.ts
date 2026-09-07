@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { getCatalogRepository } from "@/lib/catalog";
 
 // ------------------------------------------------------------------
 // REUSABLE CATEGORY QUERIES (server-side)
@@ -12,14 +12,7 @@ import { db } from "@/lib/db";
 
 /** All categories ordered for display, with published tool counts. */
 export async function getAllCategories() {
-  return db.category.findMany({
-    orderBy: { sortOrder: "asc" },
-    include: {
-      _count: {
-        select: { tools: { where: { isPublished: true } } },
-      },
-    },
-  });
+  return getCatalogRepository().getAllCategories();
 }
 
 /** Categories that contain at least one published tool. */

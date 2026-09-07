@@ -1,7 +1,7 @@
 import { SignJWT, jwtVerify } from "jose";
 import { cookies } from "next/headers";
 import bcrypt from "bcryptjs";
-import { db } from "./db";
+import { getPayloadClient } from "@/lib/payload/db";
 
 function getJwtSecret(): string {
   const secret = process.env.AUTH_SECRET;
@@ -81,12 +81,16 @@ export async function getCurrentUser(): Promise<AuthUser | null> {
   const user = await verifyToken(token);
   if (!user) return null;
 
-  // Verify session still exists in DB
-  const session = await db.session.findUnique({
-    where: { token },
+  // Verify session still exists in Payload
+  const payload = await getPayloadClient();
+  const { docs } = await payload.find({
+    collection: "sessions",
+    where: { token: { equals: token } },
+    limit: 1,
   });
 
-  if (!session || session.expiresAt < new Date()) {
+  const session = docs[0];
+  if (!session || new Date(session.expiresAt) < new Date()) {
     return null;
   }
 
@@ -109,7 +113,11 @@ export async function clearSession(): Promise<void> {
   const token = cookieStore.get(COOKIE_NAME)?.value;
 
   if (token) {
-    await db.session.deleteMany({ where: { token } });
+    const payload = await getPayloadClient();
+    await payload.delete({
+      collection: "sessions",
+      where: { token: { equals: token } },
+    } as any);
   }
 
   cookieStore.delete(COOKIE_NAME);

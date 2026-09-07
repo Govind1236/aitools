@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
-import { updateTool, deleteTool } from "@/lib/payload/admin";
+import { getCatalogWriteRepository } from "@/lib/catalog/write";
 
 export async function PUT(
   request: NextRequest,
@@ -12,11 +12,17 @@ export async function PUT(
   }
 
   const { id } = await params;
+  const write = getCatalogWriteRepository();
 
   try {
     const body = await request.json();
-    const tool = await updateTool(id, body);
-    return NextResponse.json({ tool });
+    const result = await write.updateTool(id, body);
+    if (!result.ok) {
+      const message = result.error.message;
+      const status = message.includes("not found") ? 404 : message.includes("slug") ? 400 : 500;
+      return NextResponse.json({ error: message }, { status });
+    }
+    return NextResponse.json({ tool: result.data });
   } catch (error) {
     console.error("Update tool error:", error);
     const message = error instanceof Error ? error.message : "Internal server error";
@@ -35,9 +41,15 @@ export async function DELETE(
   }
 
   const { id } = await params;
+  const write = getCatalogWriteRepository();
 
   try {
-    await deleteTool(id);
+    const result = await write.deleteTool(id);
+    if (!result.ok) {
+      const message = result.error.message;
+      const status = message.includes("not found") ? 404 : 500;
+      return NextResponse.json({ error: message }, { status });
+    }
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Delete tool error:", error);

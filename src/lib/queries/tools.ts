@@ -1,90 +1,51 @@
-import { db } from "@/lib/db";
 import { Prisma } from "@prisma/client";
+import { getCatalogRepository } from "@/lib/catalog";
 
 // ------------------------------------------------------------------
 // REUSABLE TOOL QUERIES (server-side)
 // ------------------------------------------------------------------
-// Central place for catalogue queries so the homepage, directory, and
-// API routes read from the database in a consistent way.
+// All catalogue queries route through the CatalogRepository abstraction
+// which delegates to either Payload or Prisma based on the feature flag.
 // ------------------------------------------------------------------
-
-const TOOL_WITH_CATEGORY = {
-  include: {
-    category: true,
-    provider: true,
-    structuredTags: { include: { tag: true } },
-  },
-} satisfies Prisma.ToolFindManyArgs;
 
 /** Total number of published products. */
 export async function getPublishedToolCount(): Promise<number> {
-  return db.tool.count({ where: { isPublished: true } });
+  return getCatalogRepository().getPublishedToolCount();
 }
 
 /** Count of published products whose verification status is VERIFIED. */
 export async function getVerifiedToolCount(): Promise<number> {
-  return db.tool.count({
-    where: { isPublished: true, verificationStatus: "VERIFIED" },
-  });
+  return getCatalogRepository().getVerifiedToolCount();
 }
 
 /** Featured (promoted) products, used as the basis for "Trending". */
 export async function getFeaturedTools(limit = 4) {
-  return db.tool.findMany({
-    ...TOOL_WITH_CATEGORY,
-    where: { isPublished: true, isFeatured: true },
-    orderBy: [{ rating: "desc" }, { createdAt: "desc" }],
-    take: limit,
-  });
+  return getCatalogRepository().getFeaturedTools(limit);
 }
 
-/** Products we can derive a real trending signal for from analytics
- *  (recent outbound clicks). Falls back to featured+rating order until
- *  a proper trendingScore exists. */
+/** Products we can derive a real trending signal for from analytics */
 export async function getTrendingTools(limit = 4) {
   return getFeaturedTools(limit);
 }
 
 /** Most recently added published products. */
 export async function getRecentTools(limit = 3) {
-  return db.tool.findMany({
-    ...TOOL_WITH_CATEGORY,
-    where: { isPublished: true },
-    orderBy: { createdAt: "desc" },
-    take: limit,
-  });
+  return getCatalogRepository().getRecentTools(limit);
 }
 
 /** Published products that are completely free to use. */
 export async function getFreeTools(limit = 3) {
-  return db.tool.findMany({
-    ...TOOL_WITH_CATEGORY,
-    where: { isPublished: true, pricingType: "free" },
-    orderBy: [{ rating: "desc" }, { createdAt: "desc" }],
-    take: limit,
-  });
+  return getCatalogRepository().getFreeTools(limit);
 }
 
 /** A single catalogue product with its category. */
 export async function getToolBySlug(slug: string) {
-  return db.tool.findUnique({
-    where: { slug },
-    include: {
-      category: true,
-      provider: true,
-      structuredTags: { include: { tag: true } },
-    },
-  });
+  return getCatalogRepository().getToolBySlug(slug);
 }
 
 /** Alternative/recommended products sharing the same category. */
 export async function getToolAlternatives(categoryId: string, excludeId: string, limit = 4) {
-  return db.tool.findMany({
-    ...TOOL_WITH_CATEGORY,
-    where: { categoryId, id: { not: excludeId }, isPublished: true },
-    orderBy: [{ rating: "desc" }],
-    take: limit,
-  });
+  return getCatalogRepository().getToolAlternatives(categoryId, excludeId, limit);
 }
 
 /** Tools directory: paginated list of tools matching a Prisma where clause. */
@@ -92,16 +53,10 @@ export async function getToolsDirectory(
   where: Prisma.ToolWhereInput,
   options?: { skip?: number; take?: number }
 ) {
-  const { skip = 0, take = 100 } = options ?? {};
-  return db.tool.findMany({
-    ...TOOL_WITH_CATEGORY,
-    where,
-    orderBy: [
-      { isFeatured: "desc" },
-      { rating: "desc" },
-      { createdAt: "desc" },
-    ],
-    skip,
-    take,
-  });
+  return getCatalogRepository().getToolsDirectory(where, options);
+}
+
+/** Count tools in directory matching a Prisma where clause. */
+export async function getToolsDirectoryCount(where: Prisma.ToolWhereInput): Promise<number> {
+  return getCatalogRepository().getToolsDirectoryCount(where);
 }
