@@ -1,5 +1,5 @@
 import { getPayload } from "payload";
-import config from "D:/AITOOL/payload.config.ts";
+import config from "@payload-config";
 
 async function main() {
   const payload = await getPayload({ config });
