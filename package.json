@@ -24,6 +24,7 @@
     "@tailwindcss/typography": "^0.5.20",
     "@tsparticles/react": "^4.3.2",
     "@tsparticles/slim": "^4.3.2",
+    "@vercel/analytics": "^2.0.1",
     "bcryptjs": "^3.0.3",
     "cheerio": "^1.2.0",
     "cobe": "^2.0.1",

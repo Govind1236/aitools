@@ -6,6 +6,7 @@ import { Footer } from "@/components/ui/footer";
 import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { ParticlesInit } from "@/components/ui/particles-provider";
 import { ThemeProvider } from "@/components/ui/theme-provider";
+import Script from "next/script";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -59,6 +60,10 @@ export default function RootLayout({
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        <Script src="https://pl31235423.profitableratecpmnetwork.com/32/dd/ef/32ddef192bae99af6eb61e2b05122239.js" strategy="afterInteractive" />
+        <Script src="https://pl31235424.profitableratecpmnetwork.com/56/88/13/568813c96f21434b16044db28bc8c3f3.js" strategy="afterInteractive" />
+        <Script src="https://www.profitableratecpmnetwork.com/kazfes7zpb?key=0f05a4c36561425ba797b657c6bc5888" strategy="afterInteractive" />
+        <Script async data-cfasync="false" src="https://pl31235632.profitableratecpmnetwork.com/f4de227ed69e92e032daffc3a4b4d2f4/invoke.js" strategy="afterInteractive" />
       </head>
       <body className="min-h-screen flex flex-col antialiased bg-background text-foreground transition-colors duration-300 overflow-x-hidden" suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
@@ -66,6 +71,7 @@ export default function RootLayout({
             <ScrollProgress />
             <HeaderWithCategories />
             <main className="flex-1">{children}</main>
+            <div id="container-f4de227ed69e92e032daffc3a4b4d2f4"></div>
             <Footer />
           </ParticlesInit>
         </ThemeProvider>

@@ -244,6 +244,46 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Sponsored */}
+      <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-10">
+        <ScrollReveal variant="up">
+          <a
+            href="https://www.profitableratecpmnetwork.com/cza2nkq20?key=0b35ef865219812fd98347d4efdec572"
+            target="_blank"
+            rel="noopener noreferrer sponsored"
+            className="group block rounded-[18px] border border-border bg-background p-6 md:p-8 hover:border-[#0071e3]/40 hover:shadow-[0_16px_40px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 card-glow relative overflow-hidden"
+          >
+            <div className="absolute inset-0 tech-grid opacity-30 pointer-events-none" />
+            <div className="relative flex flex-col md:flex-row md:items-center justify-between gap-5">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-[#0071e3]/10 flex items-center justify-center text-[#0071e3]">
+                  <Cpu className="w-6 h-6" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-[#0071e3]/10 border border-[#0071e3]/20 text-[#0071e3] text-[11px] font-semibold uppercase tracking-wide">
+                      Sponsored
+                    </span>
+                    <h3 className="text-[18px] md:text-[20px] font-bold text-foreground tracking-tight">
+                      AI Traffic Monetizer
+                    </h3>
+                  </div>
+                  <p className="text-[14px] text-muted-foreground leading-relaxed max-w-2xl">
+                    Turn everyday AI tool visitors into revenue with the top CPM ad
+                    network trusted by developers and publishers. No-code setup,
+                    instant payouts.
+                  </p>
+                </div>
+              </div>
+              <span className="inline-flex items-center gap-1.5 text-[15px] font-medium text-[#0071e3] hover:text-[#0077ed] shrink-0">
+                Learn more
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </div>
+          </a>
+        </ScrollReveal>
+      </section>
+
       {/* Recently Added */}
       {recentTools.length > 0 && (
         <section className="max-w-[1200px] mx-auto px-5 md:px-6 py-20 md:py-24 border-b border-border">

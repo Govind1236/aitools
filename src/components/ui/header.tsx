@@ -89,13 +89,13 @@ export function Header({ categories }: HeaderProps) {
           <Link
             href="/"
             className="flex items-center gap-2.5 shrink-0 group"
-            aria-label="Freebuff — Home"
+            aria-label="Group Ai — Home"
           >
             <div className="w-8 h-8 bg-gradient-to-br from-[#0071e3] to-[#5856d6] rounded-[10px] flex items-center justify-center group-hover:from-[#0077ed] group-hover:to-[#5e5ce6] transition-all duration-300 group-hover:rotate-6 group-hover:scale-105 shadow-[0_0_12px_rgba(0,113,227,0.25)] pulse-glow">
               <Sparkles className="w-4 h-4 text-primary-foreground" strokeWidth={1.75} />
             </div>
             <span className="text-[17px] font-semibold text-foreground tracking-tight hidden sm:block">
-              Freebuff
+              Group Ai
             </span>
           </Link>
 

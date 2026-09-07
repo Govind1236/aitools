@@ -28,7 +28,7 @@ export function Footer() {
                 <Sparkles className="w-4 h-4 text-primary-foreground" strokeWidth={1.75} />
               </div>
               <span className="text-[15px] font-semibold text-foreground tracking-tight">
-                AI Tools Directory
+                Group Ai
               </span>
             </Link>
             <p className="text-[14px] leading-relaxed text-muted-foreground max-w-xs">
@@ -73,7 +73,7 @@ export function Footer() {
 
         <div className="border-t border-border mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 tech-divider">
           <p className="text-[13px] text-muted-foreground">
-            &copy; {currentYear} AI Tools Directory. All rights reserved.
+            &copy; {currentYear} Group Ai. All rights reserved.
           </p>
           <p className="text-[13px] text-muted-foreground">
             Built with <span className="text-[#0071e3]">&#10084;</span> for the AI community.
